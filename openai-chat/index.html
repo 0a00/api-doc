@@ -1,0 +1,3880 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../openai-responses/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+    
+    
+      
+        <title>OpenAI Chat - API 文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#openai-chat-completions" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="API 文档" class="md-header__button md-logo" aria-label="API 文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            API 文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              OpenAI Chat
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  中继接口
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../coming-soon/" class="md-tabs__link">
+          
+  
+  
+  前端接口
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="API 文档" class="md-nav__button md-logo" aria-label="API 文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    API 文档
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    首页
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    中继接口
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            中继接口
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    聊天 (Chat)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            聊天 (Chat)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    OpenAI Chat
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenAI Chat
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📝 简介
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      💡 请求示例
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💡 请求示例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      基础文本对话 ✅
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      图像分析对话 ✅
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      流式响应 ✅
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      函数调用 ✅
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logprobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logprobs 请求 ✅
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      📮 请求
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📮 请求">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      端点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      鉴权方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      请求体参数
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="请求体参数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      messages
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model" class="md-nav__link">
+    <span class="md-ellipsis">
+      model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#store" class="md-nav__link">
+    <span class="md-ellipsis">
+      store
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reasoning_effort" class="md-nav__link">
+    <span class="md-ellipsis">
+      reasoning_effort
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      metadata
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modalities" class="md-nav__link">
+    <span class="md-ellipsis">
+      modalities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prediction" class="md-nav__link">
+    <span class="md-ellipsis">
+      prediction
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#audio" class="md-nav__link">
+    <span class="md-ellipsis">
+      audio
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#temperature" class="md-nav__link">
+    <span class="md-ellipsis">
+      temperature
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#top_p" class="md-nav__link">
+    <span class="md-ellipsis">
+      top_p
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#n" class="md-nav__link">
+    <span class="md-ellipsis">
+      n
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop" class="md-nav__link">
+    <span class="md-ellipsis">
+      stop
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#max_tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      max_tokens
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#max_completion_tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      max_completion_tokens
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#presence_penalty" class="md-nav__link">
+    <span class="md-ellipsis">
+      presence_penalty
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frequency_penalty" class="md-nav__link">
+    <span class="md-ellipsis">
+      frequency_penalty
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logit_bias" class="md-nav__link">
+    <span class="md-ellipsis">
+      logit_bias
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logprobs_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      logprobs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user" class="md-nav__link">
+    <span class="md-ellipsis">
+      user
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service_tier" class="md-nav__link">
+    <span class="md-ellipsis">
+      service_tier
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stream_options" class="md-nav__link">
+    <span class="md-ellipsis">
+      stream_options
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_format" class="md-nav__link">
+    <span class="md-ellipsis">
+      response_format
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seed" class="md-nav__link">
+    <span class="md-ellipsis">
+      seed
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      tools
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      functions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tool_choice" class="md-nav__link">
+    <span class="md-ellipsis">
+      tool_choice
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#function_call" class="md-nav__link">
+    <span class="md-ellipsis">
+      function_call
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallel_tool_calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      parallel_tool_calls
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      stream
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#top_logprobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      top_logprobs
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web_search_options" class="md-nav__link">
+    <span class="md-ellipsis">
+      web_search_options
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      📥 响应
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📥 响应">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      聊天补全对象
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="聊天补全对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
+    <span class="md-ellipsis">
+      id
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#object" class="md-nav__link">
+    <span class="md-ellipsis">
+      object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#created" class="md-nav__link">
+    <span class="md-ellipsis">
+      created
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#model_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system_fingerprint" class="md-nav__link">
+    <span class="md-ellipsis">
+      system_fingerprint
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choices" class="md-nav__link">
+    <span class="md-ellipsis">
+      choices
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      usage
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service_tier_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      service_tier
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      聊天补全对象响应示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      聊天补全列表对象
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="聊天补全列表对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#object_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data" class="md-nav__link">
+    <span class="md-ellipsis">
+      data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      first_id
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#last_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      last_id
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#has_more" class="md-nav__link">
+    <span class="md-ellipsis">
+      has_more
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      聊天补全列表响应示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      聊天补全消息列表对象
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="聊天补全消息列表对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#object_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#first_id_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      first_id
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#last_id_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      last_id
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#has_more_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      has_more
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      聊天补全消息列表响应示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openai-responses/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenAI Responses
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anthropic-chat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Anthropic Chat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deepseek-reasoning-chat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deepseek Chat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../google-gemini-chat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Google Chat
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    嵌入 (Embeddings)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            嵌入 (Embeddings)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openai-embedding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenAI Embeddings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    重排序 (Rerank)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            重排序 (Rerank)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jinaai-rerank/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Jina AI Rerank
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cohere-rerank/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cohere Rerank
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xinference-rerank/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Xinference Rerank
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    实时对话 (Realtime)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            实时对话 (Realtime)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openai-realtime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenAI Realtime
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    图像 (Image)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            图像 (Image)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openai-image/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenAI Image
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../midjourney-proxy-image/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Midjourney Proxy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    音频 (Audio)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            音频 (Audio)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../openai-audio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenAI Audio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    音乐 (Music)
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            音乐 (Music)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../suno-music/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Suno API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    前端接口
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            前端接口
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../coming-soon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    即将推出
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="openai-chat-completions">OpenAI 对话格式（Chat Completions）</h1>
+<div class="admonition info">
+<p class="admonition-title">官方文档</p>
+<p><a href="https://platform.openai.com/docs/api-reference/chat">OpenAI Chat</a></p>
+</div>
+<h2 id="_1">📝 简介</h2>
+<p>给定一组包含对话的消息列表，模型将返回一个响应。相关指南可参阅OpenAI官网：<a href="https://platform.openai.com/docs/guides/chat">Chat Completions</a></p>
+<h2 id="_2">💡 请求示例</h2>
+<h3 id="_3">基础文本对话 ✅</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>curl<span class="w"> </span>https://你的api服务器地址/v1/chat/completions<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$API_API_KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="s1">    &quot;model&quot;: &quot;gpt-4.1&quot;,</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="s1">    &quot;messages&quot;: [</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="s1">      {</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="s1">        &quot;role&quot;: &quot;developer&quot;,</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="s1">        &quot;content&quot;: &quot;你是一个有帮助的助手。&quot;</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="s1">      },</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="s1">      {</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="s1">        &quot;role&quot;: &quot;user&quot;,</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="s1">        &quot;content&quot;: &quot;你好！&quot;</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="s1">      }</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="s1">    ]</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="s1">  }&#39;</span>
+</code></pre></div>
+<p><strong>响应示例:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;chatcmpl-B9MBs8CjcvOU2jLn4n570S5qMJKcT&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;object&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;chat.completion&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="nt">&quot;created&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1741569952</span><span class="p">,</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gpt-4.1-2025-04-14&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="nt">&quot;choices&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="nt">&quot;index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">      </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">        </span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">        </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;你好！我能为你提供什么帮助？&quot;</span><span class="p">,</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">        </span><span class="nt">&quot;refusal&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">        </span><span class="nt">&quot;annotations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">      </span><span class="nt">&quot;logprobs&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">      </span><span class="nt">&quot;finish_reason&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stop&quot;</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">  </span><span class="nt">&quot;usage&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="nt">&quot;prompt_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">    </span><span class="nt">&quot;completion_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">    </span><span class="nt">&quot;total_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">29</span><span class="p">,</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">    </span><span class="nt">&quot;prompt_tokens_details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">      </span><span class="nt">&quot;cached_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">      </span><span class="nt">&quot;audio_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">    </span><span class="nt">&quot;completion_tokens_details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">      </span><span class="nt">&quot;reasoning_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">      </span><span class="nt">&quot;audio_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="w">      </span><span class="nt">&quot;accepted_prediction_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">      </span><span class="nt">&quot;rejected_prediction_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="w">  </span><span class="nt">&quot;service_tier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span>
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="_4">图像分析对话 ✅</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>curl<span class="w"> </span>https://你的api服务器地址/v1/chat/completions<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$API_API_KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="s1">    &quot;model&quot;: &quot;gpt-4.1&quot;,</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="s1">    &quot;messages&quot;: [</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="s1">      {</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="s1">        &quot;role&quot;: &quot;user&quot;,</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="s1">        &quot;content&quot;: [</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="s1">          {</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="s1">            &quot;type&quot;: &quot;text&quot;,</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="s1">            &quot;text&quot;: &quot;这张图片里有什么？&quot;</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="s1">          },</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="s1">          {</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="s1">            &quot;type&quot;: &quot;image_url&quot;,</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="s1">            &quot;image_url&quot;: {</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="s1">              &quot;url&quot;: &quot;https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Gfp-wisconsin-madison-the-nature-boardwalk.jpg/2560px-Gfp-wisconsin-madison-the-nature-boardwalk.jpg&quot;</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="s1">            }</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="s1">          }</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="s1">        ]</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="s1">      }</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="s1">    ],</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="s1">    &quot;max_tokens&quot;: 300</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="s1">  }&#39;</span>
+</code></pre></div>
+<p><strong>响应示例:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;chatcmpl-B9MHDbslfkBeAs8l4bebGdFOJ6PeG&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;object&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;chat.completion&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">&quot;created&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1741570283</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gpt-4.1-2025-04-14&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="nt">&quot;choices&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">      </span><span class="nt">&quot;index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">      </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">        </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;图片展示了一条穿过茂密绿色草地或草甸的木制栈道。天空湛蓝，点缀着几朵散落的云彩，给整个场景营造出宁静祥和的氛围。背景中可以看到树木和灌木丛。&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span><span class="nt">&quot;refusal&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">        </span><span class="nt">&quot;annotations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">      </span><span class="nt">&quot;logprobs&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">      </span><span class="nt">&quot;finish_reason&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stop&quot;</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">  </span><span class="nt">&quot;usage&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">    </span><span class="nt">&quot;prompt_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1117</span><span class="p">,</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">    </span><span class="nt">&quot;completion_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">46</span><span class="p">,</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">    </span><span class="nt">&quot;total_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1163</span><span class="p">,</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">    </span><span class="nt">&quot;prompt_tokens_details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">      </span><span class="nt">&quot;cached_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">      </span><span class="nt">&quot;audio_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">    </span><span class="nt">&quot;completion_tokens_details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">      </span><span class="nt">&quot;reasoning_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="w">      </span><span class="nt">&quot;audio_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="w">      </span><span class="nt">&quot;accepted_prediction_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="w">      </span><span class="nt">&quot;rejected_prediction_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="w">  </span><span class="nt">&quot;service_tier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a><span class="w">  </span><span class="nt">&quot;system_fingerprint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fp_fc9f1d7035&quot;</span>
+<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="_5">流式响应 ✅</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>curl<span class="w"> </span>https://你的api服务器地址/v1/chat/completions<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$API_API_KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="s1">    &quot;model&quot;: &quot;gpt-4.1&quot;,</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="s1">    &quot;messages&quot;: [</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="s1">      {</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="s1">        &quot;role&quot;: &quot;developer&quot;,</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="s1">        &quot;content&quot;: &quot;你是一个有帮助的助手。&quot;</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="s1">      },</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="s1">      {</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="s1">        &quot;role&quot;: &quot;user&quot;,</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="s1">        &quot;content&quot;: &quot;你好！&quot;</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="s1">      }</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="s1">    ],</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="s1">    &quot;stream&quot;: true</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="s1">  }&#39;</span>
+</code></pre></div>
+<p><strong>流式响应示例:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>{&quot;id&quot;:&quot;chatcmpl-123&quot;,&quot;object&quot;:&quot;chat.completion.chunk&quot;,&quot;created&quot;:1694268190,&quot;model&quot;:&quot;gpt-4o-mini&quot;, &quot;system_fingerprint&quot;: &quot;fp_44709d6fcb&quot;, &quot;choices&quot;:[{&quot;index&quot;:0,&quot;delta&quot;:{&quot;role&quot;:&quot;assistant&quot;,&quot;content&quot;:&quot;&quot;},&quot;logprobs&quot;:null,&quot;finish_reason&quot;:null}]}
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>{&quot;id&quot;:&quot;chatcmpl-123&quot;,&quot;object&quot;:&quot;chat.completion.chunk&quot;,&quot;created&quot;:1694268190,&quot;model&quot;:&quot;gpt-4o-mini&quot;, &quot;system_fingerprint&quot;: &quot;fp_44709d6fcb&quot;, &quot;choices&quot;:[{&quot;index&quot;:0,&quot;delta&quot;:{&quot;content&quot;:&quot;你好&quot;},&quot;logprobs&quot;:null,&quot;finish_reason&quot;:null}]}
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>// ... 更多数据块 ...
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>{&quot;id&quot;:&quot;chatcmpl-123&quot;,&quot;object&quot;:&quot;chat.completion.chunk&quot;,&quot;created&quot;:1694268190,&quot;model&quot;:&quot;gpt-4o-mini&quot;, &quot;system_fingerprint&quot;: &quot;fp_44709d6fcb&quot;, &quot;choices&quot;:[{&quot;index&quot;:0,&quot;delta&quot;:{},&quot;logprobs&quot;:null,&quot;finish_reason&quot;:&quot;stop&quot;}]}
+</code></pre></div>
+<h3 id="_6">函数调用 ✅</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>curl<span class="w"> </span>https://你的api服务器地址/v1/chat/completions<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$API_API_KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="s1">    &quot;model&quot;: &quot;gpt-4.1&quot;,</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="s1">    &quot;messages&quot;: [</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="s1">      {</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="s1">        &quot;role&quot;: &quot;user&quot;,</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="s1">        &quot;content&quot;: &quot;波士顿今天的天气怎么样？&quot;</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="s1">      }</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="s1">    ],</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="s1">    &quot;tools&quot;: [</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="s1">      {</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="s1">        &quot;type&quot;: &quot;function&quot;,</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="s1">        &quot;function&quot;: {</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="s1">          &quot;name&quot;: &quot;get_current_weather&quot;,</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="s1">          &quot;description&quot;: &quot;获取指定位置的当前天气&quot;,</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="s1">          &quot;parameters&quot;: {</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="s1">            &quot;type&quot;: &quot;object&quot;,</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="s1">            &quot;properties&quot;: {</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a><span class="s1">              &quot;location&quot;: {</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="s1">                &quot;type&quot;: &quot;string&quot;,</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="s1">                &quot;description&quot;: &quot;城市和州，例如 San Francisco, CA&quot;</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a><span class="s1">              },</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a><span class="s1">              &quot;unit&quot;: {</span>
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a><span class="s1">                &quot;type&quot;: &quot;string&quot;,</span>
+<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a><span class="s1">                &quot;enum&quot;: [&quot;celsius&quot;, &quot;fahrenheit&quot;]</span>
+<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="s1">              }</span>
+<a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a><span class="s1">            },</span>
+<a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a><span class="s1">            &quot;required&quot;: [&quot;location&quot;]</span>
+<a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a><span class="s1">          }</span>
+<a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a><span class="s1">        }</span>
+<a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a><span class="s1">      }</span>
+<a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a><span class="s1">    ],</span>
+<a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a><span class="s1">    &quot;tool_choice&quot;: &quot;auto&quot;</span>
+<a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a><span class="s1">  }&#39;</span>
+</code></pre></div>
+<p><strong>响应示例:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;chatcmpl-abc123&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="nt">&quot;object&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;chat.completion&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="nt">&quot;created&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1699896916</span><span class="p">,</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">  </span><span class="nt">&quot;choices&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">      </span><span class="nt">&quot;index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">      </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">        </span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">        </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">        </span><span class="nt">&quot;tool_calls&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">          </span><span class="p">{</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;call_abc123&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;function&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">            </span><span class="nt">&quot;function&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">              </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;get_current_weather&quot;</span><span class="p">,</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">              </span><span class="nt">&quot;arguments&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{\n\&quot;location\&quot;: \&quot;Boston, MA\&quot;\n}&quot;</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">          </span><span class="p">}</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">        </span><span class="p">]</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="w">      </span><span class="nt">&quot;logprobs&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">      </span><span class="nt">&quot;finish_reason&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;tool_calls&quot;</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="w">  </span><span class="nt">&quot;usage&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="w">    </span><span class="nt">&quot;prompt_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">82</span><span class="p">,</span>
+<a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="w">    </span><span class="nt">&quot;completion_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span>
+<a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="w">    </span><span class="nt">&quot;total_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span>
+<a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="w">    </span><span class="nt">&quot;completion_tokens_details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a><span class="w">      </span><span class="nt">&quot;reasoning_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a><span class="w">      </span><span class="nt">&quot;accepted_prediction_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a><span class="w">      </span><span class="nt">&quot;rejected_prediction_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="logprobs">Logprobs 请求 ✅</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>curl<span class="w"> </span>https://你的api服务器地址/v1/chat/completions<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer </span><span class="nv">$API_API_KEY</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="s1">    &quot;model&quot;: &quot;gpt-4.1&quot;,</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="s1">    &quot;messages&quot;: [</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="s1">      {</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="s1">        &quot;role&quot;: &quot;user&quot;,</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="s1">        &quot;content&quot;: &quot;你好！&quot;</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="s1">      }</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="s1">    ],</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="s1">    &quot;logprobs&quot;: true,</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="s1">    &quot;top_logprobs&quot;: 2</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="s1">  }&#39;</span>
+</code></pre></div>
+<p><strong>响应示例:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;chatcmpl-123&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nt">&quot;object&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;chat.completion&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="nt">&quot;created&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1702685778</span><span class="p">,</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gpt-4o-mini&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">  </span><span class="nt">&quot;choices&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">      </span><span class="nt">&quot;index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">      </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">        </span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">        </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;你好！我能为你提供什么帮助？&quot;</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">      </span><span class="nt">&quot;logprobs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">        </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">          </span><span class="p">{</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">            </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">            </span><span class="nt">&quot;logprob&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.31725305</span><span class="p">,</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">            </span><span class="nt">&quot;bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">72</span><span class="p">,</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="mi">108</span><span class="p">,</span><span class="w"> </span><span class="mi">108</span><span class="p">,</span><span class="w"> </span><span class="mi">111</span><span class="p">],</span>
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">            </span><span class="nt">&quot;top_logprobs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">              </span><span class="p">{</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">                </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="w">                </span><span class="nt">&quot;logprob&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.31725305</span><span class="p">,</span>
+<a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="w">                </span><span class="nt">&quot;bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">72</span><span class="p">,</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="mi">108</span><span class="p">,</span><span class="w"> </span><span class="mi">108</span><span class="p">,</span><span class="w"> </span><span class="mi">111</span><span class="p">]</span>
+<a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="w">              </span><span class="p">},</span>
+<a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a><span class="w">              </span><span class="p">{</span>
+<a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a><span class="w">                </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hi&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a><span class="w">                </span><span class="nt">&quot;logprob&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-1.3190403</span><span class="p">,</span>
+<a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a><span class="w">                </span><span class="nt">&quot;bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">72</span><span class="p">,</span><span class="w"> </span><span class="mi">105</span><span class="p">]</span>
+<a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a><span class="w">              </span><span class="p">}</span>
+<a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a><span class="w">            </span><span class="p">]</span>
+<a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a><span class="w">          </span><span class="p">},</span>
+<a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a><span class="w">          </span><span class="p">{</span>
+<a id="__codelineno-9-33" name="__codelineno-9-33" href="#__codelineno-9-33"></a><span class="w">            </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;!&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-34" name="__codelineno-9-34" href="#__codelineno-9-34"></a><span class="w">            </span><span class="nt">&quot;logprob&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.02380986</span><span class="p">,</span>
+<a id="__codelineno-9-35" name="__codelineno-9-35" href="#__codelineno-9-35"></a><span class="w">            </span><span class="nt">&quot;bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-9-36" name="__codelineno-9-36" href="#__codelineno-9-36"></a><span class="w">              </span><span class="mi">33</span>
+<a id="__codelineno-9-37" name="__codelineno-9-37" href="#__codelineno-9-37"></a><span class="w">            </span><span class="p">],</span>
+<a id="__codelineno-9-38" name="__codelineno-9-38" href="#__codelineno-9-38"></a><span class="w">            </span><span class="nt">&quot;top_logprobs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-9-39" name="__codelineno-9-39" href="#__codelineno-9-39"></a><span class="w">              </span><span class="p">{</span>
+<a id="__codelineno-9-40" name="__codelineno-9-40" href="#__codelineno-9-40"></a><span class="w">                </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;!&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-41" name="__codelineno-9-41" href="#__codelineno-9-41"></a><span class="w">                </span><span class="nt">&quot;logprob&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.02380986</span><span class="p">,</span>
+<a id="__codelineno-9-42" name="__codelineno-9-42" href="#__codelineno-9-42"></a><span class="w">                </span><span class="nt">&quot;bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">33</span><span class="p">]</span>
+<a id="__codelineno-9-43" name="__codelineno-9-43" href="#__codelineno-9-43"></a><span class="w">              </span><span class="p">},</span>
+<a id="__codelineno-9-44" name="__codelineno-9-44" href="#__codelineno-9-44"></a><span class="w">              </span><span class="p">{</span>
+<a id="__codelineno-9-45" name="__codelineno-9-45" href="#__codelineno-9-45"></a><span class="w">                </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot; there&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-46" name="__codelineno-9-46" href="#__codelineno-9-46"></a><span class="w">                </span><span class="nt">&quot;logprob&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-3.787621</span><span class="p">,</span>
+<a id="__codelineno-9-47" name="__codelineno-9-47" href="#__codelineno-9-47"></a><span class="w">                </span><span class="nt">&quot;bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="mi">116</span><span class="p">,</span><span class="w"> </span><span class="mi">104</span><span class="p">,</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="mi">114</span><span class="p">,</span><span class="w"> </span><span class="mi">101</span><span class="p">]</span>
+<a id="__codelineno-9-48" name="__codelineno-9-48" href="#__codelineno-9-48"></a><span class="w">              </span><span class="p">}</span>
+<a id="__codelineno-9-49" name="__codelineno-9-49" href="#__codelineno-9-49"></a><span class="w">            </span><span class="p">]</span>
+<a id="__codelineno-9-50" name="__codelineno-9-50" href="#__codelineno-9-50"></a><span class="w">          </span><span class="p">},</span>
+<a id="__codelineno-9-51" name="__codelineno-9-51" href="#__codelineno-9-51"></a><span class="w">          </span><span class="p">{</span>
+<a id="__codelineno-9-52" name="__codelineno-9-52" href="#__codelineno-9-52"></a><span class="w">            </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot; How&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-53" name="__codelineno-9-53" href="#__codelineno-9-53"></a><span class="w">            </span><span class="nt">&quot;logprob&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.000054669687</span><span class="p">,</span>
+<a id="__codelineno-9-54" name="__codelineno-9-54" href="#__codelineno-9-54"></a><span class="w">            </span><span class="nt">&quot;bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="mi">72</span><span class="p">,</span><span class="w"> </span><span class="mi">111</span><span class="p">,</span><span class="w"> </span><span class="mi">119</span><span class="p">],</span>
+<a id="__codelineno-9-55" name="__codelineno-9-55" href="#__codelineno-9-55"></a><span class="w">            </span><span class="nt">&quot;top_logprobs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-9-56" name="__codelineno-9-56" href="#__codelineno-9-56"></a><span class="w">              </span><span class="p">{</span>
+<a id="__codelineno-9-57" name="__codelineno-9-57" href="#__codelineno-9-57"></a><span class="w">                </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot; How&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-58" name="__codelineno-9-58" href="#__codelineno-9-58"></a><span class="w">                </span><span class="nt">&quot;logprob&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.000054669687</span><span class="p">,</span>
+<a id="__codelineno-9-59" name="__codelineno-9-59" href="#__codelineno-9-59"></a><span class="w">                </span><span class="nt">&quot;bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="mi">72</span><span class="p">,</span><span class="w"> </span><span class="mi">111</span><span class="p">,</span><span class="w"> </span><span class="mi">119</span><span class="p">]</span>
+<a id="__codelineno-9-60" name="__codelineno-9-60" href="#__codelineno-9-60"></a><span class="w">              </span><span class="p">},</span>
+<a id="__codelineno-9-61" name="__codelineno-9-61" href="#__codelineno-9-61"></a><span class="w">              </span><span class="p">{</span>
+<a id="__codelineno-9-62" name="__codelineno-9-62" href="#__codelineno-9-62"></a><span class="w">                </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;|end|&gt;&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-63" name="__codelineno-9-63" href="#__codelineno-9-63"></a><span class="w">                </span><span class="nt">&quot;logprob&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-10.953937</span><span class="p">,</span>
+<a id="__codelineno-9-64" name="__codelineno-9-64" href="#__codelineno-9-64"></a><span class="w">                </span><span class="nt">&quot;bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<a id="__codelineno-9-65" name="__codelineno-9-65" href="#__codelineno-9-65"></a><span class="w">              </span><span class="p">}</span>
+<a id="__codelineno-9-66" name="__codelineno-9-66" href="#__codelineno-9-66"></a><span class="w">            </span><span class="p">]</span>
+<a id="__codelineno-9-67" name="__codelineno-9-67" href="#__codelineno-9-67"></a><span class="w">          </span><span class="p">},</span>
+<a id="__codelineno-9-68" name="__codelineno-9-68" href="#__codelineno-9-68"></a><span class="w">          </span><span class="p">{</span>
+<a id="__codelineno-9-69" name="__codelineno-9-69" href="#__codelineno-9-69"></a><span class="w">            </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot; can&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-70" name="__codelineno-9-70" href="#__codelineno-9-70"></a><span class="w">            </span><span class="nt">&quot;logprob&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.015801601</span><span class="p">,</span>
+<a id="__codelineno-9-71" name="__codelineno-9-71" href="#__codelineno-9-71"></a><span class="w">            </span><span class="nt">&quot;bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="mi">97</span><span class="p">,</span><span class="w"> </span><span class="mi">110</span><span class="p">],</span>
+<a id="__codelineno-9-72" name="__codelineno-9-72" href="#__codelineno-9-72"></a><span class="w">            </span><span class="nt">&quot;top_logprobs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-9-73" name="__codelineno-9-73" href="#__codelineno-9-73"></a><span class="w">              </span><span class="p">{</span>
+<a id="__codelineno-9-74" name="__codelineno-9-74" href="#__codelineno-9-74"></a><span class="w">                </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot; can&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-75" name="__codelineno-9-75" href="#__codelineno-9-75"></a><span class="w">                </span><span class="nt">&quot;logprob&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.015801601</span><span class="p">,</span>
+<a id="__codelineno-9-76" name="__codelineno-9-76" href="#__codelineno-9-76"></a><span class="w">                </span><span class="nt">&quot;bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="mi">97</span><span class="p">,</span><span class="w"> </span><span class="mi">110</span><span class="p">]</span>
+<a id="__codelineno-9-77" name="__codelineno-9-77" href="#__codelineno-9-77"></a><span class="w">              </span><span class="p">},</span>
+<a id="__codelineno-9-78" name="__codelineno-9-78" href="#__codelineno-9-78"></a><span class="w">              </span><span class="p">{</span>
+<a id="__codelineno-9-79" name="__codelineno-9-79" href="#__codelineno-9-79"></a><span class="w">                </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot; may&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-80" name="__codelineno-9-80" href="#__codelineno-9-80"></a><span class="w">                </span><span class="nt">&quot;logprob&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-4.161023</span><span class="p">,</span>
+<a id="__codelineno-9-81" name="__codelineno-9-81" href="#__codelineno-9-81"></a><span class="w">                </span><span class="nt">&quot;bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="mi">109</span><span class="p">,</span><span class="w"> </span><span class="mi">97</span><span class="p">,</span><span class="w"> </span><span class="mi">121</span><span class="p">]</span>
+<a id="__codelineno-9-82" name="__codelineno-9-82" href="#__codelineno-9-82"></a><span class="w">              </span><span class="p">}</span>
+<a id="__codelineno-9-83" name="__codelineno-9-83" href="#__codelineno-9-83"></a><span class="w">            </span><span class="p">]</span>
+<a id="__codelineno-9-84" name="__codelineno-9-84" href="#__codelineno-9-84"></a><span class="w">          </span><span class="p">},</span>
+<a id="__codelineno-9-85" name="__codelineno-9-85" href="#__codelineno-9-85"></a><span class="w">          </span><span class="p">{</span>
+<a id="__codelineno-9-86" name="__codelineno-9-86" href="#__codelineno-9-86"></a><span class="w">            </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot; I&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-87" name="__codelineno-9-87" href="#__codelineno-9-87"></a><span class="w">            </span><span class="nt">&quot;logprob&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-3.7697225e-6</span><span class="p">,</span>
+<a id="__codelineno-9-88" name="__codelineno-9-88" href="#__codelineno-9-88"></a><span class="w">            </span><span class="nt">&quot;bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-9-89" name="__codelineno-9-89" href="#__codelineno-9-89"></a><span class="w">              </span><span class="mi">32</span><span class="p">,</span>
+<a id="__codelineno-9-90" name="__codelineno-9-90" href="#__codelineno-9-90"></a><span class="w">              </span><span class="mi">73</span>
+<a id="__codelineno-9-91" name="__codelineno-9-91" href="#__codelineno-9-91"></a><span class="w">            </span><span class="p">],</span>
+<a id="__codelineno-9-92" name="__codelineno-9-92" href="#__codelineno-9-92"></a><span class="w">            </span><span class="nt">&quot;top_logprobs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-9-93" name="__codelineno-9-93" href="#__codelineno-9-93"></a><span class="w">              </span><span class="p">{</span>
+<a id="__codelineno-9-94" name="__codelineno-9-94" href="#__codelineno-9-94"></a><span class="w">                </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot; I&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-95" name="__codelineno-9-95" href="#__codelineno-9-95"></a><span class="w">                </span><span class="nt">&quot;logprob&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-3.7697225e-6</span><span class="p">,</span>
+<a id="__codelineno-9-96" name="__codelineno-9-96" href="#__codelineno-9-96"></a><span class="w">                </span><span class="nt">&quot;bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="mi">73</span><span class="p">]</span>
+<a id="__codelineno-9-97" name="__codelineno-9-97" href="#__codelineno-9-97"></a><span class="w">              </span><span class="p">},</span>
+<a id="__codelineno-9-98" name="__codelineno-9-98" href="#__codelineno-9-98"></a><span class="w">              </span><span class="p">{</span>
+<a id="__codelineno-9-99" name="__codelineno-9-99" href="#__codelineno-9-99"></a><span class="w">                </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot; assist&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-100" name="__codelineno-9-100" href="#__codelineno-9-100"></a><span class="w">                </span><span class="nt">&quot;logprob&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-13.596657</span><span class="p">,</span>
+<a id="__codelineno-9-101" name="__codelineno-9-101" href="#__codelineno-9-101"></a><span class="w">                </span><span class="nt">&quot;bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="mi">97</span><span class="p">,</span><span class="w"> </span><span class="mi">115</span><span class="p">,</span><span class="w"> </span><span class="mi">115</span><span class="p">,</span><span class="w"> </span><span class="mi">105</span><span class="p">,</span><span class="w"> </span><span class="mi">115</span><span class="p">,</span><span class="w"> </span><span class="mi">116</span><span class="p">]</span>
+<a id="__codelineno-9-102" name="__codelineno-9-102" href="#__codelineno-9-102"></a><span class="w">              </span><span class="p">}</span>
+<a id="__codelineno-9-103" name="__codelineno-9-103" href="#__codelineno-9-103"></a><span class="w">            </span><span class="p">]</span>
+<a id="__codelineno-9-104" name="__codelineno-9-104" href="#__codelineno-9-104"></a><span class="w">          </span><span class="p">},</span>
+<a id="__codelineno-9-105" name="__codelineno-9-105" href="#__codelineno-9-105"></a><span class="w">          </span><span class="p">{</span>
+<a id="__codelineno-9-106" name="__codelineno-9-106" href="#__codelineno-9-106"></a><span class="w">            </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot; assist&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-107" name="__codelineno-9-107" href="#__codelineno-9-107"></a><span class="w">            </span><span class="nt">&quot;logprob&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.04571125</span><span class="p">,</span>
+<a id="__codelineno-9-108" name="__codelineno-9-108" href="#__codelineno-9-108"></a><span class="w">            </span><span class="nt">&quot;bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="mi">97</span><span class="p">,</span><span class="w"> </span><span class="mi">115</span><span class="p">,</span><span class="w"> </span><span class="mi">115</span><span class="p">,</span><span class="w"> </span><span class="mi">105</span><span class="p">,</span><span class="w"> </span><span class="mi">115</span><span class="p">,</span><span class="w"> </span><span class="mi">116</span><span class="p">],</span>
+<a id="__codelineno-9-109" name="__codelineno-9-109" href="#__codelineno-9-109"></a><span class="w">            </span><span class="nt">&quot;top_logprobs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-9-110" name="__codelineno-9-110" href="#__codelineno-9-110"></a><span class="w">              </span><span class="p">{</span>
+<a id="__codelineno-9-111" name="__codelineno-9-111" href="#__codelineno-9-111"></a><span class="w">                </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot; assist&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-112" name="__codelineno-9-112" href="#__codelineno-9-112"></a><span class="w">                </span><span class="nt">&quot;logprob&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.04571125</span><span class="p">,</span>
+<a id="__codelineno-9-113" name="__codelineno-9-113" href="#__codelineno-9-113"></a><span class="w">                </span><span class="nt">&quot;bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="mi">97</span><span class="p">,</span><span class="w"> </span><span class="mi">115</span><span class="p">,</span><span class="w"> </span><span class="mi">115</span><span class="p">,</span><span class="w"> </span><span class="mi">105</span><span class="p">,</span><span class="w"> </span><span class="mi">115</span><span class="p">,</span><span class="w"> </span><span class="mi">116</span><span class="p">]</span>
+<a id="__codelineno-9-114" name="__codelineno-9-114" href="#__codelineno-9-114"></a><span class="w">              </span><span class="p">},</span>
+<a id="__codelineno-9-115" name="__codelineno-9-115" href="#__codelineno-9-115"></a><span class="w">              </span><span class="p">{</span>
+<a id="__codelineno-9-116" name="__codelineno-9-116" href="#__codelineno-9-116"></a><span class="w">                </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot; help&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-117" name="__codelineno-9-117" href="#__codelineno-9-117"></a><span class="w">                </span><span class="nt">&quot;logprob&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-3.1089056</span><span class="p">,</span>
+<a id="__codelineno-9-118" name="__codelineno-9-118" href="#__codelineno-9-118"></a><span class="w">                </span><span class="nt">&quot;bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="mi">104</span><span class="p">,</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="mi">108</span><span class="p">,</span><span class="w"> </span><span class="mi">112</span><span class="p">]</span>
+<a id="__codelineno-9-119" name="__codelineno-9-119" href="#__codelineno-9-119"></a><span class="w">              </span><span class="p">}</span>
+<a id="__codelineno-9-120" name="__codelineno-9-120" href="#__codelineno-9-120"></a><span class="w">            </span><span class="p">]</span>
+<a id="__codelineno-9-121" name="__codelineno-9-121" href="#__codelineno-9-121"></a><span class="w">          </span><span class="p">},</span>
+<a id="__codelineno-9-122" name="__codelineno-9-122" href="#__codelineno-9-122"></a><span class="w">          </span><span class="p">{</span>
+<a id="__codelineno-9-123" name="__codelineno-9-123" href="#__codelineno-9-123"></a><span class="w">            </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot; you&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-124" name="__codelineno-9-124" href="#__codelineno-9-124"></a><span class="w">            </span><span class="nt">&quot;logprob&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-5.4385737e-6</span><span class="p">,</span>
+<a id="__codelineno-9-125" name="__codelineno-9-125" href="#__codelineno-9-125"></a><span class="w">            </span><span class="nt">&quot;bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="mi">121</span><span class="p">,</span><span class="w"> </span><span class="mi">111</span><span class="p">,</span><span class="w"> </span><span class="mi">117</span><span class="p">],</span>
+<a id="__codelineno-9-126" name="__codelineno-9-126" href="#__codelineno-9-126"></a><span class="w">            </span><span class="nt">&quot;top_logprobs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-9-127" name="__codelineno-9-127" href="#__codelineno-9-127"></a><span class="w">              </span><span class="p">{</span>
+<a id="__codelineno-9-128" name="__codelineno-9-128" href="#__codelineno-9-128"></a><span class="w">                </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot; you&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-129" name="__codelineno-9-129" href="#__codelineno-9-129"></a><span class="w">                </span><span class="nt">&quot;logprob&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-5.4385737e-6</span><span class="p">,</span>
+<a id="__codelineno-9-130" name="__codelineno-9-130" href="#__codelineno-9-130"></a><span class="w">                </span><span class="nt">&quot;bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="mi">121</span><span class="p">,</span><span class="w"> </span><span class="mi">111</span><span class="p">,</span><span class="w"> </span><span class="mi">117</span><span class="p">]</span>
+<a id="__codelineno-9-131" name="__codelineno-9-131" href="#__codelineno-9-131"></a><span class="w">              </span><span class="p">},</span>
+<a id="__codelineno-9-132" name="__codelineno-9-132" href="#__codelineno-9-132"></a><span class="w">              </span><span class="p">{</span>
+<a id="__codelineno-9-133" name="__codelineno-9-133" href="#__codelineno-9-133"></a><span class="w">                </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot; today&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-134" name="__codelineno-9-134" href="#__codelineno-9-134"></a><span class="w">                </span><span class="nt">&quot;logprob&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-12.807695</span><span class="p">,</span>
+<a id="__codelineno-9-135" name="__codelineno-9-135" href="#__codelineno-9-135"></a><span class="w">                </span><span class="nt">&quot;bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="mi">116</span><span class="p">,</span><span class="w"> </span><span class="mi">111</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">97</span><span class="p">,</span><span class="w"> </span><span class="mi">121</span><span class="p">]</span>
+<a id="__codelineno-9-136" name="__codelineno-9-136" href="#__codelineno-9-136"></a><span class="w">              </span><span class="p">}</span>
+<a id="__codelineno-9-137" name="__codelineno-9-137" href="#__codelineno-9-137"></a><span class="w">            </span><span class="p">]</span>
+<a id="__codelineno-9-138" name="__codelineno-9-138" href="#__codelineno-9-138"></a><span class="w">          </span><span class="p">},</span>
+<a id="__codelineno-9-139" name="__codelineno-9-139" href="#__codelineno-9-139"></a><span class="w">          </span><span class="p">{</span>
+<a id="__codelineno-9-140" name="__codelineno-9-140" href="#__codelineno-9-140"></a><span class="w">            </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot; today&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-141" name="__codelineno-9-141" href="#__codelineno-9-141"></a><span class="w">            </span><span class="nt">&quot;logprob&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.0040071653</span><span class="p">,</span>
+<a id="__codelineno-9-142" name="__codelineno-9-142" href="#__codelineno-9-142"></a><span class="w">            </span><span class="nt">&quot;bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="mi">116</span><span class="p">,</span><span class="w"> </span><span class="mi">111</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">97</span><span class="p">,</span><span class="w"> </span><span class="mi">121</span><span class="p">],</span>
+<a id="__codelineno-9-143" name="__codelineno-9-143" href="#__codelineno-9-143"></a><span class="w">            </span><span class="nt">&quot;top_logprobs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-9-144" name="__codelineno-9-144" href="#__codelineno-9-144"></a><span class="w">              </span><span class="p">{</span>
+<a id="__codelineno-9-145" name="__codelineno-9-145" href="#__codelineno-9-145"></a><span class="w">                </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot; today&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-146" name="__codelineno-9-146" href="#__codelineno-9-146"></a><span class="w">                </span><span class="nt">&quot;logprob&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.0040071653</span><span class="p">,</span>
+<a id="__codelineno-9-147" name="__codelineno-9-147" href="#__codelineno-9-147"></a><span class="w">                </span><span class="nt">&quot;bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="mi">116</span><span class="p">,</span><span class="w"> </span><span class="mi">111</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">97</span><span class="p">,</span><span class="w"> </span><span class="mi">121</span><span class="p">]</span>
+<a id="__codelineno-9-148" name="__codelineno-9-148" href="#__codelineno-9-148"></a><span class="w">              </span><span class="p">},</span>
+<a id="__codelineno-9-149" name="__codelineno-9-149" href="#__codelineno-9-149"></a><span class="w">              </span><span class="p">{</span>
+<a id="__codelineno-9-150" name="__codelineno-9-150" href="#__codelineno-9-150"></a><span class="w">                </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;?&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-151" name="__codelineno-9-151" href="#__codelineno-9-151"></a><span class="w">                </span><span class="nt">&quot;logprob&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-5.5247097</span><span class="p">,</span>
+<a id="__codelineno-9-152" name="__codelineno-9-152" href="#__codelineno-9-152"></a><span class="w">                </span><span class="nt">&quot;bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">63</span><span class="p">]</span>
+<a id="__codelineno-9-153" name="__codelineno-9-153" href="#__codelineno-9-153"></a><span class="w">              </span><span class="p">}</span>
+<a id="__codelineno-9-154" name="__codelineno-9-154" href="#__codelineno-9-154"></a><span class="w">            </span><span class="p">]</span>
+<a id="__codelineno-9-155" name="__codelineno-9-155" href="#__codelineno-9-155"></a><span class="w">          </span><span class="p">},</span>
+<a id="__codelineno-9-156" name="__codelineno-9-156" href="#__codelineno-9-156"></a><span class="w">          </span><span class="p">{</span>
+<a id="__codelineno-9-157" name="__codelineno-9-157" href="#__codelineno-9-157"></a><span class="w">            </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;?&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-158" name="__codelineno-9-158" href="#__codelineno-9-158"></a><span class="w">            </span><span class="nt">&quot;logprob&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.0008108172</span><span class="p">,</span>
+<a id="__codelineno-9-159" name="__codelineno-9-159" href="#__codelineno-9-159"></a><span class="w">            </span><span class="nt">&quot;bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">63</span><span class="p">],</span>
+<a id="__codelineno-9-160" name="__codelineno-9-160" href="#__codelineno-9-160"></a><span class="w">            </span><span class="nt">&quot;top_logprobs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-9-161" name="__codelineno-9-161" href="#__codelineno-9-161"></a><span class="w">              </span><span class="p">{</span>
+<a id="__codelineno-9-162" name="__codelineno-9-162" href="#__codelineno-9-162"></a><span class="w">                </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;?&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-163" name="__codelineno-9-163" href="#__codelineno-9-163"></a><span class="w">                </span><span class="nt">&quot;logprob&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.0008108172</span><span class="p">,</span>
+<a id="__codelineno-9-164" name="__codelineno-9-164" href="#__codelineno-9-164"></a><span class="w">                </span><span class="nt">&quot;bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">63</span><span class="p">]</span>
+<a id="__codelineno-9-165" name="__codelineno-9-165" href="#__codelineno-9-165"></a><span class="w">              </span><span class="p">},</span>
+<a id="__codelineno-9-166" name="__codelineno-9-166" href="#__codelineno-9-166"></a><span class="w">              </span><span class="p">{</span>
+<a id="__codelineno-9-167" name="__codelineno-9-167" href="#__codelineno-9-167"></a><span class="w">                </span><span class="nt">&quot;token&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;?\n&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-168" name="__codelineno-9-168" href="#__codelineno-9-168"></a><span class="w">                </span><span class="nt">&quot;logprob&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">-7.184561</span><span class="p">,</span>
+<a id="__codelineno-9-169" name="__codelineno-9-169" href="#__codelineno-9-169"></a><span class="w">                </span><span class="nt">&quot;bytes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">63</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">]</span>
+<a id="__codelineno-9-170" name="__codelineno-9-170" href="#__codelineno-9-170"></a><span class="w">              </span><span class="p">}</span>
+<a id="__codelineno-9-171" name="__codelineno-9-171" href="#__codelineno-9-171"></a><span class="w">            </span><span class="p">]</span>
+<a id="__codelineno-9-172" name="__codelineno-9-172" href="#__codelineno-9-172"></a><span class="w">          </span><span class="p">}</span>
+<a id="__codelineno-9-173" name="__codelineno-9-173" href="#__codelineno-9-173"></a><span class="w">        </span><span class="p">]</span>
+<a id="__codelineno-9-174" name="__codelineno-9-174" href="#__codelineno-9-174"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-9-175" name="__codelineno-9-175" href="#__codelineno-9-175"></a><span class="w">      </span><span class="nt">&quot;finish_reason&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stop&quot;</span>
+<a id="__codelineno-9-176" name="__codelineno-9-176" href="#__codelineno-9-176"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-9-177" name="__codelineno-9-177" href="#__codelineno-9-177"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-9-178" name="__codelineno-9-178" href="#__codelineno-9-178"></a><span class="w">  </span><span class="nt">&quot;usage&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-179" name="__codelineno-9-179" href="#__codelineno-9-179"></a><span class="w">    </span><span class="nt">&quot;prompt_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span>
+<a id="__codelineno-9-180" name="__codelineno-9-180" href="#__codelineno-9-180"></a><span class="w">    </span><span class="nt">&quot;completion_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span>
+<a id="__codelineno-9-181" name="__codelineno-9-181" href="#__codelineno-9-181"></a><span class="w">    </span><span class="nt">&quot;total_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span>
+<a id="__codelineno-9-182" name="__codelineno-9-182" href="#__codelineno-9-182"></a><span class="w">    </span><span class="nt">&quot;completion_tokens_details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-183" name="__codelineno-9-183" href="#__codelineno-9-183"></a><span class="w">      </span><span class="nt">&quot;reasoning_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-9-184" name="__codelineno-9-184" href="#__codelineno-9-184"></a><span class="w">      </span><span class="nt">&quot;accepted_prediction_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-9-185" name="__codelineno-9-185" href="#__codelineno-9-185"></a><span class="w">      </span><span class="nt">&quot;rejected_prediction_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-9-186" name="__codelineno-9-186" href="#__codelineno-9-186"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-9-187" name="__codelineno-9-187" href="#__codelineno-9-187"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-9-188" name="__codelineno-9-188" href="#__codelineno-9-188"></a><span class="w">  </span><span class="nt">&quot;system_fingerprint&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<a id="__codelineno-9-189" name="__codelineno-9-189" href="#__codelineno-9-189"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="_7">📮 请求</h2>
+<h3 id="_8">端点</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>POST /v1/chat/completions
+</code></pre></div>
+<p>创建给定聊天对话的模型响应。更多详情请参阅文本生成、视觉和音频指南。</p>
+<h3 id="_9">鉴权方法</h3>
+<p>在请求头中包含以下内容进行 API 密钥认证：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Authorization: Bearer $API_API_KEY
+</code></pre></div>
+<p>其中 <code>$API_API_KEY</code> 是您的 API 密钥。您可以在 OpenAI 平台的 API 密钥页面中找到或生成 API 密钥。</p>
+<h3 id="_10">请求体参数</h3>
+<h4 id="messages"><code>messages</code></h4>
+<ul>
+<li>类型：数组</li>
+<li>必需：是</li>
+</ul>
+<p>到目前为止包含对话的消息列表。根据使用的模型，支持不同的消息类型（形式），如文本、图像和音频。</p>
+<table>
+<thead>
+<tr>
+<th>消息类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Developer message</strong></td>
+<td>开发者提供的指令，模型应遵循这些指令，无论用户发送什么消息。在 o1 模型及更新版本中，开发者消息取代了之前的系统消息。</td>
+</tr>
+<tr>
+<td><strong>System message</strong></td>
+<td>开发者提供的指令，模型应遵循这些指令，无论用户发送什么消息。在 o1 模型及更新版本中，请使用开发者消息代替。</td>
+</tr>
+<tr>
+<td><strong>User message</strong></td>
+<td>由终端用户发送的消息，包含提示或额外的上下文信息。</td>
+</tr>
+<tr>
+<td><strong>Assistant message</strong></td>
+<td>模型响应用户消息发送的消息。</td>
+</tr>
+<tr>
+<td><strong>Tool message</strong></td>
+<td>工具消息的内容。</td>
+</tr>
+<tr>
+<td><strong>Function message</strong></td>
+<td>已弃用。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Developer message 属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>role</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>消息作者的角色，此处为 <code>developer</code>。</td>
+</tr>
+<tr>
+<td><code>content</code></td>
+<td>字符串或数组</td>
+<td>是</td>
+<td>开发者消息的内容。可以是文本内容（字符串）或内容部分数组。</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>字符串</td>
+<td>否</td>
+<td>参与者的可选名称。为模型提供信息以区分相同角色的参与者。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>System message 属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>role</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>消息作者的角色，此处为 <code>system</code>。</td>
+</tr>
+<tr>
+<td><code>content</code></td>
+<td>字符串或数组</td>
+<td>是</td>
+<td>系统消息的内容。可以是文本内容（字符串）或内容部分数组。</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>字符串</td>
+<td>否</td>
+<td>参与者的可选名称。为模型提供信息以区分相同角色的参与者。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>User message 属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>role</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>消息作者的角色，此处为 <code>user</code>。</td>
+</tr>
+<tr>
+<td><code>content</code></td>
+<td>字符串或数组</td>
+<td>是</td>
+<td>用户消息的内容。可以是文本内容（字符串）或内容部分数组。</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>字符串</td>
+<td>否</td>
+<td>参与者的可选名称。为模型提供信息以区分相同角色的参与者。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>内容部分类型：</strong></p>
+<table>
+<thead>
+<tr>
+<th>内容部分类型</th>
+<th>描述</th>
+<th>可用于</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>文本内容部分</strong></td>
+<td>文本输入。</td>
+<td>所有消息类型</td>
+</tr>
+<tr>
+<td><strong>图像内容部分</strong></td>
+<td>图像输入。</td>
+<td>用户消息</td>
+</tr>
+<tr>
+<td><strong>音频内容部分</strong></td>
+<td>音频输入。</td>
+<td>用户消息</td>
+</tr>
+<tr>
+<td><strong>文件内容部分</strong></td>
+<td>文件输入，用于文本生成。</td>
+<td>用户消息</td>
+</tr>
+<tr>
+<td><strong>拒绝内容部分</strong></td>
+<td>模型生成的拒绝消息。</td>
+<td>助手消息</td>
+</tr>
+</tbody>
+</table>
+<p><strong>文本内容部分属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>text</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>文本内容。</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>内容部分的类型。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>图像内容部分属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>image_url</code></td>
+<td>对象</td>
+<td>是</td>
+<td>包含图像URL或base64编码的图像数据。</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>内容部分的类型。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>图像URL对象属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>url</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>图像的URL或base64编码的图像数据。</td>
+</tr>
+<tr>
+<td><code>detail</code></td>
+<td>字符串</td>
+<td>否</td>
+<td>指定图像的详细级别。默认为 <code>auto</code>。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>音频内容部分属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>input_audio</code></td>
+<td>对象</td>
+<td>是</td>
+<td>包含音频数据的对象。</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>内容部分的类型。始终为 <code>input_audio</code>。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>音频输入对象属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>data</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>base64编码的音频数据。</td>
+</tr>
+<tr>
+<td><code>format</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>编码音频数据的格式。当前支持 "wav" 和 "mp3"。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>文件内容部分属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>file</code></td>
+<td>对象</td>
+<td>是</td>
+<td>包含文件数据的对象。</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>内容部分的类型。始终为 <code>file</code>。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>文件对象属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>file_data</code></td>
+<td>字符串</td>
+<td>否</td>
+<td>base64编码的文件数据，用于将文件作为字符串传递给模型。</td>
+</tr>
+<tr>
+<td><code>file_id</code></td>
+<td>字符串</td>
+<td>否</td>
+<td>已上传文件的ID，用作输入。</td>
+</tr>
+<tr>
+<td><code>filename</code></td>
+<td>字符串</td>
+<td>否</td>
+<td>文件名，用于将文件作为字符串传递给模型。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Assistant message 属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>role</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>消息作者的角色，此处为 <code>assistant</code>。</td>
+</tr>
+<tr>
+<td><code>content</code></td>
+<td>字符串或数组</td>
+<td>否</td>
+<td>助手消息的内容。除非指定了 <code>tool_calls</code> 或 <code>function_call</code>，否则为必需。</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>字符串</td>
+<td>否</td>
+<td>参与者的可选名称。为模型提供信息以区分相同角色的参与者。</td>
+</tr>
+<tr>
+<td><code>audio</code></td>
+<td>对象或null</td>
+<td>否</td>
+<td>关于模型先前音频响应的数据。</td>
+</tr>
+<tr>
+<td><code>function_call</code></td>
+<td>对象或null</td>
+<td>否</td>
+<td>已弃用，由 <code>tool_calls</code> 替代。应调用的函数的名称和参数，由模型生成。</td>
+</tr>
+<tr>
+<td><code>tool_calls</code></td>
+<td>数组</td>
+<td>否</td>
+<td>模型生成的工具调用，如函数调用。</td>
+</tr>
+<tr>
+<td><code>refusal</code></td>
+<td>字符串或null</td>
+<td>否</td>
+<td>助手的拒绝消息。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tool message 属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>role</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>消息作者的角色，此处为 <code>tool</code>。</td>
+</tr>
+<tr>
+<td><code>content</code></td>
+<td>字符串或数组</td>
+<td>是</td>
+<td>工具消息的内容。</td>
+</tr>
+<tr>
+<td><code>tool_call_id</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>此消息响应的工具调用。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Function message 属性：（已弃用）</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>role</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>消息作者的角色，此处为 <code>function</code>。</td>
+</tr>
+<tr>
+<td><code>content</code></td>
+<td>字符串或null</td>
+<td>是</td>
+<td>函数消息的内容。</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>要调用的函数的名称。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="model"><code>model</code></h4>
+<ul>
+<li>类型：字符串  </li>
+<li>必需：是</li>
+</ul>
+<p>要使用的模型 ID。有关哪些模型适用于 Chat API 的详细信息，请参阅模型端点兼容性表。</p>
+<h4 id="store"><code>store</code></h4>
+<ul>
+<li>类型：布尔值或 null</li>
+<li>必需：否</li>
+<li>默认值：false</li>
+</ul>
+<p>是否存储此聊天补全请求的输出以用于我们的模型蒸馏或评估产品。</p>
+<h4 id="reasoning_effort"><code>reasoning_effort</code></h4>
+<ul>
+<li>类型：字符串或 null</li>
+<li>必需：否</li>
+<li>默认值：medium</li>
+<li>仅适用于 o系列 的模型</li>
+</ul>
+<p>约束推理模型的推理工作。当前支持的值为 <code>low</code>、<code>medium</code> 和 <code>high</code>。减少推理工作可以加快响应速度并减少响应中用于推理的标记数。</p>
+<h4 id="metadata"><code>metadata</code></h4>
+<ul>
+<li>类型：map</li>
+<li>必需：否</li>
+</ul>
+<p>可以附加到对象的16个键值对集合。这对于以结构化格式存储对象的其他信息很有用,并可以通过 API 或仪表板查询对象。</p>
+<p>键是最大长度为64个字符的字符串。值是最大长度为512个字符的字符串。</p>
+<h4 id="modalities"><code>modalities</code></h4>
+<ul>
+<li>类型：数组或 null</li>
+<li>必需：否</li>
+</ul>
+<p>您希望模型为此请求生成的输出类型。大多数模型都能生成文本,这是默认设置:
+["text"]</p>
+<p>该模型还可以用于生成音频。要请求此模型同时生成文本和音频响应,您可以使用:
+["text", "audio"]</p>
+<h4 id="prediction"><code>prediction</code></h4>
+<ul>
+<li>类型：对象</li>
+<li>必需：否</li>
+</ul>
+<p>预测输出的配置,当提前知道模型响应的大部分内容时,可以大大提高响应时间。这在您只对文件进行微小更改时最常见。</p>
+<p><strong>可能的类型：</strong></p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>静态内容</strong></td>
+<td>静态预测输出内容，例如正在重新生成的具有微小更改的文本文件内容。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>静态内容属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>content</code></td>
+<td>字符串或数组</td>
+<td>是</td>
+<td>生成模型响应时应匹配的内容。如果生成的标记与此内容匹配，则整个模型响应可以更快地返回。</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>要提供的预测内容类型。当前类型始终为 <code>content</code>。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>内容可能的类型：</strong></p>
+<ol>
+<li>
+<p><strong>文本内容（字符串）</strong> - 用于预测输出的内容。这通常是您正在重新生成的文件的文本，只有微小更改。</p>
+</li>
+<li>
+<p><strong>内容部分数组（数组）</strong> - 具有定义类型的内容部分数组。支持的选项因用于生成响应的模型而异。可以包含文本输入。</p>
+</li>
+</ol>
+<p><strong>内容部分数组属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>text</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>文本内容。</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>内容部分的类型。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="audio"><code>audio</code></h4>
+<ul>
+<li>类型：对象或 null</li>
+<li>必需：否</li>
+</ul>
+<p>音频输出的参数。当使用 <code>modalities: ["audio"]</code> 请求音频输出时需要。</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>format</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>指定输出音频格式。必须是以下之一：wav、mp3、flac、opus 或 pcm16。</td>
+</tr>
+<tr>
+<td><code>voice</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>模型用于响应的声音。支持的声音包括：alloy、ash、ballad、coral、echo、fable、nova、onyx、sage 和 shimmer。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="temperature"><code>temperature</code></h4>
+<ul>
+<li>类型：数字或 null</li>
+<li>必需：否</li>
+<li>默认值：1</li>
+</ul>
+<p>要使用的采样温度，介于 0 和 2 之间。较高的值（如0.8）会使输出更加随机，而较低的值（如0.2）会使其更加集中和确定性。我们通常建议更改此值或 <code>top_p</code>，但不要同时更改。</p>
+<h4 id="top_p"><code>top_p</code></h4>
+<ul>
+<li>类型：数字或 null  </li>
+<li>必需：否</li>
+<li>默认值：1</li>
+</ul>
+<p>一种替代采样温度的方法，称为核采样，其中模型考虑具有 top_p 概率质量的标记结果。因此，0.1 意味着只考虑包含前 10% 概率质量的标记。</p>
+<p>我们通常建议更改此值或 <code>temperature</code>，但不要同时更改。</p>
+<h4 id="n"><code>n</code></h4>
+<ul>
+<li>类型：整数或 null</li>
+<li>必需：否  </li>
+<li>默认值：1</li>
+</ul>
+<p>为每个输入消息生成多少个聊天补全选择。请注意，您将根据所有选择生成的标记数量收费。保持 <code>n</code> 为 1 可最大限度地降低成本。</p>
+<h4 id="stop"><code>stop</code></h4>
+<ul>
+<li>类型：字符串/数组/null</li>
+<li>必需：否</li>
+<li>默认值：null</li>
+<li>不支持最新的推理模型和 .o3、o4-mini</li>
+</ul>
+<p>API 将停止生成更多标记的最多 4 个序列。返回的文本不会包含停止序列。</p>
+<h4 id="max_tokens"><code>max_tokens</code></h4>
+<ul>
+<li>类型：整数或 null</li>
+<li>必需：否</li>
+</ul>
+<p>聊天补全中可以生成的最大标记数。此值可用于控制通过 API 生成的文本成本。</p>
+<p>该值现已弃用，取而代之的是 <code>max_completion_tokens</code>，并且与 <code>o1</code> 系列模型不兼容。</p>
+<h4 id="max_completion_tokens"><code>max_completion_tokens</code></h4>
+<ul>
+<li>类型：整数或 null</li>
+<li>必需：否</li>
+</ul>
+<p>补全中可以生成的标记数的上限，包括可见输出标记和推理标记。</p>
+<h4 id="presence_penalty"><code>presence_penalty</code></h4>
+<ul>
+<li>类型：数字或 null </li>
+<li>必需：否</li>
+<li>默认值：0</li>
+</ul>
+<p>介于 -2.0 和 2.0 之间的数字。正值根据新标记到目前为止在文本中出现的情况来惩罚它们，从而增加模型讨论新主题的可能性。</p>
+<h4 id="frequency_penalty"><code>frequency_penalty</code></h4>
+<ul>
+<li>类型：数字或 null</li>
+<li>必需：否  </li>
+<li>默认值：0</li>
+</ul>
+<p>介于 -2.0 和 2.0 之间的数字。正值根据新标记到目前为止在文本中的现有频率来惩罚它们，从而降低模型逐字重复同一行的可能性。</p>
+<h4 id="logit_bias"><code>logit_bias</code></h4>
+<ul>
+<li>类型：map</li>
+<li>必需：否</li>
+<li>默认值：null</li>
+</ul>
+<p>修改指定标记出现在补全中的可能性。</p>
+<p>接受一个 JSON 对象，该对象将标记（由分词器中的标记 ID 指定）映射到从 -100 到 100 的关联偏差值。在数学上，偏差被添加到模型在采样之前生成的对数中。确切的效果会因模型而异，但介于 -1 和 1 之间的值应该会减少或增加选择的可能性；像 -100 或 100 这样的值应该导致相关标记被禁止或独占选择。</p>
+<h4 id="logprobs_1"><code>logprobs</code></h4>
+<ul>
+<li>类型：布尔值或 null</li>
+<li>必需：否</li>
+<li>默认值：false</li>
+</ul>
+<p>是否返回输出标记的对数概率。如果为 true，则返回 <code>message.content</code> 中每个输出标记的对数概率。</p>
+<h4 id="user"><code>user</code></h4>
+<ul>
+<li>类型：字符串</li>
+<li>必需：否</li>
+</ul>
+<p>表示最终用户的唯一标识符，可以帮助 OpenAI 监控和检测滥用行为。<a href="https://platform.openai.com/docs/guides/safety-best-practices/end-user-ids">了解更多</a>。</p>
+<h4 id="service_tier"><code>service_tier</code></h4>
+<ul>
+<li>类型：字符串或 null</li>
+<li>必需：否</li>
+<li>默认值：auto</li>
+</ul>
+<p>指定用于处理请求的延迟层级。此参数与订阅了 scale tier 服务的客户相关：</p>
+<ul>
+<li>如果设置为 'auto'，且项目启用了 Scale tier，系统将使用 scale tier 信用直到用完</li>
+<li>如果设置为 'auto'，且项目未启用 Scale tier，请求将使用默认服务层级处理，具有较低的正常运行时间 SLA 且无延迟保证</li>
+<li>如果设置为 'default'，请求将使用默认服务层级处理，具有较低的正常运行时间 SLA 且无延迟保证</li>
+<li>如果设置为 'flex'，请求将使用 Flex Processing 服务层级处理。详情请参阅文档。</li>
+<li>未设置时，默认行为为 'auto'</li>
+<li>当设置此参数时，响应体将包含使用的 service_tier</li>
+</ul>
+<h4 id="stream_options"><code>stream_options</code></h4>
+<ul>
+<li>类型：对象或 null</li>
+<li>必需：否</li>
+<li>默认值：null</li>
+</ul>
+<p>流式响应的选项。仅在设置 <code>stream: true</code> 时使用。</p>
+<p><strong>可能的属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>include_usage</code></td>
+<td>布尔值</td>
+<td>否</td>
+<td>如果设置，将在 data: [DONE] 消息之前流式传输一个附加块。该块上的 usage 字段显示整个请求的令牌使用统计信息，choices 字段始终为空数组。所有其他块也将包含 usage 字段，但值为 null。注意：如果流被中断，您可能不会收到包含请求总令牌使用量的最终使用块。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="response_format"><code>response_format</code></h4>
+<ul>
+<li>类型：对象</li>
+<li>必需：否</li>
+</ul>
+<p>指定模型必须输出的格式。</p>
+<ul>
+<li>设置为 <code>{ "type": "json_schema", "json_schema": {...} }</code> 启用结构化输出，确保模型将匹配您提供的 JSON schema。</li>
+<li>设置为 <code>{ "type": "json_object" }</code> 启用 JSON 模式，确保模型生成的消息是有效的 JSON。</li>
+</ul>
+<p>重要提示：使用 JSON 模式时，您还必须通过系统或用户消息自行指示模型生成 JSON。否则，模型可能会生成无尽的空白直到生成达到令牌限制。</p>
+<p><strong>可能的类型：</strong></p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>text</strong></td>
+<td>默认响应格式。用于生成文本响应。</td>
+</tr>
+<tr>
+<td><strong>json_schema</strong></td>
+<td>JSON Schema 响应格式。用于生成结构化 JSON 响应。了解更多关于结构化输出的信息。</td>
+</tr>
+<tr>
+<td><strong>json_object</strong></td>
+<td>JSON 对象响应格式。一种较老的生成 JSON 响应的方法。对于支持的模型，推荐使用 json_schema。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>text 属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>正在定义的响应格式类型。始终为 <code>text</code>。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>json_schema 属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>json_schema</code></td>
+<td>对象</td>
+<td>是</td>
+<td>结构化输出配置选项，包括 JSON Schema。</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>正在定义的响应格式类型。始终为 <code>json_schema</code>。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>json_schema.json_schema 属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>响应格式的名称。必须是 a-z、A-Z、0-9 或包含下划线和破折号，最大长度为 64。</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>字符串</td>
+<td>否</td>
+<td>响应格式的用途描述，模型用它来确定如何以该格式响应。</td>
+</tr>
+<tr>
+<td><code>schema</code></td>
+<td>对象</td>
+<td>否</td>
+<td>响应格式的架构，描述为 JSON Schema 对象。</td>
+</tr>
+<tr>
+<td><code>strict</code></td>
+<td>布尔值或 null</td>
+<td>否</td>
+<td>是否在生成输出时启用严格架构遵守。如果设置为 true，模型将始终遵循 schema 字段中定义的确切架构。strict 为 true 时，仅支持 JSON Schema 的子集。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>json_object 属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>正在定义的响应格式类型。始终为 <code>json_object</code>。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="seed"><code>seed</code></h4>
+<ul>
+<li>类型：整数或 null</li>
+<li>必需：否
+Beta 功能。如果指定，我们的系统将尽最大努力进行确定性采样，使得具有相同 seed 和参数的重复请求应返回相同的结果。不保证确定性，您应参考响应参数的 system_fingerprint 以监控后端的变化。</li>
+</ul>
+<h4 id="tools"><code>tools</code></h4>
+<ul>
+<li>类型：数组</li>
+<li>必需：否</li>
+</ul>
+<p>模型可能调用的工具列表。目前仅支持函数作为工具。使用此参数提供模型可能生成 JSON 输入的函数列表。最多支持 128 个函数。</p>
+<p><strong>属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>function</code></td>
+<td>对象</td>
+<td>是</td>
+<td>要调用的函数信息</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>工具的类型。目前，仅支持 function。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>function 属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>要调用的函数名称。必须是a-z、A-Z、0-9，或包含下划线和破折号，最大长度为64。</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>字符串</td>
+<td>否</td>
+<td>函数功能的描述，模型用它来选择何时以及如何调用函数。</td>
+</tr>
+<tr>
+<td><code>parameters</code></td>
+<td>对象</td>
+<td>否</td>
+<td>函数接受的参数，描述为JSON Schema对象。请参阅指南获取示例，以及JSON Schema参考了解格式文档。省略parameters定义一个空参数列表的函数。</td>
+</tr>
+<tr>
+<td><code>strict</code></td>
+<td>布尔值或 null</td>
+<td>否</td>
+<td>默认值：false。是否在生成函数调用时启用严格架构遵守。如果设置为 true，模型将遵循 parameters 字段中定义的确切架构。strict 为 true 时，仅支持 JSON Schema 的子集。详情请参阅函数调用指南中的结构化输出部分。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="functions"><code>functions</code></h4>
+<ul>
+<li>类型：数组</li>
+<li>必需：否</li>
+<li>注意：已弃用，推荐使用 <code>tools</code></li>
+</ul>
+<p>模型可能生成 JSON 输入的函数列表。</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>要调用的函数名称。必须是a-z、A-Z、0-9，或包含下划线和破折号，最大长度为64。</td>
+</tr>
+<tr>
+<td><code>description</code></td>
+<td>字符串</td>
+<td>否</td>
+<td>函数功能的描述，模型用它来选择何时以及如何调用函数。</td>
+</tr>
+<tr>
+<td><code>parameters</code></td>
+<td>对象</td>
+<td>否</td>
+<td>函数接受的参数，描述为JSON Schema对象。省略parameters定义一个空参数列表的函数。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="tool_choice"><code>tool_choice</code></h4>
+<ul>
+<li>类型：字符串或对象</li>
+<li>必需：否</li>
+</ul>
+<p>控制模型调用哪个工具（如果有）：
+- <code>none</code>：模型不会调用任何工具，而是生成消息
+- <code>auto</code>：模型可以在生成消息或调用一个或多个工具之间选择
+- <code>required</code>：模型必须调用一个或多个工具
+- <code>{"type": "function", "function": {"name": "my_function"}}</code>：强制模型调用特定工具</p>
+<p>当没有工具时默认为 <code>none</code>，有工具时默认为 <code>auto</code>。</p>
+<p><strong>可能的类型：</strong></p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>字符串</strong></td>
+<td>none 表示模型不会调用任何工具，而是生成消息。auto 表示模型可以在生成消息或调用一个或多个工具之间选择。required 表示模型必须调用一个或多个工具。</td>
+</tr>
+<tr>
+<td><strong>对象</strong></td>
+<td>指定模型应使用的工具。用于强制模型调用特定函数。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>对象属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>function</code></td>
+<td>对象</td>
+<td>是</td>
+<td>包含函数信息的对象</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>工具的类型。目前，仅支持 function。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>function 属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>要调用的函数名称。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="function_call"><code>function_call</code></h4>
+<ul>
+<li>类型：字符串或对象</li>
+<li>必需：否</li>
+<li>默认值：没有函数时为 <code>none</code>，有函数时为 <code>auto</code></li>
+<li>注意：已弃用，推荐使用 <code>tool_choice</code></li>
+</ul>
+<p>控制模型调用哪个函数（如果有）：</p>
+<ul>
+<li><code>none</code>：模型不会调用函数，而是生成消息</li>
+<li><code>auto</code>：模型可以在生成消息或调用函数之间选择</li>
+<li><code>{"name": "my_function"}</code>：强制模型调用特定函数</li>
+</ul>
+<p><strong>对象类型属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>要调用的函数名称。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="parallel_tool_calls"><code>parallel_tool_calls</code></h4>
+<ul>
+<li>类型：布尔值</li>
+<li>必需：否</li>
+<li>默认值：true</li>
+</ul>
+<p>是否在工具使用期间启用并行函数调用。</p>
+<h4 id="stream"><code>stream</code></h4>
+<ul>
+<li>类型：布尔值或 null</li>
+<li>必需：否</li>
+<li>默认值：false</li>
+</ul>
+<p>如果设置为 true，模型响应数据将在生成时通过服务器发送事件流式传输到客户端。请参阅下方的流式响应部分获取更多信息，以及流式响应指南了解如何处理流式事件。</p>
+<h4 id="top_logprobs"><code>top_logprobs</code></h4>
+<ul>
+<li>类型：整数或 null</li>
+<li>必需：否</li>
+</ul>
+<p>0 到 20 之间的整数，指定在每个标记位置返回的最可能标记的数量，每个标记都有关联的对数概率。如果使用此参数，必须将 <code>logprobs</code> 设置为 true。</p>
+<h4 id="web_search_options"><code>web_search_options</code></h4>
+<ul>
+<li>类型：对象</li>
+<li>必需：否</li>
+</ul>
+<p>此工具搜索网络以获取相关结果用于回复。了解更多关于网络搜索工具的信息。</p>
+<p><strong>可能的属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>search_context_size</code></td>
+<td>字符串</td>
+<td>否</td>
+<td>默认值：medium。用于搜索的上下文窗口空间量的高级指导。可选值为 low、medium 或 high。medium 是默认值。</td>
+</tr>
+<tr>
+<td><code>user_location</code></td>
+<td>对象或 null</td>
+<td>否</td>
+<td>搜索的近似位置参数。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>user_location 属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>approximate</code></td>
+<td>对象</td>
+<td>是</td>
+<td>搜索的近似位置参数。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>approximate 属性：</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>必需</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>city</code></td>
+<td>字符串</td>
+<td>否</td>
+<td>用户城市的自由文本输入，例如 San Francisco。</td>
+</tr>
+<tr>
+<td><code>country</code></td>
+<td>字符串</td>
+<td>否</td>
+<td>用户的两字母 ISO 国家代码，例如 US。</td>
+</tr>
+<tr>
+<td><code>region</code></td>
+<td>字符串</td>
+<td>否</td>
+<td>用户地区的自由文本输入，例如 California。</td>
+</tr>
+<tr>
+<td><code>timezone</code></td>
+<td>字符串</td>
+<td>否</td>
+<td>用户的 IANA 时区，例如 America/Los_Angeles。</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>字符串</td>
+<td>是</td>
+<td>位置近似类型。始终为 approximate。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_11">📥 响应</h2>
+<h3 id="_12">聊天补全对象</h3>
+<p>返回一个聊天补全对象,如果请求被流式传输,则返回聊天补全块对象的流式序列。</p>
+<h4 id="id"><code>id</code></h4>
+<ul>
+<li>类型：字符串</li>
+<li>说明：响应的唯一标识符</li>
+</ul>
+<h4 id="object"><code>object</code></h4>
+<ul>
+<li>类型：字符串  </li>
+<li>说明：对象类型,值为 "chat.completion"</li>
+</ul>
+<h4 id="created"><code>created</code></h4>
+<ul>
+<li>类型：整数</li>
+<li>说明：响应创建时间戳</li>
+</ul>
+<h4 id="model_1"><code>model</code></h4>
+<ul>
+<li>类型：字符串</li>
+<li>说明：使用的模型名称</li>
+</ul>
+<h4 id="system_fingerprint"><code>system_fingerprint</code></h4>
+<ul>
+<li>类型：字符串</li>
+<li>说明：系统指纹标识符，表示模型运行的后端配置。可以与seed请求参数一起使用，以了解何时进行了可能影响确定性的后端更改。</li>
+</ul>
+<h4 id="choices"><code>choices</code></h4>
+<ul>
+<li>类型：数组</li>
+<li>说明：包含生成的回复选项列表。如果 n 大于 1，则可以有多个选项。</li>
+<li>属性:</li>
+<li><code>index</code>: 选项在选项列表中的索引。</li>
+<li><code>message</code>: 模型生成的聊天补全消息。<ul>
+<li><code>role</code>: 消息作者的角色。</li>
+<li><code>content</code>: 消息的内容，可能为 null。</li>
+<li><code>refusal</code>: 模型生成的拒绝消息，可能为 null。</li>
+<li><code>annotations</code>: 消息的注释，在适用时提供，例如使用网络搜索工具时。</li>
+<li><code>type</code>: 注释类型，URL引用时始终为 "url_citation"。</li>
+<li><code>url_citation</code>: 使用网络搜索时的URL引用。<ul>
+<li><code>start_index</code>: URL引用在消息中的第一个字符的索引。</li>
+<li><code>end_index</code>: URL引用在消息中的最后一个字符的索引。</li>
+<li><code>url</code>: 网络资源的URL。</li>
+<li><code>title</code>: 网络资源的标题。</li>
+</ul>
+</li>
+<li><code>audio</code>: 如果请求了音频输出模态，此对象包含来自模型的音频响应的数据。</li>
+<li><code>data</code>: 模型生成的Base64编码音频字节，格式在请求中指定。</li>
+<li><code>id</code>: 此音频响应的唯一标识符。</li>
+<li><code>transcript</code>: 模型生成的音频的转录。</li>
+<li><code>expires_at</code>: 此音频响应在服务器上可用于多轮对话的Unix时间戳（秒）。</li>
+<li><code>function_call</code>: （已弃用）应调用的函数的名称和参数，由模型生成。已被 <code>tool_calls</code> 替代。</li>
+<li><code>name</code>: 要调用的函数的名称。</li>
+<li><code>arguments</code>: 用于调用函数的参数，由模型以JSON格式生成。</li>
+<li><code>tool_calls</code>: 模型生成的工具调用，如函数调用。</li>
+<li><code>id</code>: 工具调用的ID。</li>
+<li><code>type</code>: 工具的类型。目前，仅支持 function。</li>
+<li><code>function</code>: 模型调用的函数。<ul>
+<li><code>name</code>: 要调用的函数的名称。</li>
+<li><code>arguments</code>: 用于调用函数的参数，由模型以JSON格式生成。注意，模型并不总是生成有效的JSON，并且可能会产生您函数架构中未定义的参数。在调用函数之前，请在代码中验证参数。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>logprobs</code>: 对数概率信息。<ul>
+<li><code>content</code>: 带有对数概率信息的消息内容标记列表。</li>
+<li><code>token</code>: 标记。</li>
+<li><code>logprob</code>: 此标记的对数概率，如果它在前20个最可能的标记内。否则，使用-9999.0的值表示此标记非常不可能。</li>
+<li><code>bytes</code>: 表示标记的UTF-8字节表示的整数列表。在字符由多个标记表示且必须组合它们的字节表示以生成正确的文本表示的情况下很有用。如果标记没有字节表示，则可能为null。</li>
+<li><code>top_logprobs</code>: 在此标记位置上最可能的标记及其对数概率的列表。在罕见情况下，返回的top_logprobs数量可能少于请求的数量。</li>
+<li><code>refusal</code>: 带有对数概率信息的消息拒绝标记列表。</li>
+</ul>
+</li>
+<li><code>finish_reason</code>: 模型停止生成标记的原因。如果模型到达自然停止点或提供的停止序列，则为 "stop"；如果达到请求中指定的最大标记数，则为 "length"；如果由于内容过滤器标记而省略内容，则为 "content_filter"；如果模型调用了工具，则为 "tool_calls"；如果模型调用了函数，则为 "function_call"（已弃用）。</li>
+</ul>
+<h4 id="usage"><code>usage</code></h4>
+<ul>
+<li>类型：对象</li>
+<li>说明：补全请求的使用统计信息。</li>
+<li>属性:</li>
+<li><code>prompt_tokens</code>: 提示中的标记数。</li>
+<li><code>completion_tokens</code>: 生成的补全中的标记数。</li>
+<li><code>total_tokens</code>: 请求中使用的标记总数（提示 + 补全）。</li>
+<li><code>prompt_tokens_details</code>: 提示中使用的标记的细分。<ul>
+<li><code>cached_tokens</code>: 提示中存在的缓存标记。</li>
+<li><code>audio_tokens</code>: 提示中存在的音频输入标记。</li>
+</ul>
+</li>
+<li><code>completion_tokens_details</code>: 补全中使用的标记的细分。<ul>
+<li><code>reasoning_tokens</code>: 模型生成的推理标记。</li>
+<li><code>audio_tokens</code>: 模型生成的音频标记。</li>
+<li><code>accepted_prediction_tokens</code>: 使用预测输出时，预测中出现在补全中的标记数。</li>
+<li><code>rejected_prediction_tokens</code>: 使用预测输出时，预测中未出现在补全中的标记数。但是，与推理标记一样，这些标记仍计入计费、输出和上下文窗口限制的总补全标记中。</li>
+</ul>
+</li>
+</ul>
+<h4 id="service_tier_1"><code>service_tier</code></h4>
+<ul>
+<li>类型：字符串或 null</li>
+<li>说明：指定用于处理请求的延迟层级。此参数与订阅了 scale tier 服务的客户相关：</li>
+<li>如果设置为 'auto'，且项目启用了 Scale tier，系统将使用 scale tier 信用直到用完</li>
+<li>如果设置为 'auto'，且项目未启用 Scale tier，请求将使用默认服务层级处理，具有较低的正常运行时间 SLA 且无延迟保证</li>
+<li>如果设置为 'default'，请求将使用默认服务层级处理，具有较低的正常运行时间 SLA 且无延迟保证</li>
+<li>如果设置为 'flex'，请求将使用 Flex Processing 服务层级处理</li>
+<li>未设置时，默认行为为 'auto'</li>
+<li>当设置此参数时，响应体将包含使用的 service_tier</li>
+</ul>
+<h4 id="_13">聊天补全对象响应示例</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">{</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;chatcmpl-B9MHDbslfkBeAs8l4bebGdFOJ6PeG&quot;</span><span class="p">,</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="nt">&quot;object&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;chat.completion&quot;</span><span class="p">,</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">  </span><span class="nt">&quot;created&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1741570283</span><span class="p">,</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">  </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gpt-4o-2024-08-06&quot;</span><span class="p">,</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="w">  </span><span class="nt">&quot;choices&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">      </span><span class="nt">&quot;index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="w">      </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="w">        </span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="w">        </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;图片展示了一条穿过茂密绿色草地或草甸的木制栈道。天空湛蓝，点缀着几朵散落的云彩，给整个场景营造出宁静祥和的氛围。背景中可以看到树木和灌木丛。&quot;</span><span class="p">,</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">        </span><span class="nt">&quot;refusal&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="w">        </span><span class="nt">&quot;annotations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">      </span><span class="nt">&quot;logprobs&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">      </span><span class="nt">&quot;finish_reason&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stop&quot;</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="w">  </span><span class="nt">&quot;usage&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a><span class="w">    </span><span class="nt">&quot;prompt_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1117</span><span class="p">,</span>
+<a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="w">    </span><span class="nt">&quot;completion_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">46</span><span class="p">,</span>
+<a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a><span class="w">    </span><span class="nt">&quot;total_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1163</span><span class="p">,</span>
+<a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a><span class="w">    </span><span class="nt">&quot;prompt_tokens_details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a><span class="w">      </span><span class="nt">&quot;cached_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a><span class="w">      </span><span class="nt">&quot;audio_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a><span class="w">    </span><span class="nt">&quot;completion_tokens_details&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-28" name="__codelineno-12-28" href="#__codelineno-12-28"></a><span class="w">      </span><span class="nt">&quot;reasoning_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-12-29" name="__codelineno-12-29" href="#__codelineno-12-29"></a><span class="w">      </span><span class="nt">&quot;audio_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-12-30" name="__codelineno-12-30" href="#__codelineno-12-30"></a><span class="w">      </span><span class="nt">&quot;accepted_prediction_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-12-31" name="__codelineno-12-31" href="#__codelineno-12-31"></a><span class="w">      </span><span class="nt">&quot;rejected_prediction_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-12-32" name="__codelineno-12-32" href="#__codelineno-12-32"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-12-33" name="__codelineno-12-33" href="#__codelineno-12-33"></a><span class="w">  </span><span class="p">},</span>
+<a id="__codelineno-12-34" name="__codelineno-12-34" href="#__codelineno-12-34"></a><span class="w">  </span><span class="nt">&quot;service_tier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">,</span>
+<a id="__codelineno-12-35" name="__codelineno-12-35" href="#__codelineno-12-35"></a><span class="w">  </span><span class="nt">&quot;system_fingerprint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fp_fc9f1d7035&quot;</span>
+<a id="__codelineno-12-36" name="__codelineno-12-36" href="#__codelineno-12-36"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="_14">聊天补全列表对象</h3>
+<p>当返回多个聊天补全时，API 可能会返回聊天补全列表对象。</p>
+<h4 id="object_1"><code>object</code></h4>
+<ul>
+<li>类型：字符串</li>
+<li>说明：对象类型，始终为 "list"</li>
+</ul>
+<h4 id="data"><code>data</code></h4>
+<ul>
+<li>类型：数组</li>
+<li>说明：聊天补全对象的数组</li>
+</ul>
+<h4 id="first_id"><code>first_id</code></h4>
+<ul>
+<li>类型：字符串</li>
+<li>说明：数据数组中第一个聊天补全的标识符</li>
+</ul>
+<h4 id="last_id"><code>last_id</code></h4>
+<ul>
+<li>类型：字符串</li>
+<li>说明：数据数组中最后一个聊天补全的标识符</li>
+</ul>
+<h4 id="has_more"><code>has_more</code></h4>
+<ul>
+<li>类型：布尔值</li>
+<li>说明：表示是否有更多聊天补全可用</li>
+</ul>
+<h4 id="_15">聊天补全列表响应示例</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="p">{</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span><span class="nt">&quot;object&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;list&quot;</span><span class="p">,</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">      </span><span class="nt">&quot;object&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;chat.completion&quot;</span><span class="p">,</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;chatcmpl-AyPNinnUqUDYo9SAdA52NobMflmj2&quot;</span><span class="p">,</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">      </span><span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;gpt-4o-2024-08-06&quot;</span><span class="p">,</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="w">      </span><span class="nt">&quot;created&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1738960610</span><span class="p">,</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">      </span><span class="nt">&quot;request_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;req_ded8ab984ec4bf840f37566c1011c417&quot;</span><span class="p">,</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">      </span><span class="nt">&quot;tool_choice&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">      </span><span class="nt">&quot;usage&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">        </span><span class="nt">&quot;total_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span>
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="w">        </span><span class="nt">&quot;completion_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="w">        </span><span class="nt">&quot;prompt_tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span>
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="w">      </span><span class="nt">&quot;seed&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4944116822809979520</span><span class="p">,</span>
+<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="w">      </span><span class="nt">&quot;top_p&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="w">      </span><span class="nt">&quot;temperature&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="w">      </span><span class="nt">&quot;presence_penalty&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span>
+<a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a><span class="w">      </span><span class="nt">&quot;frequency_penalty&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span>
+<a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a><span class="w">      </span><span class="nt">&quot;system_fingerprint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fp_50cad350e4&quot;</span><span class="p">,</span>
+<a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a><span class="w">      </span><span class="nt">&quot;input_user&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a><span class="w">      </span><span class="nt">&quot;service_tier&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">,</span>
+<a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a><span class="w">      </span><span class="nt">&quot;tools&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a><span class="w">      </span><span class="nt">&quot;metadata&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+<a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a><span class="w">      </span><span class="nt">&quot;choices&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a><span class="w">          </span><span class="nt">&quot;index&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-13-29" name="__codelineno-13-29" href="#__codelineno-13-29"></a><span class="w">          </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-30" name="__codelineno-13-30" href="#__codelineno-13-30"></a><span class="w">            </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;电路之心低吟，\n在寂静中学习模式—\n未来的宁静火花。&quot;</span><span class="p">,</span>
+<a id="__codelineno-13-31" name="__codelineno-13-31" href="#__codelineno-13-31"></a><span class="w">            </span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;assistant&quot;</span><span class="p">,</span>
+<a id="__codelineno-13-32" name="__codelineno-13-32" href="#__codelineno-13-32"></a><span class="w">            </span><span class="nt">&quot;tool_calls&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-13-33" name="__codelineno-13-33" href="#__codelineno-13-33"></a><span class="w">            </span><span class="nt">&quot;function_call&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<a id="__codelineno-13-34" name="__codelineno-13-34" href="#__codelineno-13-34"></a><span class="w">          </span><span class="p">},</span>
+<a id="__codelineno-13-35" name="__codelineno-13-35" href="#__codelineno-13-35"></a><span class="w">          </span><span class="nt">&quot;finish_reason&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;stop&quot;</span><span class="p">,</span>
+<a id="__codelineno-13-36" name="__codelineno-13-36" href="#__codelineno-13-36"></a><span class="w">          </span><span class="nt">&quot;logprobs&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<a id="__codelineno-13-37" name="__codelineno-13-37" href="#__codelineno-13-37"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-13-38" name="__codelineno-13-38" href="#__codelineno-13-38"></a><span class="w">      </span><span class="p">],</span>
+<a id="__codelineno-13-39" name="__codelineno-13-39" href="#__codelineno-13-39"></a><span class="w">      </span><span class="nt">&quot;response_format&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<a id="__codelineno-13-40" name="__codelineno-13-40" href="#__codelineno-13-40"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-13-41" name="__codelineno-13-41" href="#__codelineno-13-41"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-13-42" name="__codelineno-13-42" href="#__codelineno-13-42"></a><span class="w">  </span><span class="nt">&quot;first_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;chatcmpl-AyPNinnUqUDYo9SAdA52NobMflmj2&quot;</span><span class="p">,</span>
+<a id="__codelineno-13-43" name="__codelineno-13-43" href="#__codelineno-13-43"></a><span class="w">  </span><span class="nt">&quot;last_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;chatcmpl-AyPNinnUqUDYo9SAdA52NobMflmj2&quot;</span><span class="p">,</span>
+<a id="__codelineno-13-44" name="__codelineno-13-44" href="#__codelineno-13-44"></a><span class="w">  </span><span class="nt">&quot;has_more&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<a id="__codelineno-13-45" name="__codelineno-13-45" href="#__codelineno-13-45"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="_16">聊天补全消息列表对象</h3>
+<p>聊天补全消息列表对象表示聊天消息的列表。</p>
+<h4 id="object_2"><code>object</code></h4>
+<ul>
+<li>类型：字符串</li>
+<li>说明：对象类型，始终为 "list"</li>
+</ul>
+<h4 id="data_1"><code>data</code></h4>
+<ul>
+<li>类型：数组</li>
+<li>说明：聊天补全消息对象的数组，每个消息对象包含以下属性：</li>
+<li><code>id</code>: 聊天消息的标识符</li>
+<li><code>role</code>: 消息作者的角色</li>
+<li><code>content</code>: 消息的内容，可能为 null</li>
+<li><code>name</code>: 消息发送者的名称，可能为 null</li>
+<li><code>refusal</code>: 模型生成的拒绝消息，可能为 null</li>
+<li><code>annotations</code>: 消息的注释，在适用时提供，例如使用网络搜索工具时<ul>
+<li><code>type</code>: 注释类型，URL引用时始终为 "url_citation"</li>
+<li><code>url_citation</code>: 使用网络搜索时的URL引用</li>
+<li><code>start_index</code>: URL引用在消息中的第一个字符的索引</li>
+<li><code>end_index</code>: URL引用在消息中的最后一个字符的索引</li>
+<li><code>url</code>: 网络资源的URL</li>
+<li><code>title</code>: 网络资源的标题</li>
+</ul>
+</li>
+<li><code>audio</code>: 如果请求了音频输出模态，此对象包含来自模型的音频响应的数据<ul>
+<li><code>data</code>: 模型生成的Base64编码音频字节，格式在请求中指定</li>
+<li><code>id</code>: 此音频响应的唯一标识符</li>
+<li><code>transcript</code>: 模型生成的音频的转录</li>
+<li><code>expires_at</code>: 此音频响应在服务器上可用于多轮对话的Unix时间戳（秒）</li>
+</ul>
+</li>
+<li><code>function_call</code>: （已弃用）应调用的函数的名称和参数，由模型生成。已被 <code>tool_calls</code> 替代<ul>
+<li><code>name</code>: 要调用的函数的名称</li>
+<li><code>arguments</code>: 用于调用函数的参数，由模型以JSON格式生成</li>
+</ul>
+</li>
+<li><code>tool_calls</code>: 模型生成的工具调用，如函数调用<ul>
+<li><code>id</code>: 工具调用的ID</li>
+<li><code>type</code>: 工具的类型。目前，仅支持 function</li>
+<li><code>function</code>: 模型调用的函数</li>
+<li><code>name</code>: 要调用的函数的名称</li>
+<li><code>arguments</code>: 用于调用函数的参数，由模型以JSON格式生成</li>
+</ul>
+</li>
+</ul>
+<h4 id="first_id_1"><code>first_id</code></h4>
+<ul>
+<li>类型：字符串</li>
+<li>说明：数据数组中第一个聊天消息的标识符</li>
+</ul>
+<h4 id="last_id_1"><code>last_id</code></h4>
+<ul>
+<li>类型：字符串</li>
+<li>说明：数据数组中最后一个聊天消息的标识符</li>
+</ul>
+<h4 id="has_more_1"><code>has_more</code></h4>
+<ul>
+<li>类型：布尔值</li>
+<li>说明：表示是否有更多聊天消息可用</li>
+</ul>
+<h4 id="_17">聊天补全消息列表响应示例</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="p">{</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">  </span><span class="nt">&quot;object&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;list&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;chatcmpl-AyPNinnUqUDYo9SAdA52NobMflmj2-0&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">      </span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">      </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;写一首关于人工智能的俳句&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">      </span><span class="nt">&quot;content_parts&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="w">  </span><span class="nt">&quot;first_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;chatcmpl-AyPNinnUqUDYo9SAdA52NobMflmj2-0&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="w">  </span><span class="nt">&quot;last_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;chatcmpl-AyPNinnUqUDYo9SAdA52NobMflmj2-0&quot;</span><span class="p">,</span>
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="w">  </span><span class="nt">&quot;has_more&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="p">}</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
+      
+        <script src="../assets/external/unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>
