@@ -1,0 +1,143 @@
+site_name: API 文档
+site_url: http://example.com/
+docs_dir: docs
+site_dir: .site
+use_directory_urls: true
+
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - search.suggest
+    - search.highlight
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search:
+      lang:
+        - zh
+        - en
+
+nav:
+  - "首页": index.md
+  - "AI 模型接口":
+    - "概览": ai-model/index.md
+    - "模型（Models）":
+      - "概览": ai-model/models/index.md
+      - "列出模型":
+        - "概览": ai-model/models/list/index.md
+        - "原生Gemini格式": ai-model/models/list/listmodelsgemini.md
+        - "原生OpenAI格式": ai-model/models/list/listmodels.md
+    - "聊天（Chat）":
+      - "概览": ai-model/chat/index.md
+      - "原生Gemini格式":
+        - "概览": ai-model/chat/gemini/index.md
+        - "Gemini媒体识别": ai-model/chat/gemini/geminirelayv1beta-391536411.md
+        - "Gemini文本聊天": ai-model/chat/gemini/geminirelayv1beta.md
+      - "原生OpenAI格式":
+        - "概览": ai-model/chat/openai/index.md
+        - "ChatCompletions格式": ai-model/chat/openai/createchatcompletion.md
+        - "Responses格式": ai-model/chat/openai/createresponse.md
+      - "原生Claude格式": ai-model/chat/createmessage.md
+    - "补全（Completions）":
+      - "概览": ai-model/completions/index.md
+      - "原生OpenAI格式": ai-model/completions/createcompletion.md
+    - "嵌入（Embeddings）":
+      - "概览": ai-model/embeddings/index.md
+      - "原生Gemini格式": ai-model/embeddings/createengineembedding.md
+      - "原生OpenAI格式": ai-model/embeddings/createembedding.md
+    - "图像（Images）":
+      - "概览": ai-model/images/index.md
+      - "原生Gemini格式":
+        - "概览": ai-model/images/gemini/index.md
+        - "Gemini原生格式": ai-model/images/gemini/geminirelayv1beta-383837589.md
+        - "OpenAI聊天格式": ai-model/images/gemini/geminirelayv1beta-389846313.md
+      - "原生OpenAI格式":
+        - "概览": ai-model/images/openai/index.md
+        - "生成图像": ai-model/images/openai/post-v1-images-generations.md
+        - "编辑图像": ai-model/images/openai/post-v1-images-edits.md
+      - "通义千问OpenAI格式":
+        - "概览": ai-model/images/qwen/index.md
+        - "生成图像": ai-model/images/qwen/createimage.md
+        - "编辑图像": ai-model/images/qwen/editimage.md
+    - "音频（Audio）":
+      - "概览": ai-model/audio/index.md
+      - "原生OpenAI格式":
+        - "概览": ai-model/audio/openai/index.md
+        - "文本转语音": ai-model/audio/openai/createspeech.md
+        - "音频翻译": ai-model/audio/openai/createtranslation.md
+        - "音频转录": ai-model/audio/openai/createtranscription.md
+      - "原生Gemini格式": ai-model/audio/geminirelayv1beta-383836364.md
+    - "实时语音（Realtime）":
+      - "概览": ai-model/realtime/index.md
+      - "原生OpenAI格式": ai-model/realtime/createrealtimesession.md
+    - "重排序（Rerank）":
+      - "概览": ai-model/rerank/index.md
+      - "文档重排序": ai-model/rerank/creatererank.md
+    - "审查（Moderations）":
+      - "概览": ai-model/moderations/index.md
+      - "原生OpenAI格式": ai-model/moderations/createmoderation.md
+    - "视频（Videos）":
+      - "概览": ai-model/videos/index.md
+      - "Sora格式":
+        - "概览": ai-model/videos/sora/index.md
+        - "创建视频 ": ai-model/videos/sora/createvideo.md
+        - "获取视频任务状态 ": ai-model/videos/sora/getvideo.md
+        - "获取视频内容": ai-model/videos/sora/getvideocontent.md
+      - "即梦格式":
+        - "概览": ai-model/videos/jimeng/index.md
+        - "即梦视频生成": ai-model/videos/jimeng/createjimengvideo.md
+      - "可灵格式":
+        - "概览": ai-model/videos/kling/index.md
+        - "Kling 图生视频": ai-model/videos/kling/createklingimage2video.md
+        - "Kling 文生视频": ai-model/videos/kling/createklingtext2video.md
+        - "获取 Kling 图生视频任务状态": ai-model/videos/kling/getklingimage2video.md
+        - "获取 Kling 文生视频任务状态": ai-model/videos/kling/getklingtext2video.md
+      - "创建视频生成任务": ai-model/videos/createvideogeneration.md
+      - "获取视频生成任务状态": ai-model/videos/getvideogeneration.md
+    - "未实现（Unimplemented）":
+      - "概览": ai-model/unimplemented/index.md
+      - "微调（Fine-tuning）":
+        - "概览": ai-model/unimplemented/fine-tuning/index.md
+        - "列出微调任务 (未实现)": ai-model/unimplemented/fine-tuning/listfinetunes.md
+        - "创建微调任务 (未实现)": ai-model/unimplemented/fine-tuning/createfinetune.md
+        - "取消微调任务 (未实现)": ai-model/unimplemented/fine-tuning/cancelfinetune.md
+        - "获取微调任务事件 (未实现)": ai-model/unimplemented/fine-tuning/listfinetuneevents.md
+        - "获取微调任务详情 (未实现)": ai-model/unimplemented/fine-tuning/retrievefinetune.md
+      - "文件（Files）":
+        - "概览": ai-model/unimplemented/files/index.md
+        - "上传文件 (未实现)": ai-model/unimplemented/files/createfile.md
+        - "列出文件 (未实现)": ai-model/unimplemented/files/listfiles.md
+        - "删除文件 (未实现)": ai-model/unimplemented/files/deletefile.md
+        - "获取文件信息 (未实现)": ai-model/unimplemented/files/retrievefile.md
+        - "获取文件内容 (未实现)": ai-model/unimplemented/files/downloadfile.md
+  - "兼容入口":
+    - "OpenAI Chat": openai-chat.md
+    - "OpenAI Responses": openai-responses.md
+    - "Anthropic Chat": anthropic-chat.md
+    - "Google Gemini Chat": google-gemini-chat.md
+    - "DeepSeek Reasoning Chat": deepseek-reasoning-chat.md
+    - "OpenAI Embedding": openai-embedding.md
+    - "OpenAI Image": openai-image.md
+    - "Midjourney Proxy Image": midjourney-proxy-image.md
+    - "OpenAI Audio": openai-audio.md
+    - "OpenAI Realtime": openai-realtime.md
+    - "Cohere Rerank": cohere-rerank.md
+    - "Jina AI Rerank": jinaai-rerank.md
+    - "Xinference Rerank": xinference-rerank.md
+    - "Suno Music": suno-music.md
+    - "Coming Soon": coming-soon.md

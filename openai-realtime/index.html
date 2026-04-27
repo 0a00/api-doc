@@ -8,15 +8,20 @@
       
       
       
+        <link rel="canonical" href="http://example.com/openai-realtime/">
       
-        <link rel="prev" href="../xinference-rerank/">
+      
+        <link rel="prev" href="../openai-audio/">
       
       
-        <link rel="next" href="../openai-image/">
+        <link rel="next" href="../cohere-rerank/">
+      
+      
+        
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.14">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -24,10 +29,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
-      
-        
-        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
       
       
 
@@ -40,13 +42,13 @@
       
         
         
-        
-        <link rel="stylesheet" href="../assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
-      <link rel="stylesheet" href="../css/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -54,18 +56,10 @@
 
     
     
-    
   </head>
   
   
-    
-    
-      
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+    <body dir="ltr">
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -74,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#openai" class="md-skip">
+        <a href="#openai-realtime" class="md-skip">
           跳转至
         </a>
       
@@ -86,7 +80,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href=".." title="API 文档" class="md-header__button md-logo" aria-label="API 文档" data-md-component="logo">
       
@@ -114,32 +110,6 @@
         </div>
       </div>
     </div>
-    
-      
-        <form class="md-header__option" data-md-component="palette">
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
-    
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
-      </label>
-    
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
-    
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
-      </label>
-    
-  
-</form>
-      
     
     
       <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
@@ -198,88 +168,6 @@
       
         
           
-            
-<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href=".." class="md-tabs__link">
-        
-  
-  
-    
-  
-  首页
-
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    
-    
-      
-  
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../openai-chat/" class="md-tabs__link">
-          
-  
-  
-  中继接口
-
-        </a>
-      </li>
-    
-  
-
-    
-  
-
-      
-        
-  
-  
-  
-  
-    
-    
-      <li class="md-tabs__item">
-        <a href="../coming-soon/" class="md-tabs__link">
-          
-  
-  
-  前端接口
-
-        </a>
-      </li>
-    
-  
-
-      
-    </ul>
-  </div>
-</nav>
-          
         
       
       <main class="md-main" data-md-component="main">
@@ -293,12 +181,8 @@
                     
 
 
-  
 
-
-  
-
-<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="导航栏" data-md-level="0">
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="API 文档" class="md-nav__button md-logo" aria-label="API 文档" data-md-component="logo">
       
@@ -323,12 +207,3083 @@
   
   
   <span class="md-ellipsis">
+    
+  
     首页
+  
+
     
   </span>
   
+  
 
       </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../ai-model/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI 模型接口
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI 模型接口
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../ai-model/models/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    模型（Models）
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    模型（Models）
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../ai-model/models/list/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    列出模型
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    列出模型
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/models/list/listmodelsgemini/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生Gemini格式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/models/list/listmodels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生OpenAI格式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../ai-model/chat/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    聊天（Chat）
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    聊天（Chat）
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../ai-model/chat/gemini/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生Gemini格式
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    原生Gemini格式
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/chat/gemini/geminirelayv1beta-391536411/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gemini媒体识别
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/chat/gemini/geminirelayv1beta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gemini文本聊天
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../ai-model/chat/openai/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生OpenAI格式
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3_3" id="__nav_2_3_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    原生OpenAI格式
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/chat/openai/createchatcompletion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ChatCompletions格式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/chat/openai/createresponse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Responses格式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/chat/createmessage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生Claude格式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../ai-model/completions/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    补全（Completions）
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    补全（Completions）
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/completions/createcompletion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生OpenAI格式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../ai-model/embeddings/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    嵌入（Embeddings）
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    嵌入（Embeddings）
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/embeddings/createengineembedding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生Gemini格式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/embeddings/createembedding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生OpenAI格式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../ai-model/images/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图像（Images）
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    图像（Images）
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../ai-model/images/gemini/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生Gemini格式
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_6_2" id="__nav_2_6_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    原生Gemini格式
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/images/gemini/geminirelayv1beta-383837589/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gemini原生格式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/images/gemini/geminirelayv1beta-389846313/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenAI聊天格式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../ai-model/images/openai/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生OpenAI格式
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_6_3" id="__nav_2_6_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    原生OpenAI格式
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/images/openai/post-v1-images-generations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    生成图像
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/images/openai/post-v1-images-edits/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    编辑图像
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../ai-model/images/qwen/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    通义千问OpenAI格式
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_6_4" id="__nav_2_6_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    通义千问OpenAI格式
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/images/qwen/createimage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    生成图像
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/images/qwen/editimage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    编辑图像
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../ai-model/audio/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音频（Audio）
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    音频（Audio）
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../ai-model/audio/openai/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生OpenAI格式
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_7_2" id="__nav_2_7_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    原生OpenAI格式
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/audio/openai/createspeech/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    文本转语音
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/audio/openai/createtranslation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音频翻译
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/audio/openai/createtranscription/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音频转录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/audio/geminirelayv1beta-383836364/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生Gemini格式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../ai-model/realtime/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    实时语音（Realtime）
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    实时语音（Realtime）
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/realtime/createrealtimesession/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生OpenAI格式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../ai-model/rerank/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    重排序（Rerank）
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    重排序（Rerank）
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/rerank/creatererank/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    文档重排序
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../ai-model/moderations/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    审查（Moderations）
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_10" id="__nav_2_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    审查（Moderations）
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/moderations/createmoderation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    原生OpenAI格式
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../ai-model/videos/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    视频（Videos）
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_11" id="__nav_2_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    视频（Videos）
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../ai-model/videos/sora/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sora格式
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_11_2" id="__nav_2_11_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_11_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_11_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Sora格式
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/videos/sora/createvideo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    创建视频 
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/videos/sora/getvideo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    获取视频任务状态 
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/videos/sora/getvideocontent/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    获取视频内容
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../ai-model/videos/jimeng/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    即梦格式
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_11_3" id="__nav_2_11_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_11_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_11_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    即梦格式
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/videos/jimeng/createjimengvideo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    即梦视频生成
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../ai-model/videos/kling/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    可灵格式
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_11_4" id="__nav_2_11_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_11_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_11_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    可灵格式
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/videos/kling/createklingimage2video/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kling 图生视频
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/videos/kling/createklingtext2video/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kling 文生视频
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/videos/kling/getklingimage2video/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    获取 Kling 图生视频任务状态
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/videos/kling/getklingtext2video/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    获取 Kling 文生视频任务状态
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/videos/createvideogeneration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    创建视频生成任务
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/videos/getvideogeneration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    获取视频生成任务状态
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_12" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../ai-model/unimplemented/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    未实现（Unimplemented）
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_12" id="__nav_2_12_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    未实现（Unimplemented）
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_12_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../ai-model/unimplemented/fine-tuning/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    微调（Fine-tuning）
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_12_2" id="__nav_2_12_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_12_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_12_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    微调（Fine-tuning）
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/unimplemented/fine-tuning/listfinetunes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    列出微调任务 (未实现)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/unimplemented/fine-tuning/createfinetune/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    创建微调任务 (未实现)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/unimplemented/fine-tuning/cancelfinetune/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    取消微调任务 (未实现)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/unimplemented/fine-tuning/listfinetuneevents/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    获取微调任务事件 (未实现)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/unimplemented/fine-tuning/retrievefinetune/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    获取微调任务详情 (未实现)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_12_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../ai-model/unimplemented/files/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    文件（Files）
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_12_3" id="__nav_2_12_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_12_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_12_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    文件（Files）
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/unimplemented/files/createfile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    上传文件 (未实现)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/unimplemented/files/listfiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    列出文件 (未实现)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/unimplemented/files/deletefile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    删除文件 (未实现)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/unimplemented/files/retrievefile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    获取文件信息 (未实现)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-model/unimplemented/files/downloadfile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    获取文件内容 (未实现)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -343,13 +3298,42 @@
   
     
     
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
     
     
       
         
-        
-      
-      
         
       
     
@@ -358,72 +3342,35 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
-    中继接口
+    
+  
+    兼容入口
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
-            中继接口
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="">
             
   
-  
-  <span class="md-ellipsis">
-    聊天 (Chat)
-    
-  </span>
+    兼容入口
   
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_1">
-            <span class="md-nav__icon md-icon"></span>
-            聊天 (Chat)
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -439,9 +3386,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     OpenAI Chat
+  
+
     
   </span>
+  
   
 
       </a>
@@ -462,9 +3414,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     OpenAI Responses
+  
+
     
   </span>
+  
   
 
       </a>
@@ -485,32 +3442,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Anthropic Chat
+  
+
     
   </span>
   
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../deepseek-reasoning-chat/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Deepseek Chat
-    
-  </span>
   
 
       </a>
@@ -531,9 +3470,14 @@
   
   
   <span class="md-ellipsis">
-    Google Chat
+    
+  
+    Google Gemini Chat
+  
+
     
   </span>
+  
   
 
       </a>
@@ -542,60 +3486,6 @@
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    嵌入 (Embeddings)
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2">
-            <span class="md-nav__icon md-icon"></span>
-            嵌入 (Embeddings)
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
               
                 
   
@@ -603,91 +3493,19 @@
   
   
     <li class="md-nav__item">
-      <a href="../openai-embedding/" class="md-nav__link">
+      <a href="../deepseek-reasoning-chat/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    OpenAI Embeddings
+    
+  
+    DeepSeek Reasoning Chat
+  
+
     
   </span>
   
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    重排序 (Rerank)
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_3">
-            <span class="md-nav__icon md-icon"></span>
-            重排序 (Rerank)
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../jinaai-rerank/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Jina AI Rerank
-    
-  </span>
   
 
       </a>
@@ -703,14 +3521,19 @@
   
   
     <li class="md-nav__item">
-      <a href="../cohere-rerank/" class="md-nav__link">
+      <a href="../openai-embedding/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    Cohere Rerank
+    
+  
+    OpenAI Embedding
+  
+
     
   </span>
+  
   
 
       </a>
@@ -718,1140 +3541,6 @@
   
 
               
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../xinference-rerank/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Xinference Rerank
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    实时对话 (Realtime)
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2_4">
-            <span class="md-nav__icon md-icon"></span>
-            实时对话 (Realtime)
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    OpenAI Realtime
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    OpenAI Realtime
-    
-  </span>
-  
-
-      </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      📝 概述
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="📝 概述">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      简介
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      使用场景
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      主要特性
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔐 认证与安全
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🔐 认证与安全">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      认证方式
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    <span class="md-ellipsis">
-      临时令牌
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    <span class="md-ellipsis">
-      安全建议
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      🔌 连接建立
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="🔌 连接建立">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#webrtc" class="md-nav__link">
-    <span class="md-ellipsis">
-      WebRTC 连接
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#websocket" class="md-nav__link">
-    <span class="md-ellipsis">
-      WebSocket 连接
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      连接流程
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      数据通道
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      音频流
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    <span class="md-ellipsis">
-      💬 对话交互
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="💬 对话交互">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    <span class="md-ellipsis">
-      对话模式
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    <span class="md-ellipsis">
-      会话管理
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    <span class="md-ellipsis">
-      事件类型
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
-    <span class="md-ellipsis">
-      ⚙️ 配置选项
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="⚙️ 配置选项">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    <span class="md-ellipsis">
-      音频配置
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
-    <span class="md-ellipsis">
-      模型配置
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vad" class="md-nav__link">
-    <span class="md-ellipsis">
-      VAD 配置
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
-    <span class="md-ellipsis">
-      💡 请求示例
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="💡 请求示例">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#webrtc_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      WebRTC 连接 ❌
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="WebRTC 连接 ❌">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
-    <span class="md-ellipsis">
-      客户端实现 (浏览器)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nodejs" class="md-nav__link">
-    <span class="md-ellipsis">
-      服务器端实现 (Node.js)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#webrtc_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      WebRTC 事件收发示例
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#websocket_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      WebSocket 连接 ✅
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="WebSocket 连接 ✅">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#nodejs-ws" class="md-nav__link">
-    <span class="md-ellipsis">
-      Node.js (ws模块)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#python-websocket-client" class="md-nav__link">
-    <span class="md-ellipsis">
-      Python (websocket-client)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#websocket_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      浏览器 (标准WebSocket)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
-    <span class="md-ellipsis">
-      消息收发示例
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="消息收发示例">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#nodejs_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Node.js/浏览器
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    <span class="md-ellipsis">
-      Python
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_23" class="md-nav__link">
-    <span class="md-ellipsis">
-      ⚠️ 错误处理
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="⚠️ 错误处理">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_24" class="md-nav__link">
-    <span class="md-ellipsis">
-      常见错误
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_25" class="md-nav__link">
-    <span class="md-ellipsis">
-      错误恢复
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_26" class="md-nav__link">
-    <span class="md-ellipsis">
-      📝 事件参考
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="📝 事件参考">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_27" class="md-nav__link">
-    <span class="md-ellipsis">
-      通用请求头
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_28" class="md-nav__link">
-    <span class="md-ellipsis">
-      客户端事件
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="客户端事件">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sessionupdate" class="md-nav__link">
-    <span class="md-ellipsis">
-      session.update
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#input_audio_bufferappend" class="md-nav__link">
-    <span class="md-ellipsis">
-      input_audio_buffer.append
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#input_audio_buffercommit" class="md-nav__link">
-    <span class="md-ellipsis">
-      input_audio_buffer.commit
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#input_audio_bufferclear" class="md-nav__link">
-    <span class="md-ellipsis">
-      input_audio_buffer.clear
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#conversationitemcreate" class="md-nav__link">
-    <span class="md-ellipsis">
-      conversation.item.create
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#conversationitemtruncate" class="md-nav__link">
-    <span class="md-ellipsis">
-      conversation.item.truncate
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#conversationitemdelete" class="md-nav__link">
-    <span class="md-ellipsis">
-      conversation.item.delete
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#responsecreate" class="md-nav__link">
-    <span class="md-ellipsis">
-      response.create
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#responsecancel" class="md-nav__link">
-    <span class="md-ellipsis">
-      response.cancel
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_29" class="md-nav__link">
-    <span class="md-ellipsis">
-      服务端事件
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="服务端事件">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#error" class="md-nav__link">
-    <span class="md-ellipsis">
-      error
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#conversationiteminput_audio_transcriptioncompleted" class="md-nav__link">
-    <span class="md-ellipsis">
-      conversation.item.input_audio_transcription.completed
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#conversationiteminput_audio_transcriptionfailed" class="md-nav__link">
-    <span class="md-ellipsis">
-      conversation.item.input_audio_transcription.failed
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#conversationitemtruncated" class="md-nav__link">
-    <span class="md-ellipsis">
-      conversation.item.truncated
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#conversationitemdeleted" class="md-nav__link">
-    <span class="md-ellipsis">
-      conversation.item.deleted
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#input_audio_buffercommitted" class="md-nav__link">
-    <span class="md-ellipsis">
-      input_audio_buffer.committed
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#input_audio_buffercleared" class="md-nav__link">
-    <span class="md-ellipsis">
-      input_audio_buffer.cleared
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#input_audio_bufferspeech_started" class="md-nav__link">
-    <span class="md-ellipsis">
-      input_audio_buffer.speech_started
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#input_audio_bufferspeech_stopped" class="md-nav__link">
-    <span class="md-ellipsis">
-      input_audio_buffer.speech_stopped
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#responsecreated" class="md-nav__link">
-    <span class="md-ellipsis">
-      response.created
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#responsedone" class="md-nav__link">
-    <span class="md-ellipsis">
-      response.done
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#responseoutput_itemadded" class="md-nav__link">
-    <span class="md-ellipsis">
-      response.output_item.added
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#responseoutput_itemdone" class="md-nav__link">
-    <span class="md-ellipsis">
-      response.output_item.done
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#responsecontent_partadded" class="md-nav__link">
-    <span class="md-ellipsis">
-      response.content_part.added
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#responsecontent_partdone" class="md-nav__link">
-    <span class="md-ellipsis">
-      response.content_part.done
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#responsetextdelta" class="md-nav__link">
-    <span class="md-ellipsis">
-      response.text.delta
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#responsetextdone" class="md-nav__link">
-    <span class="md-ellipsis">
-      response.text.done
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#responseaudio_transcriptdelta" class="md-nav__link">
-    <span class="md-ellipsis">
-      response.audio_transcript.delta
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#responseaudio_transcriptdone" class="md-nav__link">
-    <span class="md-ellipsis">
-      response.audio_transcript.done
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#responseaudiodelta" class="md-nav__link">
-    <span class="md-ellipsis">
-      response.audio.delta
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#responseaudiodone" class="md-nav__link">
-    <span class="md-ellipsis">
-      response.audio.done
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_30" class="md-nav__link">
-    <span class="md-ellipsis">
-      函数调用
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="函数调用">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#responsefunction_call_argumentsdelta" class="md-nav__link">
-    <span class="md-ellipsis">
-      response.function_call_arguments.delta
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#responsefunction_call_argumentsdone" class="md-nav__link">
-    <span class="md-ellipsis">
-      response.function_call_arguments.done
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_31" class="md-nav__link">
-    <span class="md-ellipsis">
-      其他状态更新
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="其他状态更新">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#rate_limitsupdated" class="md-nav__link">
-    <span class="md-ellipsis">
-      rate_limits.updated
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#conversationcreated" class="md-nav__link">
-    <span class="md-ellipsis">
-      conversation.created
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#conversationitemcreated" class="md-nav__link">
-    <span class="md-ellipsis">
-      conversation.item.created
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sessioncreated" class="md-nav__link">
-    <span class="md-ellipsis">
-      session.created
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sessionupdated" class="md-nav__link">
-    <span class="md-ellipsis">
-      session.updated
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_32" class="md-nav__link">
-    <span class="md-ellipsis">
-      速率限制事件参数表
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_33" class="md-nav__link">
-    <span class="md-ellipsis">
-      函数调用参数表
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_34" class="md-nav__link">
-    <span class="md-ellipsis">
-      音频格式参数表
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_35" class="md-nav__link">
-    <span class="md-ellipsis">
-      语音检测参数表
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_36" class="md-nav__link">
-    <span class="md-ellipsis">
-      工具选择参数表
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_37" class="md-nav__link">
-    <span class="md-ellipsis">
-      模型配置参数表
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_38" class="md-nav__link">
-    <span class="md-ellipsis">
-      事件通用参数表
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_39" class="md-nav__link">
-    <span class="md-ellipsis">
-      会话状态参数表
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_40" class="md-nav__link">
-    <span class="md-ellipsis">
-      对话项状态参数表
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_41" class="md-nav__link">
-    <span class="md-ellipsis">
-      内容类型参数表
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_42" class="md-nav__link">
-    <span class="md-ellipsis">
-      响应状态参数表
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_43" class="md-nav__link">
-    <span class="md-ellipsis">
-      音频转写参数表
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_44" class="md-nav__link">
-    <span class="md-ellipsis">
-      音频流参数表
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#webrtc_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      WebRTC 配置参数表
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    图像 (Image)
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_5">
-            <span class="md-nav__icon md-icon"></span>
-            图像 (Image)
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -1865,9 +3554,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     OpenAI Image
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1888,9 +3582,14 @@
   
   
   <span class="md-ellipsis">
-    Midjourney Proxy
+    
+  
+    Midjourney Proxy Image
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1898,60 +3597,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    音频 (Audio)
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_6">
-            <span class="md-nav__icon md-icon"></span>
-            音频 (Audio)
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -1965,9 +3610,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     OpenAI Audio
+  
+
     
   </span>
+  
   
 
       </a>
@@ -1976,8 +3626,38 @@
 
               
             
-          </ul>
-        </nav>
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenAI Realtime
+  
+
+    
+  </span>
+  
+  
+
+      </a>
       
     </li>
   
@@ -1990,45 +3670,83 @@
   
   
   
-    
-    
-    
-    
-      
-      
+    <li class="md-nav__item">
+      <a href="../cohere-rerank/" class="md-nav__link">
         
-          
-          
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
-        
-          
-          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="">
-            
   
   
   <span class="md-ellipsis">
-    音乐 (Music)
+    
+  
+    Cohere Rerank
+  
+
     
   </span>
   
+  
 
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../jinaai-rerank/" class="md-nav__link">
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_7">
-            <span class="md-nav__icon md-icon"></span>
-            音乐 (Music)
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jina AI Rerank
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../xinference-rerank/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Xinference Rerank
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
             
               
                 
@@ -2042,9 +3760,14 @@
   
   
   <span class="md-ellipsis">
-    Suno API
+    
+  
+    Suno Music
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2052,64 +3775,6 @@
   
 
               
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
-        
-          
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    前端接口
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-            前端接口
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
             
               
                 
@@ -2123,9 +3788,14 @@
   
   
   <span class="md-ellipsis">
-    即将推出
+    
+  
+    Coming Soon
+  
+
     
   </span>
+  
   
 
       </a>
@@ -2148,3079 +3818,37 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           
             <div class="md-content" data-md-component="content">
+              
               <article class="md-content__inner md-typeset">
                 
                   
 
 
 
-<h1 id="openai">OpenAI 实时对话接口</h1>
-<div class="admonition info">
-<p class="admonition-title">官方文档</p>
-<ul>
-<li><a href="https://platform.openai.com/docs/guides/realtime-webrtc">OpenAI Realtime WebRTC</a></li>
-<li><a href="https://platform.openai.com/docs/guides/realtime-websocket">OpenAI Realtime WebSocket</a></li>
-</ul>
-</div>
-<h2 id="_1">📝 概述</h2>
-<h3 id="_2">简介</h3>
-<p>OpenAI Realtime API 提供两种连接方式：</p>
-<ol>
-<li>
-<p>WebRTC - 适用于浏览器和移动客户端的实时音视频交互</p>
-</li>
-<li>
-<p>WebSocket - 适用于服务器到服务器的应用程序集成</p>
-</li>
-</ol>
-<h3 id="_3">使用场景</h3>
-<ul>
-<li>实时语音对话</li>
-<li>音视频会议</li>
-<li>实时翻译</li>
-<li>语音转写</li>
-<li>实时代码生成</li>
-<li>服务器端实时集成</li>
-</ul>
-<h3 id="_4">主要特性</h3>
-<ul>
-<li>双向音频流传输</li>
-<li>文本和音频混合对话</li>
-<li>函数调用支持</li>
-<li>自动语音检测(VAD)</li>
-<li>音频转写功能</li>
-<li>WebSocket 服务器端集成</li>
-</ul>
-<h2 id="_5">🔐 认证与安全</h2>
-<h3 id="_6">认证方式</h3>
-<ol>
-<li>标准 API 密钥 (仅服务器端使用)</li>
-<li>临时令牌 (客户端使用)</li>
-</ol>
-<h3 id="_7">临时令牌</h3>
-<ul>
-<li>有效期: 1分钟</li>
-<li>使用限制: 单个连接</li>
-<li>获取方式: 通过服务器端 API 创建</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">POST https://你的api服务器地址/v1/realtime/sessions</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="err">Content-Type: application/json</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="err">Authorization: Bearer $API_KEY</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="err">{</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="err">  &quot;model&quot;: &quot;gpt-4o-realtime-preview-2024-12-17&quot;,</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="err">  &quot;voice&quot;: &quot;verse&quot;</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="err">}</span>
-</code></pre></div>
-<h3 id="_8">安全建议</h3>
-<ul>
-<li>永远不要在客户端暴露标准 API 密钥</li>
-<li>使用 HTTPS/WSS 进行通信</li>
-<li>实现适当的访问控制</li>
-<li>监控异常活动</li>
-</ul>
-<h2 id="_9">🔌 连接建立</h2>
-<h3 id="webrtc">WebRTC 连接</h3>
-<ul>
-<li>URL: <code>https://你的api服务器地址/v1/realtime</code></li>
-<li>查询参数: <code>model</code></li>
-<li>请求头: </li>
-<li><code>Authorization: Bearer EPHEMERAL_KEY</code></li>
-<li><code>Content-Type: application/sdp</code></li>
-</ul>
-<h3 id="websocket">WebSocket 连接</h3>
-<ul>
-<li>URL: <code>wss://你的api服务器地址/v1/realtime</code></li>
-<li>查询参数: <code>model</code></li>
-<li>请求头:</li>
-<li><code>Authorization: Bearer YOUR_API_KEY</code></li>
-<li><code>OpenAI-Beta: realtime=v1</code></li>
-</ul>
-<h3 id="_10">连接流程</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sequenceDiagram
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    participant Client
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    participant Server
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    participant OpenAI
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    alt WebRTC 连接
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>        Client-&gt;&gt;Server: 请求临时令牌
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>        Server-&gt;&gt;OpenAI: 创建会话
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>        OpenAI--&gt;&gt;Server: 返回临时令牌
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        Server--&gt;&gt;Client: 返回临时令牌
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>        Client-&gt;&gt;OpenAI: 创建 WebRTC offer
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>        OpenAI--&gt;&gt;Client: 返回 answer
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>        Note over Client,OpenAI: 建立 WebRTC 连接
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>        Client-&gt;&gt;OpenAI: 创建数据通道
-<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>        OpenAI--&gt;&gt;Client: 确认数据通道
-<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>    else WebSocket 连接
-<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>        Server-&gt;&gt;OpenAI: 建立 WebSocket 连接
-<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>        OpenAI--&gt;&gt;Server: 确认连接
-<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>
-<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>        Note over Server,OpenAI: 开始实时对话
-<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>    end
-</code></pre></div>
-<h3 id="_11">数据通道</h3>
-<ul>
-<li>名称: <code>oai-events</code></li>
-<li>用途: 事件传输</li>
-<li>格式: JSON</li>
-</ul>
-<h3 id="_12">音频流</h3>
-<ul>
-<li>输入: <code>addTrack()</code></li>
-<li>输出: <code>ontrack</code> 事件</li>
-</ul>
-<h2 id="_13">💬 对话交互</h2>
-<h3 id="_14">对话模式</h3>
-<ol>
-<li>纯文本对话</li>
-<li>语音对话</li>
-<li>混合对话</li>
-</ol>
-<h3 id="_15">会话管理</h3>
-<ul>
-<li>创建会话</li>
-<li>更新会话</li>
-<li>结束会话</li>
-<li>会话配置</li>
-</ul>
-<h3 id="_16">事件类型</h3>
-<ul>
-<li>文本事件</li>
-<li>音频事件</li>
-<li>函数调用</li>
-<li>状态更新</li>
-<li>错误事件</li>
-</ul>
-<h2 id="_17">⚙️ 配置选项</h2>
-<h3 id="_18">音频配置</h3>
-<ul>
-<li>输入格式</li>
-<li><code>pcm16</code></li>
-<li><code>g711_ulaw</code></li>
-<li><code>g711_alaw</code></li>
-<li>输出格式</li>
-<li><code>pcm16</code></li>
-<li><code>g711_ulaw</code></li>
-<li><code>g711_alaw</code></li>
-<li>语音类型</li>
-<li><code>alloy</code></li>
-<li><code>echo</code></li>
-<li><code>shimmer</code></li>
-</ul>
-<h3 id="_19">模型配置</h3>
-<ul>
-<li>温度</li>
-<li>最大输出长度</li>
-<li>系统提示词</li>
-<li>工具配置</li>
-</ul>
-<h3 id="vad">VAD 配置</h3>
-<ul>
-<li>阈值</li>
-<li>静音时长</li>
-<li>前缀填充</li>
-</ul>
-<h2 id="_20">💡 请求示例</h2>
-<h3 id="webrtc_1">WebRTC 连接 ❌</h3>
-<h4 id="_21">客户端实现 (浏览器)</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">init</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="c1">// 从服务器获取临时密钥 - 参见下方服务器代码</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">tokenResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="s2">&quot;/session&quot;</span><span class="p">);</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">tokenResponse</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">EPHEMERAL_KEY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">data</span><span class="p">.</span><span class="nx">client_secret</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="c1">// 创建对等连接</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">pc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">RTCPeerConnection</span><span class="p">();</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="c1">// 设置播放模型返回的远程音频</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">audioEl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;audio&quot;</span><span class="p">);</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">  </span><span class="nx">audioEl</span><span class="p">.</span><span class="nx">autoplay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">  </span><span class="nx">pc</span><span class="p">.</span><span class="nx">ontrack</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">e</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">audioEl</span><span class="p">.</span><span class="nx">srcObject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">e</span><span class="p">.</span><span class="nx">streams</span><span class="p">[</span><span class="mf">0</span><span class="p">];</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">  </span><span class="c1">// 添加浏览器麦克风输入的本地音频轨道</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">navigator</span><span class="p">.</span><span class="nx">mediaDevices</span><span class="p">.</span><span class="nx">getUserMedia</span><span class="p">({</span>
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="nx">audio</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">  </span><span class="p">});</span>
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">  </span><span class="nx">pc</span><span class="p">.</span><span class="nx">addTrack</span><span class="p">(</span><span class="nx">ms</span><span class="p">.</span><span class="nx">getTracks</span><span class="p">()[</span><span class="mf">0</span><span class="p">]);</span>
-<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
-<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">  </span><span class="c1">// 设置用于发送和接收事件的数据通道</span>
-<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">dc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">pc</span><span class="p">.</span><span class="nx">createDataChannel</span><span class="p">(</span><span class="s2">&quot;oai-events&quot;</span><span class="p">);</span>
-<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">  </span><span class="nx">dc</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">    </span><span class="c1">// 这里接收实时服务器事件！</span>
-<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
-<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">  </span><span class="p">});</span>
-<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a>
-<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a><span class="w">  </span><span class="c1">// 使用会话描述协议(SDP)启动会话</span>
-<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">offer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">pc</span><span class="p">.</span><span class="nx">createOffer</span><span class="p">();</span>
-<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">pc</span><span class="p">.</span><span class="nx">setLocalDescription</span><span class="p">(</span><span class="nx">offer</span><span class="p">);</span>
-<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a>
-<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">baseUrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;https://你的api服务器地址/v1/realtime&quot;</span><span class="p">;</span>
-<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;gpt-4o-realtime-preview-2024-12-17&quot;</span><span class="p">;</span>
-<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">sdpResponse</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="nx">baseUrl</span><span class="si">}</span><span class="sb">?model=</span><span class="si">${</span><span class="nx">model</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="w">    </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a><span class="w">    </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nx">offer</span><span class="p">.</span><span class="nx">sdp</span><span class="p">,</span>
-<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="w">    </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="w">      </span><span class="nx">Authorization</span><span class="o">:</span><span class="w"> </span><span class="sb">`Bearer </span><span class="si">${</span><span class="nx">EPHEMERAL_KEY</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
-<a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a><span class="w">      </span><span class="s2">&quot;Content-Type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;application/sdp&quot;</span>
-<a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a><span class="w">  </span><span class="p">});</span>
-<a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a>
-<a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">answer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a><span class="w">    </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;answer&quot;</span><span class="p">,</span>
-<a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a><span class="w">    </span><span class="nx">sdp</span><span class="o">:</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">sdpResponse</span><span class="p">.</span><span class="nx">text</span><span class="p">(),</span>
-<a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a><span class="w">  </span><span class="p">};</span>
-<a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">pc</span><span class="p">.</span><span class="nx">setRemoteDescription</span><span class="p">(</span><span class="nx">answer</span><span class="p">);</span>
-<a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a><span class="p">}</span>
-<a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a>
-<a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a><span class="nx">init</span><span class="p">();</span>
-</code></pre></div>
-<h4 id="nodejs">服务器端实现 (Node.js)</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">express</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;express&quot;</span><span class="p">;</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">app</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">express</span><span class="p">();</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="c1">// 创建一个端点用于生成临时令牌</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="c1">// 该端点与上面的客户端代码配合使用</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nx">app</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;/session&quot;</span><span class="p">,</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">fetch</span><span class="p">(</span><span class="s2">&quot;https://你的api服务器地址/v1/realtime/sessions&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">      </span><span class="s2">&quot;Authorization&quot;</span><span class="o">:</span><span class="w"> </span><span class="sb">`Bearer </span><span class="si">${</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">API_KEY</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">      </span><span class="s2">&quot;Content-Type&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="nx">body</span><span class="o">:</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">      </span><span class="nx">model</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;gpt-4o-realtime-preview-2024-12-17&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">      </span><span class="nx">voice</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;verse&quot;</span><span class="p">,</span>
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="p">}),</span>
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">  </span><span class="p">});</span>
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
-<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>
-<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">  </span><span class="c1">// 将从OpenAI REST API收到的JSON发送回客户端</span>
-<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">  </span><span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
-<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="p">});</span>
-<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>
-<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mf">3000</span><span class="p">);</span>
-</code></pre></div>
-<h4 id="webrtc_2">WebRTC 事件收发示例</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// 从对等连接创建数据通道</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kd">const</span><span class="w"> </span><span class="nx">dc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">pc</span><span class="p">.</span><span class="nx">createDataChannel</span><span class="p">(</span><span class="s2">&quot;oai-events&quot;</span><span class="p">);</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1">// 监听数据通道上的服务器事件</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1">// 事件数据需要从JSON字符串解析</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="nx">dc</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="nx">e</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">realtimeEvent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">realtimeEvent</span><span class="p">);</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="p">});</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="c1">// 发送客户端事件：将有效的客户端事件序列化为</span>
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="c1">// JSON，并通过数据通道发送</span>
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="kd">const</span><span class="w"> </span><span class="nx">responseCreate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">  </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;response.create&quot;</span><span class="p">,</span>
-<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">  </span><span class="nx">response</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a><span class="w">    </span><span class="nx">modalities</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">],</span>
-<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="w">    </span><span class="nx">instructions</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Write a haiku about code&quot;</span><span class="p">,</span>
-<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a><span class="p">};</span>
-<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="nx">dc</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">responseCreate</span><span class="p">));</span>
-</code></pre></div>
-<h3 id="websocket_1">WebSocket 连接 ✅</h3>
-<h4 id="nodejs-ws">Node.js (ws模块)</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">import</span><span class="w"> </span><span class="nx">WebSocket</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s2">&quot;ws&quot;</span><span class="p">;</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="kd">const</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;wss://你的api服务器地址/v1/realtime?model=gpt-4o-realtime-preview-2024-12-17&quot;</span><span class="p">;</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="kd">const</span><span class="w"> </span><span class="nx">ws</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">WebSocket</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="nx">headers</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="s2">&quot;Authorization&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Bearer &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">API_KEY</span><span class="p">,</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="s2">&quot;OpenAI-Beta&quot;</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;realtime=v1&quot;</span><span class="p">,</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="p">});</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="nx">ws</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;open&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">open</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Connected to server.&quot;</span><span class="p">);</span>
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="p">});</span>
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="nx">ws</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">incoming</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">toString</span><span class="p">()));</span>
-<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="p">});</span>
-</code></pre></div>
-<h4 id="python-websocket-client">Python (websocket-client)</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># 需要安装 websocket-client 库:</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="c1"># pip install websocket-client</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">websocket</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="n">API_KEY</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;API_KEY&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;wss://你的api服务器地址/v1/realtime?model=gpt-4o-realtime-preview-2024-12-17&quot;</span>
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="n">headers</span> <span class="o">=</span> <span class="p">[</span>
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>    <span class="s2">&quot;Authorization: Bearer &quot;</span> <span class="o">+</span> <span class="n">API_KEY</span><span class="p">,</span>
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>    <span class="s2">&quot;OpenAI-Beta: realtime=v1&quot;</span>
-<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="p">]</span>
-<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a>
-<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_open</span><span class="p">(</span><span class="n">ws</span><span class="p">):</span>
-<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Connected to server.&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>
-<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_message</span><span class="p">(</span><span class="n">ws</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
-<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>    <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Received event:&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
-<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a>
-<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a><span class="n">ws</span> <span class="o">=</span> <span class="n">websocket</span><span class="o">.</span><span class="n">WebSocketApp</span><span class="p">(</span>
-<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>    <span class="n">url</span><span class="p">,</span>
-<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>    <span class="n">header</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
-<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>    <span class="n">on_open</span><span class="o">=</span><span class="n">on_open</span><span class="p">,</span>
-<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>    <span class="n">on_message</span><span class="o">=</span><span class="n">on_message</span><span class="p">,</span>
-<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a><span class="p">)</span>
-<a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>
-<a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a><span class="n">ws</span><span class="o">.</span><span class="n">run_forever</span><span class="p">()</span>
-</code></pre></div>
-<h4 id="websocket_2">浏览器 (标准WebSocket)</h4>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="cm">/*</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="cm">注意：在浏览器等客户端环境中，我们建议使用WebRTC。</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="cm">但在Deno和Cloudflare Workers等类浏览器环境中，</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="cm">也可以使用标准WebSocket接口。</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="cm">*/</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="kd">const</span><span class="w"> </span><span class="nx">ws</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">WebSocket</span><span class="p">(</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">  </span><span class="s2">&quot;wss://你的api服务器地址/v1/realtime?model=gpt-4o-realtime-preview-2024-12-17&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">  </span><span class="p">[</span>
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="s2">&quot;realtime&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">    </span><span class="c1">// 认证</span>
-<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">    </span><span class="s2">&quot;openai-insecure-api-key.&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">API_KEY</span><span class="p">,</span><span class="w"> </span>
-<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">    </span><span class="c1">// 可选</span>
-<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">    </span><span class="s2">&quot;openai-organization.&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">OPENAI_ORG_ID</span><span class="p">,</span>
-<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="s2">&quot;openai-project.&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">OPENAI_PROJECT_ID</span><span class="p">,</span>
-<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">    </span><span class="c1">// Beta协议，必需</span>
-<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">    </span><span class="s2">&quot;openai-beta.realtime-v1&quot;</span>
-<a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">  </span><span class="p">]</span>
-<a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="p">);</span>
-<a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a>
-<a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="nx">ws</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;open&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">open</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Connected to server.&quot;</span><span class="p">);</span>
-<a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="p">});</span>
-<a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a>
-<a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="nx">ws</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">incoming</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">data</span><span class="p">);</span>
-<a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="p">});</span>
-</code></pre></div>
-<h4 id="_22">消息收发示例</h4>
-<h5 id="nodejs_1">Node.js/浏览器</h5>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// 接收服务器事件</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nx">ws</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;message&quot;</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">incoming</span><span class="p">(</span><span class="nx">message</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">  </span><span class="c1">// 需要从JSON解析消息数据</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">serverEvent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">message</span><span class="p">.</span><span class="nx">data</span><span class="p">)</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">serverEvent</span><span class="p">);</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="p">});</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
-<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="c1">// 发送事件，创建符合客户端事件格式的JSON数据结构</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="kd">const</span><span class="w"> </span><span class="nx">event</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">  </span><span class="nx">type</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;response.create&quot;</span><span class="p">,</span>
-<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">  </span><span class="nx">response</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">    </span><span class="nx">modalities</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;audio&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;text&quot;</span><span class="p">],</span>
-<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="nx">instructions</span><span class="o">:</span><span class="w"> </span><span class="s2">&quot;Give me a haiku about code.&quot;</span><span class="p">,</span>
-<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="p">};</span>
-<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">event</span><span class="p">));</span>
-</code></pre></div>
-<h5 id="python">Python</h5>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="c1"># 发送客户端事件，将字典序列化为JSON</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_open</span><span class="p">(</span><span class="n">ws</span><span class="p">):</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Connected to server.&quot;</span><span class="p">)</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>
-<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="n">event</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>        <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;response.create&quot;</span><span class="p">,</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>        <span class="s2">&quot;response&quot;</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>            <span class="s2">&quot;modalities&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;text&quot;</span><span class="p">],</span>
-<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>            <span class="s2">&quot;instructions&quot;</span><span class="p">:</span> <span class="s2">&quot;Please assist the user.&quot;</span>
-<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>        <span class="p">}</span>
-<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>    <span class="p">}</span>
-<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>    <span class="n">ws</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">event</span><span class="p">))</span>
-<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>
-<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="c1"># 接收消息需要从JSON解析消息负载</span>
-<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_message</span><span class="p">(</span><span class="n">ws</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
-<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>    <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Received event:&quot;</span><span class="p">,</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
-</code></pre></div>
-<h2 id="_23">⚠️ 错误处理</h2>
-<h3 id="_24">常见错误</h3>
-<ol>
-<li>连接错误</li>
-<li>网络问题</li>
-<li>认证失败</li>
-<li>配置错误</li>
-<li>音频错误</li>
-<li>设备权限</li>
-<li>格式不支持</li>
-<li>编解码问题</li>
-<li>会话错误</li>
-<li>令牌过期</li>
-<li>会话超时</li>
-<li>并发限制</li>
-</ol>
-<h3 id="_25">错误恢复</h3>
-<ol>
-<li>自动重连</li>
-<li>会话恢复</li>
-<li>错误重试</li>
-<li>降级处理</li>
-</ol>
-<h2 id="_26">📝 事件参考</h2>
-<h3 id="_27">通用请求头</h3>
-<p>所有事件都需要包含以下请求头:</p>
-<table>
-<thead>
-<tr>
-<th>请求头</th>
-<th>类型</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Authorization</td>
-<td>字符串</td>
-<td>认证令牌</td>
-<td>Bearer $API_KEY</td>
-</tr>
-<tr>
-<td>OpenAI-Beta</td>
-<td>字符串</td>
-<td>API 版本</td>
-<td>realtime=v1</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_28">客户端事件</h3>
-<h4 id="sessionupdate">session.update</h4>
-<p>更新会话的默认配置。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值/可选值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>客户端生成的事件标识符</td>
-<td>event_123</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>session.update</td>
-</tr>
-<tr>
-<td>modalities</td>
-<td>字符串数组</td>
-<td>否</td>
-<td>模型可以响应的模态类型</td>
-<td>["text", "audio"]</td>
-</tr>
-<tr>
-<td>instructions</td>
-<td>字符串</td>
-<td>否</td>
-<td>预置到模型调用前的系统指令</td>
-<td>"Your knowledge cutoff is 2023-10..."</td>
-</tr>
-<tr>
-<td>voice</td>
-<td>字符串</td>
-<td>否</td>
-<td>模型使用的语音类型</td>
-<td>alloy、echo、shimmer</td>
-</tr>
-<tr>
-<td>input_audio_format</td>
-<td>字符串</td>
-<td>否</td>
-<td>输入音频格式</td>
-<td>pcm16、g711_ulaw、g711_alaw</td>
-</tr>
-<tr>
-<td>output_audio_format</td>
-<td>字符串</td>
-<td>否</td>
-<td>输出音频格式</td>
-<td>pcm16、g711_ulaw、g711_alaw</td>
-</tr>
-<tr>
-<td>input_audio_transcription.model</td>
-<td>字符串</td>
-<td>否</td>
-<td>用于转写的模型</td>
-<td>whisper-1</td>
-</tr>
-<tr>
-<td>turn_detection.type</td>
-<td>字符串</td>
-<td>否</td>
-<td>语音检测类型</td>
-<td>server_vad</td>
-</tr>
-<tr>
-<td>turn_detection.threshold</td>
-<td>数字</td>
-<td>否</td>
-<td>VAD 激活阈值(0.0-1.0)</td>
-<td>0.8</td>
-</tr>
-<tr>
-<td>turn_detection.prefix_padding_ms</td>
-<td>整数</td>
-<td>否</td>
-<td>语音开始前包含的音频时长</td>
-<td>500</td>
-</tr>
-<tr>
-<td>turn_detection.silence_duration_ms</td>
-<td>整数</td>
-<td>否</td>
-<td>检测语音停止的静音持续时间</td>
-<td>1000</td>
-</tr>
-<tr>
-<td>tools</td>
-<td>数组</td>
-<td>否</td>
-<td>模型可用的工具列表</td>
-<td>[]</td>
-</tr>
-<tr>
-<td>tool_choice</td>
-<td>字符串</td>
-<td>否</td>
-<td>模型选择工具的方式</td>
-<td>auto/none/required</td>
-</tr>
-<tr>
-<td>temperature</td>
-<td>数字</td>
-<td>否</td>
-<td>模型采样温度</td>
-<td>0.8</td>
-</tr>
-<tr>
-<td>max_output_tokens</td>
-<td>字符串/整数</td>
-<td>否</td>
-<td>单次响应最大token数</td>
-<td>"inf"/4096</td>
-</tr>
-</tbody>
-</table>
-<h4 id="input_audio_bufferappend">input_audio_buffer.append</h4>
-<p>向输入音频缓冲区追加音频数据。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>客户端生成的事件标识符</td>
-<td>event_456</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>input_audio_buffer.append</td>
-</tr>
-<tr>
-<td>audio</td>
-<td>字符串</td>
-<td>否</td>
-<td>Base64编码的音频数据</td>
-<td>Base64EncodedAudioData</td>
-</tr>
-</tbody>
-</table>
-<h4 id="input_audio_buffercommit">input_audio_buffer.commit</h4>
-<p>将缓冲区中的音频数据提交为用户消息。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>客户端生成的事件标识符</td>
-<td>event_789</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>input_audio_buffer.commit</td>
-</tr>
-</tbody>
-</table>
-<h4 id="input_audio_bufferclear">input_audio_buffer.clear</h4>
-<p>清空输入音频缓冲区中的所有音频数据。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>客户端生成的事件标识符</td>
-<td>event_012</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>input_audio_buffer.clear</td>
-</tr>
-</tbody>
-</table>
-<h4 id="conversationitemcreate">conversation.item.create</h4>
-<p>向对话中添加新的对话项。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>客户端生成的事件标识符</td>
-<td>event_345</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>conversation.item.create</td>
-</tr>
-<tr>
-<td>previous_item_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>新对话项将插入在此ID之后</td>
-<td>null</td>
-</tr>
-<tr>
-<td>item.id</td>
-<td>字符串</td>
-<td>否</td>
-<td>对话项的唯一标识符</td>
-<td>msg_001</td>
-</tr>
-<tr>
-<td>item.type</td>
-<td>字符串</td>
-<td>否</td>
-<td>对话项类型</td>
-<td>message/function_call/function_call_output</td>
-</tr>
-<tr>
-<td>item.status</td>
-<td>字符串</td>
-<td>否</td>
-<td>对话项状态</td>
-<td>completed/in_progress/incomplete</td>
-</tr>
-<tr>
-<td>item.role</td>
-<td>字符串</td>
-<td>否</td>
-<td>消息发送者的角色</td>
-<td>user/assistant/system</td>
-</tr>
-<tr>
-<td>item.content</td>
-<td>数组</td>
-<td>否</td>
-<td>消息内容</td>
-<td>[text/audio/transcript]</td>
-</tr>
-<tr>
-<td>item.call_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>函数调用的ID</td>
-<td>call_001</td>
-</tr>
-<tr>
-<td>item.name</td>
-<td>字符串</td>
-<td>否</td>
-<td>被调用的函数名称</td>
-<td>function_name</td>
-</tr>
-<tr>
-<td>item.arguments</td>
-<td>字符串</td>
-<td>否</td>
-<td>函数调用的参数</td>
-<td>{"param": "value"}</td>
-</tr>
-<tr>
-<td>item.output</td>
-<td>字符串</td>
-<td>否</td>
-<td>函数调用的输出结果</td>
-<td>{"result": "value"}</td>
-</tr>
-</tbody>
-</table>
-<h4 id="conversationitemtruncate">conversation.item.truncate</h4>
-<p>截断助手消息中的音频内容。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>客户端生成的事件标识符</td>
-<td>event_678</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>conversation.item.truncate</td>
-</tr>
-<tr>
-<td>item_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>要截断的助手消息项的ID</td>
-<td>msg_002</td>
-</tr>
-<tr>
-<td>content_index</td>
-<td>整数</td>
-<td>否</td>
-<td>要截断的内容部分的索引</td>
-<td>0</td>
-</tr>
-<tr>
-<td>audio_end_ms</td>
-<td>整数</td>
-<td>否</td>
-<td>音频截断的结束时间点</td>
-<td>1500</td>
-</tr>
-</tbody>
-</table>
-<h4 id="conversationitemdelete">conversation.item.delete</h4>
-<p>从对话历史中删除指定的对话项。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>客户端生成的事件标识符</td>
-<td>event_901</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>conversation.item.delete</td>
-</tr>
-<tr>
-<td>item_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>要删除的对话项的ID</td>
-<td>msg_003</td>
-</tr>
-</tbody>
-</table>
-<h4 id="responsecreate">response.create</h4>
-<p>触发响应生成。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>客户端生成的事件标识符</td>
-<td>event_234</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>response.create</td>
-</tr>
-<tr>
-<td>response.modalities</td>
-<td>字符串数组</td>
-<td>否</td>
-<td>响应的模态类型</td>
-<td>["text", "audio"]</td>
-</tr>
-<tr>
-<td>response.instructions</td>
-<td>字符串</td>
-<td>否</td>
-<td>给模型的指令</td>
-<td>"Please assist the user."</td>
-</tr>
-<tr>
-<td>response.voice</td>
-<td>字符串</td>
-<td>否</td>
-<td>模型使用的语音类型</td>
-<td>alloy/echo/shimmer</td>
-</tr>
-<tr>
-<td>response.output_audio_format</td>
-<td>字符串</td>
-<td>否</td>
-<td>输出音频格式</td>
-<td>pcm16</td>
-</tr>
-<tr>
-<td>response.tools</td>
-<td>数组</td>
-<td>否</td>
-<td>模型可用的工具列表</td>
-<td>["type", "name", "description"]</td>
-</tr>
-<tr>
-<td>response.tool_choice</td>
-<td>字符串</td>
-<td>否</td>
-<td>模型选择工具的方式</td>
-<td>auto</td>
-</tr>
-<tr>
-<td>response.temperature</td>
-<td>数字</td>
-<td>否</td>
-<td>采样温度</td>
-<td>0.7</td>
-</tr>
-<tr>
-<td>response.max_output_tokens</td>
-<td>整数/字符串</td>
-<td>否</td>
-<td>最大输出token数</td>
-<td>150/"inf"</td>
-</tr>
-</tbody>
-</table>
-<h4 id="responsecancel">response.cancel</h4>
-<p>取消正在进行中的响应生成。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>客户端生成的事件标识符</td>
-<td>event_567</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>response.cancel</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_29">服务端事件</h3>
-<h4 id="error">error</h4>
-<p>当发生错误时返回的事件。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串数组</td>
-<td>否</td>
-<td>服务端事件的唯一标识符</td>
-<td>["event_890"]</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>error</td>
-</tr>
-<tr>
-<td>error.type</td>
-<td>字符串</td>
-<td>否</td>
-<td>错误类型</td>
-<td>invalid_request_error/server_error</td>
-</tr>
-<tr>
-<td>error.code</td>
-<td>字符串</td>
-<td>否</td>
-<td>错误代码</td>
-<td>invalid_event</td>
-</tr>
-<tr>
-<td>error.message</td>
-<td>字符串</td>
-<td>否</td>
-<td>人类可读的错误消息</td>
-<td>"The 'type' field is missing."</td>
-</tr>
-<tr>
-<td>error.param</td>
-<td>字符串</td>
-<td>否</td>
-<td>与错误相关的参数</td>
-<td>null</td>
-</tr>
-<tr>
-<td>error.event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>相关事件的ID</td>
-<td>event_567</td>
-</tr>
-</tbody>
-</table>
-<h4 id="conversationiteminput_audio_transcriptioncompleted">conversation.item.input_audio_transcription.completed</h4>
-<p>当启用输入音频转写功能并且转写成功时返回此事件。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>服务端事件的唯一标识符</td>
-<td>event_2122</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>conversation.item.input_audio_transcription.completed</td>
-</tr>
-<tr>
-<td>item_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>用户消息项的ID</td>
-<td>msg_003</td>
-</tr>
-<tr>
-<td>content_index</td>
-<td>整数</td>
-<td>否</td>
-<td>包含音频的内容部分的索引</td>
-<td>0</td>
-</tr>
-<tr>
-<td>transcript</td>
-<td>字符串</td>
-<td>否</td>
-<td>转写的文本内容</td>
-<td>"Hello, how are you?"</td>
-</tr>
-</tbody>
-</table>
-<h4 id="conversationiteminput_audio_transcriptionfailed">conversation.item.input_audio_transcription.failed</h4>
-<p>当配置了输入音频转写功能,但用户消息的转写请求失败时返回此事件。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>服务端事件的唯一标识符</td>
-<td>event_2324</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串数组</td>
-<td>否</td>
-<td>事件类型</td>
-<td>["conversation.item.input_audio_transcription.failed"]</td>
-</tr>
-<tr>
-<td>item_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>用户消息项的ID</td>
-<td>msg_003</td>
-</tr>
-<tr>
-<td>content_index</td>
-<td>整数</td>
-<td>否</td>
-<td>包含音频的内容部分的索引</td>
-<td>0</td>
-</tr>
-<tr>
-<td>error.type</td>
-<td>字符串</td>
-<td>否</td>
-<td>错误类型</td>
-<td>transcription_error</td>
-</tr>
-<tr>
-<td>error.code</td>
-<td>字符串</td>
-<td>否</td>
-<td>错误代码</td>
-<td>audio_unintelligible</td>
-</tr>
-<tr>
-<td>error.message</td>
-<td>字符串</td>
-<td>否</td>
-<td>人类可读的错误消息</td>
-<td>"The audio could not be transcribed."</td>
-</tr>
-<tr>
-<td>error.param</td>
-<td>字符串</td>
-<td>否</td>
-<td>与错误相关的参数</td>
-<td>null</td>
-</tr>
-</tbody>
-</table>
-<h4 id="conversationitemtruncated">conversation.item.truncated</h4>
-<p>当客户端截断了之前的助手音频消息项时返回此事件。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>服务端事件的唯一标识符</td>
-<td>event_2526</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>conversation.item.truncated</td>
-</tr>
-<tr>
-<td>item_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>被截断的助手消息项的ID</td>
-<td>msg_004</td>
-</tr>
-<tr>
-<td>content_index</td>
-<td>整数</td>
-<td>否</td>
-<td>被截断的内容部分的索引</td>
-<td>0</td>
-</tr>
-<tr>
-<td>audio_end_ms</td>
-<td>整数</td>
-<td>否</td>
-<td>音频被截断的时间点(毫秒)</td>
-<td>1500</td>
-</tr>
-</tbody>
-</table>
-<h4 id="conversationitemdeleted">conversation.item.deleted</h4>
-<p>当对话中的某个项目被删除时返回此事件。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>服务端事件的唯一标识符</td>
-<td>event_2728</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>conversation.item.deleted</td>
-</tr>
-<tr>
-<td>item_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>被删除的对话项的ID</td>
-<td>msg_005</td>
-</tr>
-</tbody>
-</table>
-<h4 id="input_audio_buffercommitted">input_audio_buffer.committed</h4>
-<p>当音频缓冲区中的数据被提交时返回此事件。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>服务端事件的唯一标识符</td>
-<td>event_1121</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>input_audio_buffer.committed</td>
-</tr>
-<tr>
-<td>previous_item_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>新对话项将插入在此ID对应的对话项之后</td>
-<td>msg_001</td>
-</tr>
-<tr>
-<td>item_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>将要创建的用户消息项的ID</td>
-<td>msg_002</td>
-</tr>
-</tbody>
-</table>
-<h4 id="input_audio_buffercleared">input_audio_buffer.cleared</h4>
-<p>当客户端清空输入音频缓冲区时返回此事件。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>服务端事件的唯一标识符</td>
-<td>event_1314</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>input_audio_buffer.cleared</td>
-</tr>
-</tbody>
-</table>
-<h4 id="input_audio_bufferspeech_started">input_audio_buffer.speech_started</h4>
-<p>在服务器语音检测模式下，当检测到语音输入时返回此事件。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>服务端事件的唯一标识符</td>
-<td>event_1516</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>input_audio_buffer.speech_started</td>
-</tr>
-<tr>
-<td>audio_start_ms</td>
-<td>整数</td>
-<td>否</td>
-<td>从会话开始到检测到语音的毫秒数</td>
-<td>1000</td>
-</tr>
-<tr>
-<td>item_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>语音停止时将创建的用户消息项的ID</td>
-<td>msg_003</td>
-</tr>
-</tbody>
-</table>
-<h4 id="input_audio_bufferspeech_stopped">input_audio_buffer.speech_stopped</h4>
-<p>在服务器语音检测模式下，当检测到语音输入停止时返回此事件。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>服务端事件的唯一标识符</td>
-<td>event_1718</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>input_audio_buffer.speech_stopped</td>
-</tr>
-<tr>
-<td>audio_start_ms</td>
-<td>整数</td>
-<td>否</td>
-<td>从会话开始到检测到语音停止的毫秒数</td>
-<td>2000</td>
-</tr>
-<tr>
-<td>item_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>将要创建的用户消息项的ID</td>
-<td>msg_003</td>
-</tr>
-</tbody>
-</table>
-<h4 id="responsecreated">response.created</h4>
-<p>当创建新的响应时返回此事件。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>服务端事件的唯一标识符</td>
-<td>event_2930</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>response.created</td>
-</tr>
-<tr>
-<td>response.id</td>
-<td>字符串</td>
-<td>否</td>
-<td>响应的唯一标识符</td>
-<td>resp_001</td>
-</tr>
-<tr>
-<td>response.object</td>
-<td>字符串</td>
-<td>否</td>
-<td>对象类型</td>
-<td>realtime.response</td>
-</tr>
-<tr>
-<td>response.status</td>
-<td>字符串</td>
-<td>否</td>
-<td>响应的状态</td>
-<td>in_progress</td>
-</tr>
-<tr>
-<td>response.status_details</td>
-<td>对象</td>
-<td>否</td>
-<td>状态的附加详细信息</td>
-<td>null</td>
-</tr>
-<tr>
-<td>response.output</td>
-<td>字符串数组</td>
-<td>否</td>
-<td>响应生成的输出项列表</td>
-<td>["[]"]</td>
-</tr>
-<tr>
-<td>response.usage</td>
-<td>对象</td>
-<td>否</td>
-<td>响应的使用统计信息</td>
-<td>null</td>
-</tr>
-</tbody>
-</table>
-<h4 id="responsedone">response.done</h4>
-<p>当响应完成流式传输时返回此事件。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>服务端事件的唯一标识符</td>
-<td>event_3132</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>response.done</td>
-</tr>
-<tr>
-<td>response.id</td>
-<td>字符串</td>
-<td>否</td>
-<td>响应的唯一标识符</td>
-<td>resp_001</td>
-</tr>
-<tr>
-<td>response.object</td>
-<td>字符串</td>
-<td>否</td>
-<td>对象类型</td>
-<td>realtime.response</td>
-</tr>
-<tr>
-<td>response.status</td>
-<td>字符串</td>
-<td>否</td>
-<td>响应的最终状态</td>
-<td>completed/cancelled/failed/incomplete</td>
-</tr>
-<tr>
-<td>response.status_details</td>
-<td>对象</td>
-<td>否</td>
-<td>状态的附加详细信息</td>
-<td>null</td>
-</tr>
-<tr>
-<td>response.output</td>
-<td>字符串数组</td>
-<td>否</td>
-<td>响应生成的输出项列表</td>
-<td>["[...]"]</td>
-</tr>
-<tr>
-<td>response.usage.total_tokens</td>
-<td>整数</td>
-<td>否</td>
-<td>总token数</td>
-<td>50</td>
-</tr>
-<tr>
-<td>response.usage.input_tokens</td>
-<td>整数</td>
-<td>否</td>
-<td>输入token数</td>
-<td>20</td>
-</tr>
-<tr>
-<td>response.usage.output_tokens</td>
-<td>整数</td>
-<td>否</td>
-<td>输出token数</td>
-<td>30</td>
-</tr>
-</tbody>
-</table>
-<h4 id="responseoutput_itemadded">response.output_item.added</h4>
-<p>当响应生成过程中创建新的输出项时返回此事件。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>服务端事件的唯一标识符</td>
-<td>event_3334</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>response.output_item.added</td>
-</tr>
-<tr>
-<td>response_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>输出项所属的响应ID</td>
-<td>resp_001</td>
-</tr>
-<tr>
-<td>output_index</td>
-<td>字符串</td>
-<td>否</td>
-<td>输出项在响应中的索引</td>
-<td>0</td>
-</tr>
-<tr>
-<td>item.id</td>
-<td>字符串</td>
-<td>否</td>
-<td>输出项的唯一标识符</td>
-<td>msg_007</td>
-</tr>
-<tr>
-<td>item.object</td>
-<td>字符串</td>
-<td>否</td>
-<td>对象类型</td>
-<td>realtime.item</td>
-</tr>
-<tr>
-<td>item.type</td>
-<td>字符串</td>
-<td>否</td>
-<td>输出项类型</td>
-<td>message/function_call/function_call_output</td>
-</tr>
-<tr>
-<td>item.status</td>
-<td>字符串</td>
-<td>否</td>
-<td>输出项状态</td>
-<td>in_progress/completed</td>
-</tr>
-<tr>
-<td>item.role</td>
-<td>字符串</td>
-<td>否</td>
-<td>与输出项关联的角色</td>
-<td>assistant</td>
-</tr>
-<tr>
-<td>item.content</td>
-<td>数组</td>
-<td>否</td>
-<td>输出项的内容</td>
-<td>["type", "text", "audio", "transcript"]</td>
-</tr>
-</tbody>
-</table>
-<h4 id="responseoutput_itemdone">response.output_item.done</h4>
-<p>当输出项完成流式传输时返回此事件。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>服务端事件的唯一标识符</td>
-<td>event_3536</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>response.output_item.done</td>
-</tr>
-<tr>
-<td>response_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>输出项所属的响应ID</td>
-<td>resp_001</td>
-</tr>
-<tr>
-<td>output_index</td>
-<td>字符串</td>
-<td>否</td>
-<td>输出项在响应中的索引</td>
-<td>0</td>
-</tr>
-<tr>
-<td>item.id</td>
-<td>字符串</td>
-<td>否</td>
-<td>输出项的唯一标识符</td>
-<td>msg_007</td>
-</tr>
-<tr>
-<td>item.object</td>
-<td>字符串</td>
-<td>否</td>
-<td>对象类型</td>
-<td>realtime.item</td>
-</tr>
-<tr>
-<td>item.type</td>
-<td>字符串</td>
-<td>否</td>
-<td>输出项类型</td>
-<td>message/function_call/function_call_output</td>
-</tr>
-<tr>
-<td>item.status</td>
-<td>字符串</td>
-<td>否</td>
-<td>输出项的最终状态</td>
-<td>completed/incomplete</td>
-</tr>
-<tr>
-<td>item.role</td>
-<td>字符串</td>
-<td>否</td>
-<td>与输出项关联的角色</td>
-<td>assistant</td>
-</tr>
-<tr>
-<td>item.content</td>
-<td>数组</td>
-<td>否</td>
-<td>输出项的内容</td>
-<td>["type", "text", "audio", "transcript"]</td>
-</tr>
-</tbody>
-</table>
-<h4 id="responsecontent_partadded">response.content_part.added</h4>
-<p>当响应生成过程中向助手消息项添加新的内容部分时返回此事件。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>服务端事件的唯一标识符</td>
-<td>event_3738</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>response.content_part.added</td>
-</tr>
-<tr>
-<td>response_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>响应的ID</td>
-<td>resp_001</td>
-</tr>
-<tr>
-<td>item_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>添加内容部分的消息项ID</td>
-<td>msg_007</td>
-</tr>
-<tr>
-<td>output_index</td>
-<td>整数</td>
-<td>否</td>
-<td>输出项在响应中的索引</td>
-<td>0</td>
-</tr>
-<tr>
-<td>content_index</td>
-<td>整数</td>
-<td>否</td>
-<td>内容部分在消息项内容数组中的索引</td>
-<td>0</td>
-</tr>
-<tr>
-<td>part.type</td>
-<td>字符串</td>
-<td>否</td>
-<td>内容类型</td>
-<td>text/audio</td>
-</tr>
-<tr>
-<td>part.text</td>
-<td>字符串</td>
-<td>否</td>
-<td>文本内容</td>
-<td>"Hello"</td>
-</tr>
-<tr>
-<td>part.audio</td>
-<td>字符串</td>
-<td>否</td>
-<td>Base64编码的音频数据</td>
-<td>"base64_encoded_audio_data"</td>
-</tr>
-<tr>
-<td>part.transcript</td>
-<td>字符串</td>
-<td>否</td>
-<td>音频的转写文本</td>
-<td>"Hello"</td>
-</tr>
-</tbody>
-</table>
-<h4 id="responsecontent_partdone">response.content_part.done</h4>
-<p>当助手消息项中的内容部分完成流式传输时返回此事件。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>服务端事件的唯一标识符</td>
-<td>event_3940</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>response.content_part.done</td>
-</tr>
-<tr>
-<td>response_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>响应的ID</td>
-<td>resp_001</td>
-</tr>
-<tr>
-<td>item_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>添加内容部分的消息项ID</td>
-<td>msg_007</td>
-</tr>
-<tr>
-<td>output_index</td>
-<td>整数</td>
-<td>否</td>
-<td>输出项在响应中的索引</td>
-<td>0</td>
-</tr>
-<tr>
-<td>content_index</td>
-<td>整数</td>
-<td>否</td>
-<td>内容部分在消息项内容数组中的索引</td>
-<td>0</td>
-</tr>
-<tr>
-<td>part.type</td>
-<td>字符串</td>
-<td>否</td>
-<td>内容类型</td>
-<td>text/audio</td>
-</tr>
-<tr>
-<td>part.text</td>
-<td>字符串</td>
-<td>否</td>
-<td>文本内容</td>
-<td>"Hello"</td>
-</tr>
-<tr>
-<td>part.audio</td>
-<td>字符串</td>
-<td>否</td>
-<td>Base64编码的音频数据</td>
-<td>"base64_encoded_audio_data"</td>
-</tr>
-<tr>
-<td>part.transcript</td>
-<td>字符串</td>
-<td>否</td>
-<td>音频的转写文本</td>
-<td>"Hello"</td>
-</tr>
-</tbody>
-</table>
-<h4 id="responsetextdelta">response.text.delta</h4>
-<p>当"text"类型内容部分的文本值更新时返回此事件。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>服务端事件的唯一标识符</td>
-<td>event_4142</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>response.text.delta</td>
-</tr>
-<tr>
-<td>response_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>响应的ID</td>
-<td>resp_001</td>
-</tr>
-<tr>
-<td>item_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>消息项的ID</td>
-<td>msg_007</td>
-</tr>
-<tr>
-<td>output_index</td>
-<td>整数</td>
-<td>否</td>
-<td>输出项在响应中的索引</td>
-<td>0</td>
-</tr>
-<tr>
-<td>content_index</td>
-<td>整数</td>
-<td>否</td>
-<td>内容部分在消息项内容数组中的索引</td>
-<td>0</td>
-</tr>
-<tr>
-<td>delta</td>
-<td>字符串</td>
-<td>否</td>
-<td>文本增量更新内容</td>
-<td>"Sure, I can h"</td>
-</tr>
-</tbody>
-</table>
-<h4 id="responsetextdone">response.text.done</h4>
-<p>当"text"类型内容部分的文本流式传输完成时返回此事件。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>服务端事件的唯一标识符</td>
-<td>event_4344</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>response.text.done</td>
-</tr>
-<tr>
-<td>response_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>响应的ID</td>
-<td>resp_001</td>
-</tr>
-<tr>
-<td>item_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>消息项的ID</td>
-<td>msg_007</td>
-</tr>
-<tr>
-<td>output_index</td>
-<td>整数</td>
-<td>否</td>
-<td>输出项在响应中的索引</td>
-<td>0</td>
-</tr>
-<tr>
-<td>content_index</td>
-<td>整数</td>
-<td>否</td>
-<td>内容部分在消息项内容数组中的索引</td>
-<td>0</td>
-</tr>
-<tr>
-<td>delta</td>
-<td>字符串</td>
-<td>否</td>
-<td>最终的完整文本内容</td>
-<td>"Sure, I can help with that."</td>
-</tr>
-</tbody>
-</table>
-<h4 id="responseaudio_transcriptdelta">response.audio_transcript.delta</h4>
-<p>当模型生成的音频输出转写内容更新时返回此事件。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>服务端事件的唯一标识符</td>
-<td>event_4546</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>response.audio_transcript.delta</td>
-</tr>
-<tr>
-<td>response_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>响应的ID</td>
-<td>resp_001</td>
-</tr>
-<tr>
-<td>item_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>消息项的ID</td>
-<td>msg_008</td>
-</tr>
-<tr>
-<td>output_index</td>
-<td>整数</td>
-<td>否</td>
-<td>输出项在响应中的索引</td>
-<td>0</td>
-</tr>
-<tr>
-<td>content_index</td>
-<td>整数</td>
-<td>否</td>
-<td>内容部分在消息项内容数组中的索引</td>
-<td>0</td>
-</tr>
-<tr>
-<td>delta</td>
-<td>字符串</td>
-<td>否</td>
-<td>转写文本的增量更新内容</td>
-<td>"Hello, how can I a"</td>
-</tr>
-</tbody>
-</table>
-<h4 id="responseaudio_transcriptdone">response.audio_transcript.done</h4>
-<p>当模型生成的音频输出转写完成流式传输时返回此事件。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>服务端事件的唯一标识符</td>
-<td>event_4748</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>response.audio_transcript.done</td>
-</tr>
-<tr>
-<td>response_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>响应的ID</td>
-<td>resp_001</td>
-</tr>
-<tr>
-<td>item_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>消息项的ID</td>
-<td>msg_008</td>
-</tr>
-<tr>
-<td>output_index</td>
-<td>整数</td>
-<td>否</td>
-<td>输出项在响应中的索引</td>
-<td>0</td>
-</tr>
-<tr>
-<td>content_index</td>
-<td>整数</td>
-<td>否</td>
-<td>内容部分在消息项内容数组中的索引</td>
-<td>0</td>
-</tr>
-<tr>
-<td>transcript</td>
-<td>字符串</td>
-<td>否</td>
-<td>音频的最终完整转写文本</td>
-<td>"Hello, how can I assist you today?"</td>
-</tr>
-</tbody>
-</table>
-<h4 id="responseaudiodelta">response.audio.delta</h4>
-<p>当模型生成的音频内容更新时返回此事件。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>服务端事件的唯一标识符</td>
-<td>event_4950</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>response.audio.delta</td>
-</tr>
-<tr>
-<td>response_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>响应的ID</td>
-<td>resp_001</td>
-</tr>
-<tr>
-<td>item_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>消息项的ID</td>
-<td>msg_008</td>
-</tr>
-<tr>
-<td>output_index</td>
-<td>整数</td>
-<td>否</td>
-<td>输出项在响应中的索引</td>
-<td>0</td>
-</tr>
-<tr>
-<td>content_index</td>
-<td>整数</td>
-<td>否</td>
-<td>内容部分在消息项内容数组中的索引</td>
-<td>0</td>
-</tr>
-<tr>
-<td>delta</td>
-<td>字符串</td>
-<td>否</td>
-<td>Base64编码的音频数据增量</td>
-<td>"Base64EncodedAudioDelta"</td>
-</tr>
-</tbody>
-</table>
-<h4 id="responseaudiodone">response.audio.done</h4>
-<p>当模型生成的音频完成时返回此事件。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>服务端事件的唯一标识符</td>
-<td>event_5152</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>response.audio.done</td>
-</tr>
-<tr>
-<td>response_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>响应的ID</td>
-<td>resp_001</td>
-</tr>
-<tr>
-<td>item_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>消息项的ID</td>
-<td>msg_008</td>
-</tr>
-<tr>
-<td>output_index</td>
-<td>整数</td>
-<td>否</td>
-<td>输出项在响应中的索引</td>
-<td>0</td>
-</tr>
-<tr>
-<td>content_index</td>
-<td>整数</td>
-<td>否</td>
-<td>内容部分在消息项内容数组中的索引</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_30">函数调用</h3>
-<h4 id="responsefunction_call_argumentsdelta">response.function_call_arguments.delta</h4>
-<p>当模型生成的函数调用参数更新时返回此事件。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>服务端事件的唯一标识符</td>
-<td>event_5354</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>response.function_call_arguments.delta</td>
-</tr>
-<tr>
-<td>response_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>响应的ID</td>
-<td>resp_002</td>
-</tr>
-<tr>
-<td>item_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>消息项的ID</td>
-<td>fc_001</td>
-</tr>
-<tr>
-<td>output_index</td>
-<td>整数</td>
-<td>否</td>
-<td>输出项在响应中的索引</td>
-<td>0</td>
-</tr>
-<tr>
-<td>call_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>函数调用的ID</td>
-<td>call_001</td>
-</tr>
-<tr>
-<td>delta</td>
-<td>字符串</td>
-<td>否</td>
-<td>JSON格式的函数调用参数增量</td>
-<td>"{\"location\": \"San\""</td>
-</tr>
-</tbody>
-</table>
-<h4 id="responsefunction_call_argumentsdone">response.function_call_arguments.done</h4>
-<p>当模型生成的函数调用参数完成流式传输时返回此事件。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>服务端事件的唯一标识符</td>
-<td>event_5556</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>response.function_call_arguments.done</td>
-</tr>
-<tr>
-<td>response_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>响应的ID</td>
-<td>resp_002</td>
-</tr>
-<tr>
-<td>item_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>消息项的ID</td>
-<td>fc_001</td>
-</tr>
-<tr>
-<td>output_index</td>
-<td>整数</td>
-<td>否</td>
-<td>输出项在响应中的索引</td>
-<td>0</td>
-</tr>
-<tr>
-<td>call_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>函数调用的ID</td>
-<td>call_001</td>
-</tr>
-<tr>
-<td>arguments</td>
-<td>字符串</td>
-<td>否</td>
-<td>最终的完整函数调用参数(JSON格式)</td>
-<td>"{\"location\": \"San Francisco\"}"</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_31">其他状态更新</h3>
-<h4 id="rate_limitsupdated">rate_limits.updated</h4>
-<p>在每个 "response.done" 事件之后触发,用于指示更新后的速率限制。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>服务端事件的唯一标识符</td>
-<td>event_5758</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>rate_limits.updated</td>
-</tr>
-<tr>
-<td>rate_limits</td>
-<td>对象数组</td>
-<td>否</td>
-<td>速率限制信息列表</td>
-<td>[{"name": "requests_per_min", "limit": 60, "remaining": 45, "reset_seconds": 35}]</td>
-</tr>
-</tbody>
-</table>
-<h4 id="conversationcreated">conversation.created</h4>
-<p>当对话创建时返回此事件。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>服务端事件的唯一标识符</td>
-<td>event_9101</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>conversation.created</td>
-</tr>
-<tr>
-<td>conversation</td>
-<td>对象</td>
-<td>否</td>
-<td>对话资源对象</td>
-<td>{"id": "conv_001", "object": "realtime.conversation"}</td>
-</tr>
-</tbody>
-</table>
-<h4 id="conversationitemcreated">conversation.item.created</h4>
-<p>当对话项创建时返回此事件。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>服务端事件的唯一标识符</td>
-<td>event_1920</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>conversation.item.created</td>
-</tr>
-<tr>
-<td>previous_item_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>前一个对话项的ID</td>
-<td>msg_002</td>
-</tr>
-<tr>
-<td>item</td>
-<td>对象</td>
-<td>否</td>
-<td>对话项对象</td>
-<td>{"id": "msg_003", "object": "realtime.item", "type": "message", "status": "completed", "role": "user", "content": [{"type": "text", "text": "Hello"}]}</td>
-</tr>
-</tbody>
-</table>
-<h4 id="sessioncreated">session.created</h4>
-<p>当会话创建时返回此事件。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>服务端事件的唯一标识符</td>
-<td>event_1234</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>session.created</td>
-</tr>
-<tr>
-<td>session</td>
-<td>对象</td>
-<td>否</td>
-<td>会话对象</td>
-<td>{"id": "sess_001", "object": "realtime.session", "model": "gpt-4", "modalities": ["text", "audio"]}</td>
-</tr>
-</tbody>
-</table>
-<h4 id="sessionupdated">session.updated</h4>
-<p>当会话更新时返回此事件。</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>否</td>
-<td>服务端事件的唯一标识符</td>
-<td>event_5678</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>否</td>
-<td>事件类型</td>
-<td>session.updated</td>
-</tr>
-<tr>
-<td>session</td>
-<td>对象</td>
-<td>否</td>
-<td>更新后的会话对象</td>
-<td>{"id": "sess_001", "object": "realtime.session", "model": "gpt-4", "modalities": ["text", "audio"]}</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_32">速率限制事件参数表</h3>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
-<td>字符串</td>
-<td>是</td>
-<td>限制名称</td>
-<td>requests_per_min</td>
-</tr>
-<tr>
-<td>limit</td>
-<td>整数</td>
-<td>是</td>
-<td>限制值</td>
-<td>60</td>
-</tr>
-<tr>
-<td>remaining</td>
-<td>整数</td>
-<td>是</td>
-<td>剩余可用量</td>
-<td>45</td>
-</tr>
-<tr>
-<td>reset_seconds</td>
-<td>整数</td>
-<td>是</td>
-<td>重置时间(秒)</td>
-<td>35</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_33">函数调用参数表</h3>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>是</td>
-<td>函数类型</td>
-<td>function</td>
-</tr>
-<tr>
-<td>name</td>
-<td>字符串</td>
-<td>是</td>
-<td>函数名称</td>
-<td>get_weather</td>
-</tr>
-<tr>
-<td>description</td>
-<td>字符串</td>
-<td>否</td>
-<td>函数描述</td>
-<td>Get the current weather</td>
-</tr>
-<tr>
-<td>parameters</td>
-<td>对象</td>
-<td>是</td>
-<td>函数参数定义</td>
-<td>{"type": "object", "properties": {...}}</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_34">音频格式参数表</h3>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>说明</th>
-<th>可选值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>sample_rate</td>
-<td>整数</td>
-<td>采样率</td>
-<td>8000, 16000, 24000, 44100, 48000</td>
-</tr>
-<tr>
-<td>channels</td>
-<td>整数</td>
-<td>声道数</td>
-<td>1 (单声道), 2 (立体声)</td>
-</tr>
-<tr>
-<td>bits_per_sample</td>
-<td>整数</td>
-<td>采样位数</td>
-<td>16 (pcm16), 8 (g711)</td>
-</tr>
-<tr>
-<td>encoding</td>
-<td>字符串</td>
-<td>编码方式</td>
-<td>pcm16, g711_ulaw, g711_alaw</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_35">语音检测参数表</h3>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>说明</th>
-<th>默认值</th>
-<th>范围</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>threshold</td>
-<td>浮点数</td>
-<td>VAD 激活阈值</td>
-<td>0.5</td>
-<td>0.0-1.0</td>
-</tr>
-<tr>
-<td>prefix_padding_ms</td>
-<td>整数</td>
-<td>语音前缀填充(毫秒)</td>
-<td>500</td>
-<td>0-5000</td>
-</tr>
-<tr>
-<td>silence_duration_ms</td>
-<td>整数</td>
-<td>静音检测时长(毫秒)</td>
-<td>1000</td>
-<td>100-10000</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_36">工具选择参数表</h3>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>说明</th>
-<th>可选值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>tool_choice</td>
-<td>字符串</td>
-<td>工具选择方式</td>
-<td>auto, none, required</td>
-</tr>
-<tr>
-<td>tools</td>
-<td>数组</td>
-<td>可用工具列表</td>
-<td>[{type, name, description, parameters}]</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_37">模型配置参数表</h3>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>说明</th>
-<th>范围/可选值</th>
-<th>默认值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>temperature</td>
-<td>浮点数</td>
-<td>采样温度</td>
-<td>0.0-2.0</td>
-<td>1.0</td>
-</tr>
-<tr>
-<td>max_output_tokens</td>
-<td>整数/字符串</td>
-<td>最大输出长度</td>
-<td>1-4096/"inf"</td>
-<td>"inf"</td>
-</tr>
-<tr>
-<td>modalities</td>
-<td>字符串数组</td>
-<td>响应模态</td>
-<td>["text", "audio"]</td>
-<td>["text"]</td>
-</tr>
-<tr>
-<td>voice</td>
-<td>字符串</td>
-<td>语音类型</td>
-<td>alloy, echo, shimmer</td>
-<td>alloy</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_38">事件通用参数表</h3>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>必需</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>event_id</td>
-<td>字符串</td>
-<td>是</td>
-<td>事件的唯一标识符</td>
-<td>event_123</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>是</td>
-<td>事件类型</td>
-<td>session.update</td>
-</tr>
-<tr>
-<td>timestamp</td>
-<td>整数</td>
-<td>否</td>
-<td>事件发生的时间戳(毫秒)</td>
-<td>1677649363000</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_39">会话状态参数表</h3>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>说明</th>
-<th>可选值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>status</td>
-<td>字符串</td>
-<td>会话状态</td>
-<td>active, ended, error</td>
-</tr>
-<tr>
-<td>error</td>
-<td>对象</td>
-<td>错误信息</td>
-<td>{"type": "error_type", "message": "error message"}</td>
-</tr>
-<tr>
-<td>metadata</td>
-<td>对象</td>
-<td>会话元数据</td>
-<td>{"client_id": "web", "session_type": "chat"}</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_40">对话项状态参数表</h3>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>说明</th>
-<th>可选值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>status</td>
-<td>字符串</td>
-<td>对话项状态</td>
-<td>completed, in_progress, incomplete</td>
-</tr>
-<tr>
-<td>role</td>
-<td>字符串</td>
-<td>发送者角色</td>
-<td>user, assistant, system</td>
-</tr>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>对话项类型</td>
-<td>message, function_call, function_call_output</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_41">内容类型参数表</h3>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>说明</th>
-<th>可选值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>字符串</td>
-<td>内容类型</td>
-<td>text, audio, transcript</td>
-</tr>
-<tr>
-<td>format</td>
-<td>字符串</td>
-<td>内容格式</td>
-<td>plain, markdown, html</td>
-</tr>
-<tr>
-<td>encoding</td>
-<td>字符串</td>
-<td>编码方式</td>
-<td>utf-8, base64</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_42">响应状态参数表</h3>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>说明</th>
-<th>可选值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>status</td>
-<td>字符串</td>
-<td>响应状态</td>
-<td>completed, cancelled, failed, incomplete</td>
-</tr>
-<tr>
-<td>status_details</td>
-<td>对象</td>
-<td>状态详情</td>
-<td>{"reason": "user_cancelled"}</td>
-</tr>
-<tr>
-<td>usage</td>
-<td>对象</td>
-<td>使用统计</td>
-<td>{"total_tokens": 50, "input_tokens": 20, "output_tokens": 30}</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_43">音频转写参数表</h3>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>说明</th>
-<th>示例值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>enabled</td>
-<td>布尔值</td>
-<td>是否启用转写</td>
-<td>true</td>
-</tr>
-<tr>
-<td>model</td>
-<td>字符串</td>
-<td>转写模型</td>
-<td>whisper-1</td>
-</tr>
-<tr>
-<td>language</td>
-<td>字符串</td>
-<td>转写语言</td>
-<td>en, zh, auto</td>
-</tr>
-<tr>
-<td>prompt</td>
-<td>字符串</td>
-<td>转写提示词</td>
-<td>"Transcript of a conversation"</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_44">音频流参数表</h3>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>说明</th>
-<th>可选值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>chunk_size</td>
-<td>整数</td>
-<td>音频块大小(字节)</td>
-<td>1024, 2048, 4096</td>
-</tr>
-<tr>
-<td>latency</td>
-<td>字符串</td>
-<td>延迟模式</td>
-<td>low, balanced, high</td>
-</tr>
-<tr>
-<td>compression</td>
-<td>字符串</td>
-<td>压缩方式</td>
-<td>none, opus, mp3</td>
-</tr>
-</tbody>
-</table>
-<h3 id="webrtc_3">WebRTC 配置参数表</h3>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>类型</th>
-<th>说明</th>
-<th>默认值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ice_servers</td>
-<td>数组</td>
-<td>ICE 服务器列表</td>
-<td>[{"urls": "stun:stun.l.google.com:19302"}]</td>
-</tr>
-<tr>
-<td>audio_constraints</td>
-<td>对象</td>
-<td>音频约束</td>
-<td>{"echoCancellation": true}</td>
-</tr>
-<tr>
-<td>connection_timeout</td>
-<td>整数</td>
-<td>连接超时(毫秒)</td>
-<td>30000</td>
-</tr>
-</tbody>
-</table>
+<h1 id="openai-realtime">OpenAI Realtime<a class="headerlink" href="#openai-realtime" title="Permanent link">&para;</a></h1>
+<p>此入口保留用于兼容旧版页面路径；AI 模型 API 文档已同步到新的分类结构。</p>
+<p><a href="../ai-model/realtime/createrealtimesession/">打开对应文档</a></p>
 
 
 
@@ -5238,8 +3866,6 @@
             </div>
           
           
-  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
-
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
@@ -5277,12 +3903,11 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
-    
-    
-      <script src="../assets/javascripts/bundle.13a4f30d.min.js"></script>
       
-        <script src="../assets/external/unpkg.com/mermaid@11/dist/mermaid.min.js"></script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.indexes", "navigation.top", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

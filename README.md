@@ -1,62 +1,21 @@
-# 📝 NEW API 文档 ✨
+# API 文档
 
----
+本仓库保存静态 API 文档站点产物，并保留可重复同步的 MkDocs 源文件。
 
-👋 欢迎来到本项目的纯净版 API 文档！
+## 同步范围
 
-本文档基于 **`NEW API docs`** 🌐 进行了细致的修改和优化，旨在为您提供一个 **更简洁、更直接、更纯粹的 API 接口参考**。我们移除了不必要的冗余信息，让开发者能够以最快的速度理解并集成所需接口。
+- 上游项目：`QuantumNous/new-api-docs-v1`
+- 上游版本：`9a6a817d7f045b73571c7752e26b451afca5781d`
+- 文档范围：`content/docs/zh/api/ai-model`
+- 页面数量：43 个 AI 模型 API 页面
 
----
+## 本地构建
 
-## 🚀 文档亮点一览
-
-*   **纯净无冗余** ✅：聚焦核心 API 定义，剔除繁杂的背景说明和示例，让信息一目了然。
-*   **基于原有优化** 🛠️：在 `NEW API docs` 的扎实基础上进行，确保接口的准确性和兼容性。
-*   **易于查阅** 🔍：采用清晰的 Markdown 结构，配合内联代码和列表，提升阅读体验。
-*   **快速集成** ⚡：直接呈现请求/响应模型、参数说明和错误码，助您高效完成开发。
-
----
-
-## 📚 文档结构速览
-
-本文档按照 API 的逻辑模块进行组织，您可以轻松定位到所需的信息：
-
-*   **`认证与授权 (Authentication)`** 🔑
-    *   API Key / OAuth2 流程
-    *   Token 管理
-*   **`用户管理 (User Management)`** 🧑‍💻
-    *   用户注册/登录
-    *   用户信息查询/更新
-*   **`数据操作 (Data Operations)`** 📊
-    *   数据创建 (POST)
-    *   数据查询 (GET)
-    *   数据更新 (PUT/PATCH)
-    *   数据删除 (DELETE)
-*   **`错误码与常见问题 (Error Codes & FAQ)`** 🚫
-    *   通用错误码定义
-    *   特定接口错误说明
-    *   常见问题解答
-
----
-
-## 📖 如何查阅？
-
-1.  **直接浏览此 `README.md` 文件**：在 GitHub、GitLab 或任何支持 Markdown 渲染的平台中，您都可以直接阅读。
-2.  **使用 Markdown 编辑器**：推荐使用 VS Code、Typora 等支持 Markdown 预览的工具，以获得最佳排版效果。
-
----
-
-## 🤝 贡献与反馈
-
-我们非常重视您的反馈！如果您在使用过程中发现任何错误，或者有任何改进建议：
-
-*   **提交 Issue** 🐛：请在项目的 Issue 区域提交您的问题或建议。
-*   **提交 Pull Request** 💡：如果您能直接修复错误或优化内容，我们欢迎您的 PR！
-
----
-
-🎉 感谢您的使用，希望这份精简的 API 文档能为您的开发工作带来便利！
-
----
+```bash
+pipenv install
+pipenv run python scripts/sync_ai_model_docs.py
+pipenv run mkdocs build --clean
+bash scripts/publish_site.sh
 ```
 
+同步脚本会重新生成 `docs/`、`mkdocs.yml` 和引用的 OpenAPI JSON。构建产物会输出到 `.site/`，复制到仓库根目录后即可作为静态站点托管。
