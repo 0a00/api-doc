@@ -26,6 +26,35 @@
 | --- | --- | --- | --- | --- |
 | `task_id` | path | 是 | string | 任务 ID |
 
+#### 调用案例
+
+```bash
+curl -X GET "https://你的newapi服务器地址/kling/v1/videos/text2video/task_123456" \
+  -H "Authorization: Bearer $NEWAPI_API_KEY"
+```
+
+#### 成功响应示例
+
+```json
+{
+  "task_id": "task_123456",
+  "status": "completed",
+  "url": "https://example.com/video.mp4",
+  "format": "mp4",
+  "metadata": {
+    "duration": 5,
+    "fps": 30,
+    "width": 1280,
+    "height": 720,
+    "seed": 20231234
+  },
+  "error": {
+    "code": 1,
+    "message": "string"
+  }
+}
+```
+
 #### 响应
 
 

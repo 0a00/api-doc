@@ -31,6 +31,33 @@
 | input | oneOf(string, array<string>) | 是 |  |
 | model | string | 否 | 示例: `text-moderation-latest` |
 
+#### 调用案例
+
+```bash
+curl -X POST "https://你的newapi服务器地址/v1/moderations" \
+  -H "Authorization: Bearer $NEWAPI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "input": "New API 是什么？"
+}'
+```
+
+#### 成功响应示例
+
+```json
+{
+  "id": "task_123456",
+  "model": "gpt-4o",
+  "results": [
+    {
+      "flagged": false,
+      "categories": {},
+      "category_scores": {}
+    }
+  ]
+}
+```
+
 #### 响应
 
 

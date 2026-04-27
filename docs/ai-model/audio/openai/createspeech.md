@@ -34,6 +34,25 @@
 | response_format | string | 否 | 可选值: `mp3`, `opus`, `aac`, `flac`, `wav`, `pcm`<br>默认值: `mp3` |
 | speed | number | 否 | 默认值: `1`<br>最小值: `0.25`<br>最大值: `4` |
 
+#### 调用案例
+
+```bash
+curl -X POST "https://你的newapi服务器地址/v1/audio/speech" \
+  -H "Authorization: Bearer $NEWAPI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "model": "gpt-4o",
+  "input": "New API 是什么？",
+  "voice": "alloy"
+}'
+```
+
+#### 成功响应示例
+
+```text
+<audio/mpeg 响应内容>
+```
+
 #### 响应
 
 

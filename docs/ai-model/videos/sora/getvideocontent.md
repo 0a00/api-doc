@@ -30,6 +30,19 @@
 | --- | --- | --- | --- | --- |
 | `task_id` | path | 是 | string | 视频任务 ID |
 
+#### 调用案例
+
+```bash
+curl -X GET "https://你的newapi服务器地址/v1/videos/task_123456/content" \
+  -H "Authorization: Bearer $NEWAPI_API_KEY"
+```
+
+#### 成功响应示例
+
+```text
+<video/mp4 响应内容>
+```
+
 #### 响应
 
 

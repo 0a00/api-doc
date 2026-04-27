@@ -307,6 +307,234 @@ def render_schema_section(schema: dict[str, Any], document: dict[str, Any]) -> l
     return render_table(["字段", "类型", "必填", "说明"], rows)
 
 
+def first_example(schema: dict[str, Any]) -> Any | None:
+    if "example" in schema:
+        return schema["example"]
+    examples = schema.get("examples")
+    if isinstance(examples, list):
+        for item in examples:
+            if item not in (None, "", []):
+                return item
+    elif examples not in (None, "", []):
+        return examples
+    return None
+
+
+def named_example(name: str, schema: dict[str, Any], media_type: str = "application/json") -> Any | None:
+    lowered = name.lower()
+    if schema.get("format") == "binary":
+        return "@image.png" if media_type == "multipart/form-data" else "<binary>"
+    if lowered in {"model"}:
+        return "gpt-4o"
+    if lowered in {"task_id", "id", "video_id"}:
+        return "task_123456"
+    if lowered in {"messages"}:
+        return [{"role": "user", "content": "你好，请介绍一下 New API。"}]
+    if lowered in {"role"}:
+        return "assistant"
+    if lowered in {"contents"}:
+        return [{"role": "user", "parts": [{"text": "你好，请介绍一下 New API。"}]}]
+    if lowered in {"prompt"}:
+        return "A cute baby sea otter wearing a beret."
+    if lowered in {"input"}:
+        return "New API 是什么？"
+    if lowered in {"text", "content"}:
+        return "你好，请介绍一下 New API。"
+    if lowered in {"image", "mask", "file"}:
+        return "@image.png" if media_type == "multipart/form-data" else "https://example.com/image.png"
+    if lowered in {"voice"}:
+        return "alloy"
+    if lowered in {"response_format"}:
+        return "url"
+    if lowered in {"size"}:
+        return "1024x1024"
+    if lowered in {"n"}:
+        return 1
+    if lowered in {"stream"}:
+        return False
+    if lowered in {"temperature"}:
+        return 0.7
+    if lowered in {"max_tokens", "max_completion_tokens"}:
+        return 300
+    if lowered in {"duration"}:
+        return 5
+    if lowered in {"width"}:
+        return 1280
+    if lowered in {"height"}:
+        return 720
+    if lowered in {"fps"}:
+        return 30
+    if lowered in {"user"}:
+        return "user_123"
+    return None
+
+
+def example_value(
+    schema: dict[str, Any],
+    document: dict[str, Any],
+    name: str = "",
+    media_type: str = "application/json",
+    depth: int = 0,
+    max_depth: int = 4,
+) -> Any:
+    schema = resolve_ref(schema, document)
+    named = named_example(name, schema, media_type)
+    if named is not None:
+        return named
+    explicit = first_example(schema)
+    if explicit is not None:
+        return explicit
+    if "default" in schema:
+        return schema["default"]
+    if schema.get("enum"):
+        return schema["enum"][0]
+    if "oneOf" in schema or "anyOf" in schema:
+        variants = schema.get("oneOf") or schema.get("anyOf") or []
+        for item in variants:
+            if isinstance(item, dict):
+                return example_value(item, document, name, media_type, depth + 1, max_depth)
+    if "allOf" in schema:
+        merged: dict[str, Any] = {}
+        for item in schema.get("allOf") or []:
+            if isinstance(item, dict):
+                value = example_value(item, document, name, media_type, depth + 1, max_depth)
+                if isinstance(value, dict):
+                    merged.update(value)
+        return merged or {}
+
+    typ = schema.get("type")
+    if isinstance(typ, list):
+        typ = next((item for item in typ if item != "null"), typ[0] if typ else "string")
+    if typ == "array":
+        items = schema.get("items") if isinstance(schema.get("items"), dict) else {}
+        return [example_value(items, document, name.rstrip("s"), media_type, depth + 1, max_depth)]
+    if typ == "object" or "properties" in schema:
+        if depth >= max_depth:
+            return {}
+        props = ordered_properties(schema)
+        required = set(schema.get("required") or [])
+        selected = [(key, child) for key, child in props if key in required]
+        if not selected:
+            selected = props[: min(6, len(props))]
+        result: dict[str, Any] = {}
+        for key, child in selected:
+            result[key] = example_value(child, document, key, media_type, depth + 1, max_depth)
+        return result
+    if typ == "integer":
+        return 1
+    if typ == "number":
+        return 1
+    if typ == "boolean":
+        return False
+    if typ == "string":
+        if schema.get("format") == "binary":
+            return "@file"
+        return "string"
+    return "string"
+
+
+def sample_path(path: str, parameters: list[dict[str, Any]], document: dict[str, Any]) -> str:
+    result = path
+    for param in parameters:
+        if param.get("in") != "path":
+            continue
+        name = str(param.get("name", "id"))
+        schema = param.get("schema") if isinstance(param.get("schema"), dict) else {}
+        value = example_value(schema, document, name)
+        result = result.replace("{" + name + "}", str(value))
+    return result
+
+
+def request_media(request_body: dict[str, Any] | None) -> tuple[str | None, dict[str, Any]]:
+    if not request_body:
+        return None, {}
+    content = request_body.get("content") if isinstance(request_body.get("content"), dict) else {}
+    for preferred in ("application/json", "multipart/form-data", "application/x-www-form-urlencoded"):
+        media = content.get(preferred)
+        if isinstance(media, dict):
+            return preferred, media
+    for media_type, media in content.items():
+        if isinstance(media, dict):
+            return str(media_type), media
+    return None, {}
+
+
+def shell_quote(value: Any) -> str:
+    text = str(value)
+    return "'" + text.replace("'", "'\"'\"'") + "'"
+
+
+def render_curl_example(
+    path: str,
+    method: str,
+    parameters: list[dict[str, Any]],
+    request_body: dict[str, Any] | None,
+    operation: dict[str, Any],
+    document: dict[str, Any],
+) -> list[str]:
+    media_type, media = request_media(request_body)
+    schema = media.get("schema") if isinstance(media.get("schema"), dict) else {}
+    path_with_examples = sample_path(path, parameters, document)
+    query_parts = []
+    header_parts = ['-H "Authorization: Bearer $NEWAPI_API_KEY"']
+    for param in parameters:
+        name = str(param.get("name", "param"))
+        location = param.get("in")
+        param_schema = param.get("schema") if isinstance(param.get("schema"), dict) else {}
+        value = example_value(param_schema, document, name)
+        if location == "query" and param.get("required"):
+            query_parts.append(f"{name}={value}")
+        elif location == "header" and param.get("required"):
+            header_parts.append(f'-H "{name}: {value}"')
+    if media_type == "application/json":
+        header_parts.append('-H "Content-Type: application/json"')
+    if query_parts:
+        separator = "&" if "?" in path_with_examples else "?"
+        path_with_examples = path_with_examples + separator + "&".join(query_parts)
+
+    lines = [f"curl -X {method.upper()} \"https://你的newapi服务器地址{path_with_examples}\" \\"]
+    lines.extend([f"  {part} \\" for part in header_parts])
+
+    if media_type == "multipart/form-data":
+        sample = example_value(schema, document, media_type=media_type)
+        if isinstance(sample, dict):
+            for key, value in sample.items():
+                if isinstance(value, str) and value.startswith("@"):
+                    lines.append(f"  -F \"{key}={value}\" \\")
+                else:
+                    lines.append(f"  -F \"{key}={value}\" \\")
+    elif media_type in {"application/json", "application/x-www-form-urlencoded"} and schema:
+        sample = example_value(schema, document, media_type=media_type)
+        if media_type == "application/json":
+            payload = json.dumps(sample, ensure_ascii=False, indent=2)
+            lines.append(f"  -d {shell_quote(payload)} \\")
+        elif isinstance(sample, dict):
+            for key, value in sample.items():
+                lines.append(f"  -d \"{key}={value}\" \\")
+
+    lines[-1] = lines[-1].rstrip(" \\")
+    return ["```bash", *lines, "```"]
+
+
+def render_success_response_example(operation: dict[str, Any], document: dict[str, Any]) -> list[str]:
+    responses = operation.get("responses") if isinstance(operation.get("responses"), dict) else {}
+    for status, response in responses.items():
+        if not str(status).startswith("2") or not isinstance(response, dict):
+            continue
+        content = response.get("content") if isinstance(response.get("content"), dict) else {}
+        media_type, media = next(((mt, m) for mt, m in content.items() if isinstance(m, dict)), (None, None))
+        if not media_type or not isinstance(media, dict):
+            continue
+        schema = media.get("schema") if isinstance(media.get("schema"), dict) else {}
+        if not schema:
+            continue
+        sample = example_value(schema, document, media_type=str(media_type))
+        if str(media_type).startswith("application/json"):
+            return ["```json", json.dumps(sample, ensure_ascii=False, indent=2), "```"]
+        return ["```text", f"<{media_type} 响应内容>", "```"]
+    return []
+
+
 def render_openapi(document_path: Path, operations: list[dict[str, str]], upstream: Path) -> list[str]:
     openapi = json.loads((upstream / document_path).read_text(encoding="utf-8"))
     rendered: list[str] = ["## OpenAPI 摘要"]
@@ -362,6 +590,14 @@ def render_openapi(document_path: Path, operations: list[dict[str, str]], upstre
                 rendered.extend(["", f"##### {media_type}", ""])
                 schema = media.get("schema") if isinstance(media, dict) and isinstance(media.get("schema"), dict) else {}
                 rendered.extend(render_schema_section(schema, openapi))
+
+        rendered.extend(["", "#### 调用案例", ""])
+        rendered.extend(render_curl_example(path, method, params, request_body, operation, openapi))
+
+        success_example = render_success_response_example(operation, openapi)
+        if success_example:
+            rendered.extend(["", "#### 成功响应示例", ""])
+            rendered.extend(success_example)
 
         responses = operation.get("responses") if isinstance(operation.get("responses"), dict) else {}
         if responses:

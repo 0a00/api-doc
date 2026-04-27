@@ -37,6 +37,21 @@
 | user | string | 否 | 代表您的最终用户的唯一标识符，可以帮助 OpenAI 监控和检测滥用行为。[了解更多](https://platform.openai.com/docs/guides/safety-best-practices/end-user-ids)。<br>示例: `` |
 | model | string | 否 | 示例: `dall-e-2` |
 
+#### 调用案例
+
+```bash
+curl -X POST "https://你的newapi服务器地址/v1/images/edits/" \
+  -H "Authorization: Bearer $NEWAPI_API_KEY" \
+  -F "image=@image.png" \
+  -F "prompt=A cute baby sea otter wearing a beret."
+```
+
+#### 成功响应示例
+
+```json
+{}
+```
+
 #### 响应
 
 

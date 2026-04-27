@@ -45,6 +45,38 @@ OpenAI Responses API，用于创建模型响应。
 | previous_response_id | string | 否 |  |
 | truncation | string | 否 | 可选值: `auto`, `disabled` |
 
+#### 调用案例
+
+```bash
+curl -X POST "https://你的newapi服务器地址/v1/responses" \
+  -H "Authorization: Bearer $NEWAPI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "model": "gpt-4o"
+}'
+```
+
+#### 成功响应示例
+
+```json
+{
+  "id": "task_123456",
+  "object": "response",
+  "created_at": 1,
+  "status": "completed",
+  "model": "gpt-4o",
+  "output": [
+    {
+      "type": "string",
+      "id": "task_123456",
+      "status": "string",
+      "role": "assistant",
+      "content": "你好，请介绍一下 New API。"
+    }
+  ]
+}
+```
+
 #### 响应
 
 

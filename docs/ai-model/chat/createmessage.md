@@ -59,6 +59,38 @@ Anthropic Claude Messages API 格式的请求。
 | metadata | object | 否 |  |
 | metadata.user_id | string | 否 |  |
 
+#### 调用案例
+
+```bash
+curl -X POST "https://你的newapi服务器地址/v1/messages" \
+  -H "Authorization: Bearer $NEWAPI_API_KEY" \
+  -H "anthropic-version: 2023-06-01" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "model": "gpt-4o",
+  "messages": [
+    {
+      "role": "user",
+      "content": "你好，请介绍一下 New API。"
+    }
+  ],
+  "max_tokens": 300
+}'
+```
+
+#### 成功响应示例
+
+```json
+{
+  "id": "task_123456",
+  "type": "message",
+  "role": "assistant",
+  "content": "你好，请介绍一下 New API。",
+  "model": "gpt-4o",
+  "stop_reason": "end_turn"
+}
+```
+
 #### 响应
 
 

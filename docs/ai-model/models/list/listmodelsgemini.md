@@ -20,6 +20,23 @@
 | --- | --- | --- | --- |
 | `BearerAuth` | http | bearer | 使用 Bearer Token 认证。<br>格式: `Authorization: Bearer sk-xxxxxx` |
 
+#### 调用案例
+
+```bash
+curl -X GET "https://你的newapi服务器地址/v1beta/models" \
+  -H "Authorization: Bearer $NEWAPI_API_KEY"
+```
+
+#### 成功响应示例
+
+```json
+{
+  "models": [
+    "gpt-4o"
+  ]
+}
+```
+
 #### 响应
 
 

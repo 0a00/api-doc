@@ -31,6 +31,15 @@
 | file | string(binary) | 否 |  |
 | purpose | string | 否 |  |
 
+#### 调用案例
+
+```bash
+curl -X POST "https://你的newapi服务器地址/v1/files" \
+  -H "Authorization: Bearer $NEWAPI_API_KEY" \
+  -F "file=@image.png" \
+  -F "purpose=string"
+```
+
 #### 响应
 
 

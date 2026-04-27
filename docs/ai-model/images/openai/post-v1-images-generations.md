@@ -39,6 +39,39 @@
 | style | string | 否 |  |
 | user | string | 否 |  |
 
+#### 调用案例
+
+```bash
+curl -X POST "https://你的newapi服务器地址/v1/images/generations/" \
+  -H "Authorization: Bearer $NEWAPI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "prompt": "A cute baby sea otter wearing a beret."
+}'
+```
+
+#### 成功响应示例
+
+```json
+{
+  "created": 1,
+  "data": [
+    {
+      "url": "string"
+    }
+  ],
+  "usage": {
+    "total_tokens": 1,
+    "input_tokens": 1,
+    "output_tokens": 1,
+    "input_tokens_details": {
+      "text_tokens": 1,
+      "image_tokens": 1
+    }
+  }
+}
+```
+
 #### 响应
 
 

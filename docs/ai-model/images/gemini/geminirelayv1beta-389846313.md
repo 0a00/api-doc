@@ -43,6 +43,60 @@ Gemini 图片生成
 | contents[].parts | array<object> | 否 |  |
 | contents[].parts[].text | string | 否 |  |
 
+#### 调用案例
+
+```bash
+curl -X POST "https://你的newapi服务器地址/v1/chat/completions" \
+  -H "Authorization: Bearer $NEWAPI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "model": "gpt-4o",
+  "stream": false,
+  "messages": [
+    {
+      "role": "user",
+      "content": "你好，请介绍一下 New API。"
+    }
+  ],
+  "contents": [
+    {
+      "role": "user",
+      "parts": [
+        {
+          "text": "你好，请介绍一下 New API。"
+        }
+      ]
+    }
+  ]
+}'
+```
+
+#### 成功响应示例
+
+```json
+{
+  "id": "task_123456",
+  "model": "gpt-4o",
+  "object": "string",
+  "created": 1,
+  "choices": [
+    {
+      "index": 1,
+      "message": {
+        "role": "assistant",
+        "content": "你好，请介绍一下 New API。"
+      },
+      "finish_reason": "string"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1,
+    "completion_tokens": 1,
+    "total_tokens": 1
+  }
+}
+```
+
 #### 响应
 
 

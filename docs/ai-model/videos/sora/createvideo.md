@@ -45,6 +45,33 @@ OpenAI 兼容的视频生成接口。
 | user | string | 否 | 用户标识<br>示例: `user-1234` |
 | metadata | object | 否 | 扩展参数 (如 negative_prompt, style, quality_level 等) |
 
+#### 调用案例
+
+```bash
+curl -X POST "https://你的newapi服务器地址/v1/videos" \
+  -H "Authorization: Bearer $NEWAPI_API_KEY" \
+  -F "model=gpt-4o" \
+  -F "prompt=A cute baby sea otter wearing a beret." \
+  -F "image=@image.png" \
+  -F "duration=5" \
+  -F "width=1280" \
+  -F "height=720"
+```
+
+#### 成功响应示例
+
+```json
+{
+  "id": "task_123456",
+  "object": "string",
+  "model": "gpt-4o",
+  "status": "string",
+  "progress": 1,
+  "created_at": 1,
+  "seconds": "string"
+}
+```
+
 #### 响应
 
 

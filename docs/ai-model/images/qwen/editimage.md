@@ -42,6 +42,33 @@
 | parameters.watermark | boolean | 否 |  |
 | parameters.size | string | 否 |  |
 
+#### 调用案例
+
+```bash
+curl -X POST "https://你的newapi服务器地址/v1/images/edits" \
+  -H "Authorization: Bearer $NEWAPI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "model": "gpt-4o",
+  "input": "New API 是什么？"
+}'
+```
+
+#### 成功响应示例
+
+```json
+{
+  "created": 1,
+  "data": [
+    {
+      "url": "string",
+      "b64_json": "string",
+      "revised_prompt": "string"
+    }
+  ]
+}
+```
+
 #### 响应
 
 

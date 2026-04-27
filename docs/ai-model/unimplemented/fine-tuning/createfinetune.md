@@ -30,6 +30,15 @@
 | --- | --- | --- | --- |
 | value | object |  |  |
 
+#### 调用案例
+
+```bash
+curl -X POST "https://你的newapi服务器地址/v1/fine-tunes" \
+  -H "Authorization: Bearer $NEWAPI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{}'
+```
+
 #### 响应
 
 

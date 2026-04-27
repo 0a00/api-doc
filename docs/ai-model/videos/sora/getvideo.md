@@ -30,6 +30,27 @@ OpenAI 兼容的视频任务状态查询接口。
 | --- | --- | --- | --- | --- |
 | `task_id` | path | 是 | string | 视频任务 ID |
 
+#### 调用案例
+
+```bash
+curl -X GET "https://你的newapi服务器地址/v1/videos/task_123456" \
+  -H "Authorization: Bearer $NEWAPI_API_KEY"
+```
+
+#### 成功响应示例
+
+```json
+{
+  "id": "task_123456",
+  "object": "string",
+  "model": "gpt-4o",
+  "status": "string",
+  "progress": 1,
+  "created_at": 1,
+  "seconds": "string"
+}
+```
+
 #### 响应
 
 

@@ -51,6 +51,31 @@
 | prompt | string | 否 | 文本描述 |
 | binary_data_base64 | array<string> | 否 | Base64 编码的图片数据 |
 
+#### 调用案例
+
+```bash
+curl -X POST "https://你的newapi服务器地址/jimeng/?Action=CVSync2AsyncSubmitTask&Version=string" \
+  -H "Authorization: Bearer $NEWAPI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "req_key": "string",
+  "prompt": "A cute baby sea otter wearing a beret.",
+  "binary_data_base64": [
+    "string"
+  ]
+}'
+```
+
+#### 成功响应示例
+
+```json
+{
+  "code": 1,
+  "message": "string",
+  "data": {}
+}
+```
+
 #### 响应
 
 

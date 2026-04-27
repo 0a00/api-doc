@@ -46,6 +46,57 @@ Gemini 音频生成接口。
 | generationConfig.speechConfig.voiceConfig.prebuiltVoiceConfig | object | 是 |  |
 | generationConfig.speechConfig.voiceConfig.prebuiltVoiceConfig.voiceName | string | 是 |  |
 
+#### 调用案例
+
+```bash
+curl -X POST "https://你的newapi服务器地址/v1beta/models/gpt-4o:generateContent" \
+  -H "Authorization: Bearer $NEWAPI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "contents": [
+    {
+      "role": "user",
+      "parts": [
+        {
+          "text": "你好，请介绍一下 New API。"
+        }
+      ]
+    }
+  ],
+  "generationConfig": {
+    "responseModalities": [
+      "string"
+    ],
+    "speechConfig": {
+      "voiceConfig": {
+        "prebuiltVoiceConfig": {}
+      }
+    }
+  }
+}'
+```
+
+#### 成功响应示例
+
+```json
+{
+  "candidates": [
+    {
+      "content": "你好，请介绍一下 New API。",
+      "finishReason": "string",
+      "safetyRatings": [
+        {}
+      ]
+    }
+  ],
+  "usageMetadata": {
+    "promptTokenCount": 1,
+    "candidatesTokenCount": 1,
+    "totalTokenCount": 1
+  }
+}
+```
+
 #### 响应
 
 

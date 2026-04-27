@@ -34,6 +34,13 @@
 | --- | --- | --- | --- | --- |
 | `model` | query | 否 | string | 要使用的模型 |
 
+#### 调用案例
+
+```bash
+curl -X GET "https://你的newapi服务器地址/v1/realtime" \
+  -H "Authorization: Bearer $NEWAPI_API_KEY"
+```
+
 #### 响应
 
 

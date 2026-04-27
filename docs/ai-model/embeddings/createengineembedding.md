@@ -39,6 +39,40 @@
 | encoding_format | string | 否 | 可选值: `float`, `base64`<br>默认值: `float` |
 | dimensions | integer | 否 | 输出向量维度 |
 
+#### 调用案例
+
+```bash
+curl -X POST "https://你的newapi服务器地址/v1/engines/gpt-4o/embeddings" \
+  -H "Authorization: Bearer $NEWAPI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "model": "gpt-4o",
+  "input": "New API 是什么？"
+}'
+```
+
+#### 成功响应示例
+
+```json
+{
+  "object": "list",
+  "data": [
+    {
+      "object": "embedding",
+      "index": 1,
+      "embedding": [
+        1
+      ]
+    }
+  ],
+  "model": "gpt-4o",
+  "usage": {
+    "prompt_tokens": 1,
+    "total_tokens": 1
+  }
+}
+```
+
 #### 响应
 
 

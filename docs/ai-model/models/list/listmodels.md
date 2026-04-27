@@ -39,6 +39,29 @@
 | `anthropic-version` | header | 否 | string | Anthropic API 版本 |
 | `x-goog-api-key` | header | 否 | string | Google API Key (用于 Gemini 格式) |
 
+#### 调用案例
+
+```bash
+curl -X GET "https://你的newapi服务器地址/v1/models" \
+  -H "Authorization: Bearer $NEWAPI_API_KEY"
+```
+
+#### 成功响应示例
+
+```json
+{
+  "object": "list",
+  "data": [
+    {
+      "id": "task_123456",
+      "object": "model",
+      "created": 1,
+      "owned_by": "openai"
+    }
+  ]
+}
+```
+
 #### 响应
 
 

@@ -39,6 +39,52 @@
 | suffix | string | 否 |  |
 | echo | boolean | 否 |  |
 
+#### 调用案例
+
+```bash
+curl -X POST "https://你的newapi服务器地址/v1/completions" \
+  -H "Authorization: Bearer $NEWAPI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "model": "gpt-4o",
+  "prompt": "A cute baby sea otter wearing a beret."
+}'
+```
+
+#### 成功响应示例
+
+```json
+{
+  "id": "task_123456",
+  "object": "text_completion",
+  "created": 1,
+  "model": "gpt-4o",
+  "choices": [
+    {
+      "text": "你好，请介绍一下 New API。",
+      "index": 1,
+      "finish_reason": "string"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 1,
+    "completion_tokens": 1,
+    "total_tokens": 1,
+    "prompt_tokens_details": {
+      "cached_tokens": 1,
+      "text_tokens": 1,
+      "audio_tokens": 1,
+      "image_tokens": 1
+    },
+    "completion_tokens_details": {
+      "text_tokens": 1,
+      "audio_tokens": 1,
+      "reasoning_tokens": 1
+    }
+  }
+}
+```
+
 #### 响应
 
 

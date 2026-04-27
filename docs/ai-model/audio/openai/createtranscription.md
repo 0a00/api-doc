@@ -36,6 +36,23 @@
 | temperature | number | 否 |  |
 | timestamp_granularities | array<string> | 否 |  |
 
+#### 调用案例
+
+```bash
+curl -X POST "https://你的newapi服务器地址/v1/audio/transcriptions" \
+  -H "Authorization: Bearer $NEWAPI_API_KEY" \
+  -F "file=@image.png" \
+  -F "model=gpt-4o"
+```
+
+#### 成功响应示例
+
+```json
+{
+  "text": "你好，请介绍一下 New API。"
+}
+```
+
 #### 响应
 
 

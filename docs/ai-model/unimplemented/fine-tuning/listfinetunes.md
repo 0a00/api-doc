@@ -20,6 +20,13 @@
 | --- | --- | --- | --- |
 | `BearerAuth` | http | bearer | 使用 Bearer Token 认证。<br>格式: `Authorization: Bearer sk-xxxxxx` |
 
+#### 调用案例
+
+```bash
+curl -X GET "https://你的newapi服务器地址/v1/fine-tunes" \
+  -H "Authorization: Bearer $NEWAPI_API_KEY"
+```
+
 #### 响应
 
 

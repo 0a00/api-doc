@@ -45,6 +45,31 @@
 | user | string | 否 | 用户标识<br>示例: `user-1234` |
 | metadata | object | 否 | 扩展参数 (如 negative_prompt, style, quality_level 等) |
 
+#### 调用案例
+
+```bash
+curl -X POST "https://你的newapi服务器地址/v1/video/generations" \
+  -H "Authorization: Bearer $NEWAPI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "model": "gpt-4o",
+  "prompt": "A cute baby sea otter wearing a beret.",
+  "image": "https://example.com/image.png",
+  "duration": 5,
+  "width": 1280,
+  "height": 720
+}'
+```
+
+#### 成功响应示例
+
+```json
+{
+  "task_id": "task_123456",
+  "status": "queued"
+}
+```
+
 #### 响应
 
 

@@ -34,6 +34,37 @@
 | top_n | integer | 否 | 返回前 N 个结果 |
 | return_documents | boolean | 否 | 默认值: `False` |
 
+#### 调用案例
+
+```bash
+curl -X POST "https://你的newapi服务器地址/v1/rerank" \
+  -H "Authorization: Bearer $NEWAPI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+  "model": "gpt-4o",
+  "query": "string",
+  "documents": [
+    "string"
+  ]
+}'
+```
+
+#### 成功响应示例
+
+```json
+{
+  "id": "task_123456",
+  "results": [
+    {
+      "index": 1,
+      "relevance_score": 1,
+      "document": {}
+    }
+  ],
+  "meta": {}
+}
+```
+
 #### 响应
 
 
